@@ -1,0 +1,88 @@
+% Mathematical Functions
+% Definitions that are more complex than an alias
+% ###################################################
+
+\newcommand*{\nofrac}[2]{#1/#2}
+
+% Linear algebra
+% ---------------------------------------
+
+% Small cvec
+
+% transpose
+\newcommand*{\trans}{^\mathrm{T}}
+
+% Vectors
+\newcommand*{\vect}[1]{\boldsymbol{#1}}
+
+% Wrap environments into commands
+\newcommand*{\scvec}[1]{\begin{psmallmatrix}#1\end{psmallmatrix}}
+\newcommand*{\cvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand*{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand*{\mat}[1]{\begin{matrix}#1\end{matrix}}
+\newcommand*{\spmat}[1]{\begin{psmallmatrix}#1\end{psmallmatrix}}
+
+% MISC
+% ---------------------------------------
+
+% Nonbreaking dash for stuff like $n$-dimensional:
+\newcommand*{\ndash}{\nobreakdash-\hspace{0pt}}
+
+% Spacing in Math mode by \back{10}
+\newcommand*{\back}[1]{\mspace{-#1mu}}
+
+%% Restriction of a function
+%\newcommand*\restr[2]{{% we make the whole thing an ordinary symbol
+%  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+%  #1 % the function
+%  \vphantom{\big|} % pretend it's a little taller at normal size
+%  \right|_{#2} % this is the delimiter
+%  }}
+
+
+\newcommand{\xdownarrow}[1]{%
+	{\left\downarrow\vbox to #1{}\right.\kern-\nulldelimiterspace}
+}
+
+% 
+% ANALYSIS
+% ---------------------------------------
+
+%\newcommand*\ddiff[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+%\newcommand*\pardiff[2]{\frac{\partial#1}{\partial#2}}
+%\newcommand*\vardiff[2]{\frac{\delta#1}{\delta#2}}
+
+
+% SLIGHTLY MORE COMPLICATED STUFF
+% --------------------------------
+
+% Kerning of \defeq 
+% credit: http://tex.stackexchange.com/questions/4216/how-to-typeset-correctly
+% normal
+% \newcommand*{\defeq }{:=}
+% zentriert (funktioniert nicht bei kleinerer Schriftgröße!!)
+% \makeatletter
+% \newcommand*{\defeq}{\mathrel{\rlap{%
+%                      \raisebox{0.3ex}{$\m@th\cdot$}}%
+%                      \raisebox{-0.3ex}{$\m@th\cdot$}}%
+%                      =}
+% \makeatother
+% Für Kleine Punkte (selbe Linienstärke wie "="), einfach
+% die beiden "." in den hboxes durch "\scriptsize." ersetzen
+\newcommand*{\defeq}{
+                      \mathrel{\vcenter{
+                         \baselineskip0.5ex 
+                         \lineskiplimit0pt
+                         \hbox{.}
+                         \hbox{.}
+                      }}
+                      =
+                    }
+\newcommand*{\eqdef}{ =
+                      \mathrel{\vcenter{
+                         \baselineskip0.5ex 
+                         \lineskiplimit0pt
+                         \hbox{.}
+                         \hbox{.}
+                      }} 
+                    }

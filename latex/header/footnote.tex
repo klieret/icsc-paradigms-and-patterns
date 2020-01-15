@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/questions/70666
+% -----------------------------------------------------
+
+% hide footnote:
+
+%\makeatletter
+%\def\beamer@autobreakframebox{%
+%  \global\setbox\beamer@splitbox=\box\voidb@x%
+%  \ifbeamer@autobreak%
+%    % Ok, frame was overful -> split it!
+%    \setbox\@tempboxa=\vsplit\beamer@framebox to\beamer@autobreakfactor\textheight%
+%    \global\setbox\beamer@splitbox=\box\beamer@framebox%
+%    \@tempdima=\ht\beamer@splitbox%
+%    \ifdim\@tempdima<\beamer@autobreaklastheight%
+%      \global\beamer@autobreaklastheight=\@tempdima\relax%
+%    \else%
+%      \setbox\@tempboxa=\vbox{\unvbox\@tempboxa\unvbox\beamer@splitbox}%
+%      \global\setbox\beamer@splitbox=\box\voidb@x%
+%    \fi%
+%    \setbox\beamer@framebox=\vbox to\textheight{\unvbox\@tempboxa%
+%      \vskip\beamer@framebottomskipautobreak%
+%      \ifvoid\beamer@splitbox%
+%        \ifvoid\beamer@footins%
+%        \else%
+%          \begingroup
+%            \usebeamercolor*[fg]{footnote}%
+%%            \footnoterule%
+%            \unvbox \beamer@footins%
+%            \global\setbox\beamer@footins=\box\voidb@x%
+%          \endgroup  
+%        \fi%
+%      \fi%
+%      \beamer@exitcode%
+%    }%
+%  \else%
+%    \setbox\beamer@framebox=\vbox to\textheight{\unvbox\beamer@framebox%
+%      \vskip\beamer@framebottomskip%
+%      \ifvoid\beamer@footins%
+%      \else%
+%        \begingroup
+%          \usebeamercolor*[fg]{footnote}%
+%%         \footnoterule%
+%          \unvbox \beamer@footins%
+%          \global\setbox\beamer@footins=\box\voidb@x%
+%        \endgroup 
+%      \fi%
+%      \beamer@exitcode}%
+%    \global\setbox\beamer@footins=\box\voidb@x%
+%  \fi%
+%  }
+%\makeatother
+%%
+
+\renewcommand\footnoterule{\relax}

@@ -1,0 +1,64 @@
+% SMALL DEFINITIONS AND SHORTCUTS
+% Everything that is merely an alias and does not take 
+% arguments and such
+% ###################################################
+
+% Physics
+
+%\DeclareMathOperator{\Ha}{Ha}  % Hadamard operator
+
+\newcommand*{\Hilbert}{\ensuremath{\mathscr H}}
+
+% Lagrangian
+\newcommand*{\lag}{\mathcal L}
+
+% for lie brackets & Co
+\newcommand*{\rw}{\right>}
+\newcommand*{\lw}{\left<}
+
+% semileptonic decays
+\newcommand*\bdtaunu{\ensuremath{B\lra D\tau\bar\nu_\tau}}
+\newcommand*\bdellnu{\ensuremath{B\lra D\ell\bar\nu_\ell}}
+\newcommand*\bdstaunu{\ensuremath{B\lra D^*\tau\bar\nu_\tau}}
+\newcommand*\bdsellnu{\ensuremath{B\lra D^*\ell\bar\nu_\ell}}
+\newcommand*\bddstaunu{\ensuremath{B\lra D^{(*)}\tau\bar\nu_\tau}}
+\newcommand*\bddsellnu{\ensuremath{B\lra D^{(*)}\ell\bar\nu_\ell}}
+
+
+% Particles 
+
+% note that we need the extra {}, else we would get problems with 
+% e.g. \lambda_ds = \lambda_D^{*} instead of \lambda_{D^{*}}
+\newcommand*\dds{\ensuremath{{D^{(*)}}}} 
+\newcommand*\ds{\ensuremath{{D^*}}}
+%\newcommand*\d{\ensuremath{D}}
+
+\newcommand*\Rd{\ensuremath{R(D)}}
+\newcommand*\Rdds{\ensuremath{R(\dds)}}
+\newcommand*\Rds{\ensuremath{R(\ds)}}
+
+\newcommand*\mays{^{(*)}}
+\newcommand*{\lh}{\mathrm{L}}
+\newcommand*{\rh}{\mathrm{R}}
+\newcommand*{\lhs}{_\mathrm{L}}
+\newcommand*{\rhs}{_\mathrm{R}}
+\newcommand*{\plh}{\ensuremath{\mathcal P_\lh}}
+\newcommand*{\prh}{\ensuremath{\mathcal P_\rh}}
+
+% Representation in \SUSM
+\newcommand*{\surep}[3]{\ensuremath{(\mathbf{#1}, \mathbf{#2})_{#3}}}
+\newcommand*{\suf}[2]{\nofrac #1#2}
+
+\newcommand*{\SUSM}{\ensuremath{\SU 3_C\times \SU 2_W\times \U 1_Y}}
+
+% variables
+
+% double braces to avoid double superscript error
+\newcommand*{\thl}{{\theta_\ell}}
+\newcommand*{\thds}{{\theta_{D^*}}}
+\newcommand*{\qtmin}{{q^2_\text{min}}}
+\newcommand*{\qtmax}{{q^2_\text{max}}}
+
+% Operators
+
+\DeclareMathOperator{\Br}{Br}  % Branching Ratio

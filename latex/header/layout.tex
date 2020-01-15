@@ -1,0 +1,70 @@
+% -------------- general
+
+\renewcommand\arraystretch{1.3}
+
+\setbeamertemplate{caption}[numbered]
+
+
+% change figure caption prefix
+% tex.stackexchange.com/questions/17489
+\addto\captionsenglish{\renewcommand{\figurename}{Fig.}}
+
+
+% ------------- color scheme
+
+\usetheme{Luebeck} % %Luebeck
+\usecolortheme{lily} % lily (dark blue black) beaver (red blue gray), dove (all white) % strucutre (black/white: cool but some kinks) seagull (all gray, heavy titles) orchid (lily with heavy titles) crane, seahorse dolphin crane beaver
+
+% ----------- misc beamer
+
+\setbeamercovered{dynamic}
+%\setbeamercovered{transparent=50}
+
+%\setbeamerfont{itemize/enumerate subbody}{size=\normalsize} %to set the body size
+%\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}
+
+%\setbeamertemplate{footnote}{%
+%	\hangpara{2.2ex}{1}%
+%	\makebox[1.2ex][l]{\insertfootnotemark}%
+%	\footnotesize\insertfootnotetext\par%
+%}
+
+
+% ----------------- Navigation layout -------------------------
+
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{headline}{%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=0.4\paperwidth,ht=2.5ex,dp=1.125ex]{section in head/foot}%
+			\insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}%
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=0.6\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
+			\centering%
+			\usebeamerfont{title in head/foot}%
+            \insertshorttitle%
+		\end{beamercolorbox}%
+	}%
+}
+
+\setbeamertemplate{footline}%
+{%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}%
+			\vfill%
+			\flushright%
+			\mbox{\insertauthor\hspace{1.5em}}%
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\flushleft \hspace{1em} \insertinstitute%
+			\hspace*{18em}%
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}%
+		\end{beamercolorbox}%
+	}%
+	\vskip0pt%
+}
+

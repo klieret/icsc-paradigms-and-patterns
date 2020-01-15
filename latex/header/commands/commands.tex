@@ -1,0 +1,36 @@
+% Functions
+% Definitions that are more complex than an alias
+% ###################################################
+
+% Changemargin
+\newenvironment{changemargin}[2]{
+	\begin{list}{}{
+		\setlength{\topsep}{0pt}
+		\setlength{\leftmargin}{#1}
+		\setlength{\rightmargin}{#2}
+		\setlength{\listparindent}{\parindent}
+		\setlength{\itemindent}{\parindent}
+		\setlength{\parsep}{\parskip}
+	}
+	\item[]
+}{\end{list}}
+
+
+%\newcommand{\specialitem}[2]{%
+%	{
+%		\usebeamercolor{structure}
+%		\color{fg}
+%		% by using the negative spacing we're forcing the 
+%		% item to be aligned by the text, without taking 
+%		% into account the dimensions of the number
+%		%\hspace{-0.5em}\makebox[1em]{\footnotesize #1.}#2%
+%		{\footnotesize #1.} #2%
+%	}
+%}
+
+
+%\newcommand{\vcenteredinclude}[1]{\begingroup
+%	\setbox0=\hbox{#1}%
+%	\parbox{\wd0}{\box0}\endgroup}
+
+%\newenvironment{python}{

@@ -1,0 +1,109 @@
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+
+%%%%%
+
+% ClusterKinG colors
+
+\definecolor{ckBlue}{RGB}{14, 85, 156}
+\definecolor{ckRed}{RGB}{216, 16, 44}
+\definecolor{ckYellow}{RGB}{242, 165, 6}
+
+\newcommand{\ckBlue}{\color{ckBlue}}
+\newcommand{\ckRed}{\color{ckRed}}
+\newcommand{\ckYellow}{\color{ckYellow}}
+\newcommand{\clusterking}{\ckBlue Cluster\ckRed Kin \ckYellow G}
+
+%%%%%
+
+\newcommand{\badc}[1]{{\color{purple}#1}}
+\newcommand{\goodc}[1]{{\color{PineGreen}#1}}
+
+
+%%%%%
+
+\newcommand{\referencec}{\color{purple}}
+\newcommand*{\hlcolor}{\color{purple}}
+\newcommand*{\knownc}{\color{PineGreen}}
+\newcommand*{\unknownc}{\color{purple}}
+\newcommand*{\measuredc}{\color{RoyalBlue}}
+\newcommand*{\calculatedc}{\color{Fuchsia}}
+\newcommand*{\remarkc}{\color[gray]{0.45}}
+
+\newcommand*{\hl}[1]{{\usebeamercolor[fg]{structure}#1}}
+
+%%%%
+
+\newcommand*{\mauthor}[1]{{\color{PineGreen}#1}}
+
+%%%%
+
+
+\newcommand*{\pastcolor}{\color[gray]{0.4}}
+
+\newcommand*{\reference}[2]{{\referencec\href{#1}{#2}}}
+
+% center vertically in line of text
+% adapted from tex.stackexchange.com/questions/433/
+\newcommand{\vcenteredinclude}[1]{%
+	\begingroup%
+	\setbox0=\hbox{#1}%
+	\parbox{\wd0}{\box0}%
+	\endgroup
+}
+
+\newcommand*{\figurereference}[2]{%
+	\vcenteredinclude{%
+		{\tiny [\reference{#1}{#2}]}%
+	}%
+}
+
+\newcommand*{\stress}[1]{\textbf{#1}}
+
+
+\newcommand\todo[1]{{\color{red} #1}}
+\newcommand\ecite[1]{\textsuperscript{\cite{#1}}}
+
+%%%%
+
+\newcommand{\jiraOpen}[1]{
+	{
+	    \color{purple}
+		\href{https://agira.desy.de/browse/#1}{#1}
+	}
+}
+\newcommand{\jiraClosed}[1]{
+	{
+		\color{purple}
+		\sout{\href{https://agira.desy.de/browse/#1}{#1}}
+	}
+}
+\newcommand{\commit}[1]{
+    {
+        \small
+        \color{RoyalBlue}
+        \href{https://stash.desy.de/projects/B2/repos/software/commits/#1}{\texttt{#1}}
+    }
+}
+\newcommand{\pr}[1]{
+    {
+        \small
+        \color{bittersweet}
+        \href{https://stash.desy.de/projects/B2/repos/software/pull-requests/#1/overview}{PR#1}
+    }
+}
+
+% ------------
+
+% -------- minted
+
+\usepackage[outputdir=build]{minted}
+\setminted[python]{
+    mathescape,
+    linenos,
+    numbersep=5pt,
+    gobble=0,
+    frame=lines,
+    fontsize=\small,
+    framesep=2mm,
+    tabsize=4
+}

@@ -1,0 +1,38 @@
+\usepackage{graphicx}
+
+\usepackage{url}
+
+%\usepackage{caption} % improved spacing between figure and caption
+
+\usepackage{booktabs}
+
+% showboxes: show the box (good for drafting)
+% overlay: go on top
+% absolute: absolute positioning
+\usepackage[absolute, overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+
+% https://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
+%\usepackage{array}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+% https://tex.stackexchange.com/questions/5017/center-column-with-specifying-width-in-table-tabular-enviroment
+\usepackage{array}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{amsmath}
+
+% required by dashedxarrow!
+\usepackage{amsfonts}
+
+%\usepackage{mathtools}
+\usepackage{hanging}	% for footnote configuration in layout.tex
+
+
+
+%\usepackage[perpage]{footmisc}
+
+% for sout
+\usepackage[normalem]{ulem}
