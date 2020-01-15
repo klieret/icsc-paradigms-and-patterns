@@ -1,0 +1,174 @@
+\section{Overview}
+
+\begin{frame}{Overview}
+	\begin{itemize}
+	\item Lecture 1: Programming Paradigms (PPs): Date + Time
+	\item Exercise 1: Date + Time
+	\item Lecture 2: Design Patterns (DPs): Date + Time
+	\item Exercise 2: Date + Time
+	\end{itemize}
+	
+	\begin{block}{The goal of this course}
+		\begin{itemize}
+			\item This course does not try to make you a better programmer
+			\item But it \stress{does} convey \hl{basic concepts and vocabulary} to make your design decisions more \stress{conciously}
+			\item Thinking while coding + reflecting your decisions after coding $\lra$ Experience $\lra$ Great code!
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+
+\begin{frame}{Programming Paradigms}
+	\begin{block}{What \stress{is} a programming paradigm?}
+		\begin{itemize}
+			\item A \hl{classification of programming languages} based on their features {\small (but most popular languages support multiple paradigms)}
+			\item A \hl{programming style} or way programming/thinking
+			\item Example: Object Oriented Programming {\small (thinking in terms of objects which contain data and code)}
+		\end{itemize}
+	\end{block}
+	%	
+	\begin{block}{Why should I care?}
+		\begin{itemize}
+			\item Choose the \hl{right paradigm for the right problem}
+			\item Discovering \hl{new ways of thinking} let's you challenge your current believes about how to code 
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Lecture 1}{Programming Paradigms}
+	% what is a pp?
+	\begin{enumerate}
+		\setlength{\itemsep}{3ex}
+		\item What do we call "good" code/software?
+		\item Approaches to writing software
+		\item Programming paradigms\vspace{1ex}
+		\begin{enumerate}[a]
+			\setlength{\itemsep}{1ex}
+			\item Object Oriented Programming (OOP)
+			\item Functional Programming (FP)
+			\item OOP vs FP
+			\item Declarative and imperative programming
+			\item Other programming paradigms
+		\end{enumerate}
+	\end{enumerate}
+\end{frame}
+
+\section{Good code}
+
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
+\subsection{Objectives}
+
+%\frame{\tableofcontents[currentsection, currentsubsection]}
+
+\begin{frame}{Good code: Objectives}
+\begin{block}{Key objectives}{\relax}
+	\begin{itemize}
+		\item \hhl{Testability}: Make it easy to \hl{ensure} the software is working correctly
+		\item \hhl{Maintainability}: Make it easy to \hl{keep} the software working (debugging, reliability, readability, ...)
+		\item \hhl{Extendibility}: Make it easy to \hl{add} new functionality
+		\item \hhl{Flexibility}: Make it easy to \hl{adapt} to new problems
+		\item \hhl{Reusability}: Make it easy to \hl{reuse} code in other projects
+	\end{itemize}
+\end{block}
+
+\bigskip
+{\Large $\lra$ How do I achieve all this?}
+
+\end{frame}
+
+\subsection{Core concepts}
+
+\begin{frame}{Modularity}
+	
+\end{frame}
+
+\begin{frame}{Isolate what changes}
+	
+\end{frame}
+
+\begin{frame}{Complex is better than complicated}
+
+\end{frame}
+
+
+
+\section[Paradigms]{Programming Paradigms}
+
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
+\subsection{OOP}
+
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
+\begin{frame}{OOP: Idea}
+	
+	\begin{itemize}
+		\item Before OOP: Two \stress{separate} entities: \emph{data} and \emph{functions} (logic)
+		\item Inspiration: In the {real world}, {objects} have a \enquote{state} (data) and \enquote{behaviors} (functions)
+	\end{itemize}	
+	
+	\begin{block}{OOP}
+	\begin{itemize}		
+		\item \stress{Think} in terms of \hl{\defn{objects}} that contain data and offer \hl{\emph{methods}} (functions that operate on objects) $\lra$ Data and functions form a unit
+		\item \stress{Focus} on object structure rather than manipulation logic 
+		\item \stress{Organize} your code in \hl{\defn{classes}} (blueprints for objects): Every object is \defn{instance} of its class
+	\end{itemize}
+	\end{block}
+	%idea, ..., formal definition, history?
+\end{frame}
+
+\begin{frame}[t]{A basic class in python}
+	\only<1>{\inputminted[lastline=4]{python}{code/paradigms/oop/class_rectangle.py}}
+	\only<2>{\inputminted[lastline=8]{python}{code/paradigms/oop/class_rectangle.py}}
+	\only<3>{\inputminted[]{python}{code/paradigms/oop/class_rectangle.py}}
+\end{frame}
+
+\begin{frame}[fragile]{Encapsulation and data hiding}
+	% data hiding provides security and avoids data corruption
+	%Remember: ... separate interface from implementation ... $\lra$ hide internals
+	
+	\begin{itemize}
+		\item \hl{Do not expose object internals that may change in the future} $\lra$ Make certain attributes and methods \hhl{private} (\defn{data hiding})
+		\item Rephrased: Separate \hhl{interface} (won't be touched because it's used by others) from \hhl{implementation} (might change) 
+		\item In some languages this is \enquote{enforced} (e.g. using the \verb|private| keyword), in others it is denoted by naming conventions (e.g. leading underscore)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Subclasses and Inheritance}
+	\only<1->{\hhl{\defn{Subclasses}} are specializations of a class
+	\begin{itemize}
+		\item inherit attributes/methods of their superclass
+		\item can introduce new attributes/methods
+		\item can override methods of superclass
+	\end{itemize}
+	}	
+	\only<2>{\inputminted[fontsize=\footnotesize, lastline=6]{python}{code/paradigms/oop/class_inheritance.py}}
+	\only<3>{\inputminted[fontsize=\footnotesize]{python}{code/paradigms/oop/class_inheritance.py}}
+\end{frame}
+
+\begin{frame}[t]{Abstract methods}
+	\begin{columns}[t]
+	\column{0.5\textwidth}	
+	\begin{itemize}
+		\item An \hhl{\defn{abstract method}} is a method that has to be implemented by a subclass
+		\item An \hhl{\defn{abstract class}} (\hhl{\defn{abstract type}}) is a class that cannot be instantiated directly but it might have \hhl{\defn{concrete subclasses}} that can
+		\item Use abstract classes to \hl{enforce interfaces} for the concrete classes
+	\end{itemize}
+	\column{0.5\textwidth}
+	\only<2>{\inputminted[fontsize=\small, lastline=11]{python}{code/paradigms/oop/class_abstract.py}}
+	\only<3>{\inputminted[fontsize=\small]{python}{code/paradigms/oop/class_abstract.py}}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Class methods, class variables}
+	\begin{itemize}
+		\item class methods only have access to class variables and other class methods
+		\item important use case: to provide other constructors
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Class diagrams}
+	
+\end{frame}
