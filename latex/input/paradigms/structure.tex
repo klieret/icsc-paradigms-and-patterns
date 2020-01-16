@@ -24,7 +24,7 @@
 		\begin{itemize}
 			\item A \hl{classification of programming languages} based on their features {\small (but most popular languages support multiple paradigms)}
 			\item A \hl{programming style} or way programming/thinking
-			\item Example: Object Oriented Programming {\small (thinking in terms of objects which contain data and code)}
+			\item Example: Object Oriented Programming \srem{(thinking in terms of objects which contain data and code)}
 		\end{itemize}
 	\end{block}
 	}
@@ -55,7 +55,7 @@
 		Rather than asking \enquote{How to define paradigm X?}, ask 
 		\begin{itemize}
 			\item 
-			\item How does it feel? {\small (try to write in exotic languages)}
+			\item How does it feel? \srem{(e.g. try to write in exotic languages)}
 			\item How would X approach my problems?
 		\end{itemize}
 	\end{block}
@@ -91,7 +91,7 @@
 \begin{block}{Key objectives}{\relax}
 	\begin{itemize}
 		\item \hhl{Testability}: Make it easy to \hl{ensure} the software is working correctly
-		\item \hhl{Maintainability}: Make it easy to \hl{keep} the software working (debugging, reliability, readability, ...)
+		\item \hhl{Maintainability}: Make it easy to \hl{keep} the software working \srem{(debugging,  readability, ...)}
 		\item \hhl{Extendibility}: Make it easy to \hl{add} new functionality
 		\item \hhl{Flexibility}: Make it easy to \hl{adapt} to new problems
 		\item \hhl{Reusability}: Make it easy to \hl{reuse} code in other projects
@@ -105,25 +105,71 @@
 
 \subsection{Core concepts}
 
-\begin{frame}{Modularity}
+\begin{frame}{Modularity}{Perhaps the most important principle of good software}
 	\hhl{Split up code} into parts, e.g. functions, classes, modules, packages, \dots
-	
-	You have donen well if the parts are 
+	% http://aosd.net/importance-of-modularity-in-programming/
+	\bigskip
+	You have done \goodc{\stress{well}} if the parts are 
 	\begin{itemize}
-		\item as independent as possible
-		\item as high inner cohesion as possible <--?
+		\item independent of each other
+		\item have clear responsibilities
+	\end{itemize}
+
+	You have done \badc{\stress{badly}} if the parts
+	\begin{itemize}
+		\item are very dependent on each other \srem{(changes in one part require changes in many others)}
+	\end{itemize}
+
+	\bigskip
+	This has benefits for almost all of your goals:
+	\begin{itemize}
+		\item Easier and more complete \hhl{testability} by using unit tests, better debugging
+		\item Confidence from unit tests allows for better \hhl{maintainability} and \hhl{flexibility}
+		\item Allowing to split responsibilities for different \enquote{modules} enhances collaboration and thereby \hhl{maintainability}
+		\item Code \hhl{reusability} (obvious)
 	\end{itemize}
 	%high cohesion?
 	
 	
 \end{frame}
 
-\begin{frame}{Isolate what changes}
+\begin{frame}{Modularity}{Perhaps the most important principle of good software}
+	A related principle: \hhl{Isolate what changes!}
 	
+	\begin{itemize}
+		\item Which parts of your code will likely have to change in the future?\\
+		 \lrapar{These parts should be \hhl{isolated} \srem{(you should be able to change them in one place, without having to change anything else)}}
+		 \item This also leads to the concept of a separation of 
+		 \begin{itemize}
+		 	\item \hhl{interface} \srem{(used by other \enquote{modules}, stays untouched)} and
+		 	\item \hhl{implementation} \srem{(only used by the module itself, can change easily)}
+		 \end{itemize}
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Complex is better than complicated}
+\begin{frame}{Complex vs Complicated}
+	% https://medium.com/informed-choises/meta-1-complex-is-better-than-complicated-the-zen-of-python-3663869f8f40
+	%
+	% https://reinout.vanrees.org/weblog/2015/12/21/complex-complicated.html
+	From the Zen of python:
+	
+	\bigskip
+	\begin{center}
+		\hhl{Simple} is better than \hhl{complex}.\\
+		\hhl{Complex} is better than \hhl{complicated}.
+	\end{center}
+	\bigskip
+	
+	\begin{itemize}
+		\item The more \defn{complicated} something is, the harder it is to understand
+		\item The more \defn{complex} something is, the more parts it has
+	\end{itemize}
 
+	\bigskip
+	\begin{itemize}
+		\item Complicated problems might not have simple solutions
+		\item But it is often still possible to modularize to have several simple components
+	\end{itemize}
 \end{frame}
 
 

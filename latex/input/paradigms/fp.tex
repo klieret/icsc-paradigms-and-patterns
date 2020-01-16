@@ -1,6 +1,134 @@
 \subsection[Functional]{Functional programming}
 
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
 \subsubsection{Definition}
+
+\begin{frame}{Functional programming}
+	
+	Functional programming
+	\begin{itemize}
+		\item expresses its computations in the style of mathematical functions
+		\item emphasizes 
+		\begin{itemize}
+			\item \hhl{expressions} \srem{(\enquote{is} something: a series of identifiers, literals and operators that reduces to a value)} 
+			\item[over\hspace{-0.7em}]
+			\item \hhl{statements} \srem{(\enquote{does} something, e.g. stores value, etc.)}
+		\end{itemize} 
+		$\lra$ \hhl{declarative} nature
+		\item Avoids \hhl{mutability} \srem{(instead of changing properties, I need to create copies with the changed property)}
+		\item Avoids \hhl{side effects} \srem{(expressions should not change or depend on any external state)}  
+	\end{itemize}
+	
+\end{frame}
+
+%\begin{frame}[t]{Referential transparency}
+%	\only<+->{
+%		No side effects implies referential transparency:
+%	
+%		\medskip
+%		\begin{center}
+%		An expression is \hhl{referential transparent} if it can be replaced with its value without changing the outcome of the program.
+%		\end{center}
+%	}
+%
+%	Which of the following functions are referential transparent?
+%%	\only<+->{
+%%		\bigskip
+%%		In particular for functions: \hhl{$x = y$ $\Lra$ $f(x) = f(y)$}.
+%%	}
+%	\only<+>{
+%		\inputminted[]{python}{code/paradigms/fp/referential_transparency.py}
+%	}
+%\end{frame}
+
+\begin{frame}[t]{Pure functions}
+	\only<+->{
+		A function is called pure if
+		\begin{enumerate}
+			\item Same arguments $\Lra$ same return value \srem{($x=y\ \Lra\ f(x)=f(y)$)}
+			\item The evaluation has no side effects \srem{(no change in non-local variables, ...)}
+		\end{enumerate}
+	}
+	
+	\bigskip
+	Which of the following functions are pure?
+	%
+	\begin{columns}[t]
+		\column{0.5\textwidth}
+		\only<+->{
+			\inputminted[lastline=15]{python}{code/paradigms/fp/referential_transparency.py}
+		}
+		\column{0.5\textwidth}
+		\only<+->{
+			\inputminted[firstline=18]{python}{code/paradigms/fp/referential_transparency.py}
+		}
+		\only<+->{
+			\bigskip
+			\stress{Answer}: \texttt{f1} is pure; \texttt{f1}, \texttt{f3}, \texttt{f5} violate rule 2; \texttt{f4} violates rule 1.
+		}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}{Eager and lazy evaluation}{Also called strict and non-strict evaluation}
+	
+\end{frame}
+
+\begin{frame}{Higher order functions}
+	
+\end{frame}
+
+\begin{frame}{Type systems and multiple dispatch}
+	
+\end{frame}
+
+\begin{frame}{Monads}
+	
+\end{frame}
+
+\begin{frame}[t]{Example: Loops}
+	\only<1->{Let's consider a function that calculates $\sum_{i=0}^N i^2$:}
+	%
+	\only<+->{\inputminted[]{python}{code/paradigms/fp/sum_loop.py}}
+	
+	
+	\only<+->{
+		\bigskip
+		This is a function, but does not follow the FP paradigm:
+		\begin{itemize}
+			\item More statements \srem{(assignments, loops, \dots)} than expressions
+			\item The for loop segment is not free of side effects \srem{(value of \texttt{result} changes)}
+			\item Repeated reassignments of \texttt{result} are frowned upon \srem{(or impossible)}
+		\end{itemize}
+	}
+	\only<+->{
+	\bigskip
+		How to change this? $\lra$ Use \hhl{recursion}
+		%
+		\inputminted[]{python}{code/paradigms/fp/sum_head_recursion.py}
+	}
+	%Tail recursions $\lra$ Compiler optimization
+\end{frame}
+
+\begin{frame}[t]{Example: Loops II}
+	\only<1->{
+		The previous example is called a \hhl{head recursion} \srem{(recursion before computation)}; using a \hhl{tail recursion} \srem{(recursion after computation)} is preferable due to better compiler optimization:
+	}
+	%
+	\only<+->{
+		\inputminted[]{python}{code/paradigms/fp/sum_tail_recursion.py}
+	}
+	\only<+->{
+		\bigskip
+		Another FP way is to use the higher level functions \hhl{\texttt{map}} and \hhl{\texttt{reduce}} together with anonymous functions (\hhl{lambda}):
+		\inputminted[]{python}{code/paradigms/fp/sum_map_reduce.py}
+	}
+\end{frame}
+
+\begin{frame}{Loops III}
+	$\lra$ Write about how the map-reduce pattern is quite a big topic in HPC
+\end{frame}
 
 \subsubsection{Signature moves}
 
