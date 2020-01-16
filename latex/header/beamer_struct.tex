@@ -1,6 +1,24 @@
+% GENERAL COLOR DEFINITIONS
+% %%%%%%%%%%%%%%%%%%%%%%%%
+
 \definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
 
-%%%%%
+% TOPICAL MARKUP STYLES
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% General 
+
+\newcommand*{\remarkc}{\color[gray]{0.45}}
+
+\newcommand*{\hhl}[1]{{\color{purple}#1}}
+\newcommand*{\hl}[1]{{\usebeamercolor[fg]{structure}#1}}
+\newcommand*{\defn}[1]{\emph{#1}}
+
+\newcommand*{\mauthor}[1]{{\color{PineGreen}#1}}
+\newcommand*{\pastcolor}{\color[gray]{0.4}}
+
+\newcommand{\referencec}{\color{purple}}
+\newcommand*{\reference}[2]{{\referencec\href{#1}{#2}}}
 
 % ClusterKinG colors
 
@@ -13,37 +31,21 @@
 \newcommand{\ckYellow}{\color{ckYellow}}
 \newcommand{\clusterking}{\ckBlue Cluster\ckRed Kin \ckYellow G}
 
-%%%%%
+% Good and bad
 
 \newcommand{\badc}[1]{{\color{purple}#1}}
 \newcommand{\goodc}[1]{{\color{PineGreen}#1}}
 
 
-%%%%%
+% Colors for formulas
 
-\newcommand{\referencec}{\color{purple}}
 \newcommand*{\hlcolor}{\color{purple}}
 \newcommand*{\knownc}{\color{PineGreen}}
 \newcommand*{\unknownc}{\color{purple}}
 \newcommand*{\measuredc}{\color{RoyalBlue}}
 \newcommand*{\calculatedc}{\color{Fuchsia}}
-\newcommand*{\remarkc}{\color[gray]{0.45}}
 
-\newcommand*{\hhl}[1]{{\color{purple}#1}}
-\newcommand*{\hl}[1]{{\usebeamercolor[fg]{structure}#1}}
-\newcommand*{\defn}[1]{\emph{#1}}
-
-
-%%%%
-
-\newcommand*{\mauthor}[1]{{\color{PineGreen}#1}}
-
-%%%%
-
-
-\newcommand*{\pastcolor}{\color[gray]{0.4}}
-
-\newcommand*{\reference}[2]{{\referencec\href{#1}{#2}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % center vertically in line of text
 % adapted from tex.stackexchange.com/questions/433/
