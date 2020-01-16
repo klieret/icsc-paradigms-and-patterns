@@ -42,9 +42,10 @@
 			\insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}%
 		\end{beamercolorbox}%
 		\begin{beamercolorbox}[wd=0.6\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
-			\centering%
-			\usebeamerfont{title in head/foot}%
-            \insertshorttitle%
+			%\centering%
+			%\usebeamerfont{subsection in head/foot}% % title
+            %\insertshorttitle%
+            \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}%
 		\end{beamercolorbox}%
 	}%
 }
@@ -60,8 +61,8 @@
 			\mbox{\insertauthor\hspace{1.5em}}%
 		\end{beamercolorbox}%
 		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-			\flushleft \hspace{1em} \insertinstitute%
-			\hspace*{18em}%
+			\flushleft \hspace{1em} \insertshorttitle%insertinstitute
+			\hspace*{25em}%
 			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}%
 		\end{beamercolorbox}%
 	}%

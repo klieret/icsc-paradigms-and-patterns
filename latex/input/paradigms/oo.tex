@@ -1,7 +1,7 @@
 
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
-\subsection{OOP}
+\subsection[Object Oriented]{Object Oriented Programming}
 
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
@@ -14,9 +14,9 @@
 	
 	\begin{block}{OOP}
 	\begin{itemize}		
-		\item \stress{Think} in terms of \hl{\defn{objects}} that contain data and offer \hl{\emph{methods}} (functions that operate on objects) $\lra$ Data and functions form a unit
+		\item \stress{Think} in terms of \hldefn{objects} that contain data and offer \hldefn{methods} (functions that operate on objects) $\lra$ Data and functions form a unit
 		\item \stress{Focus} on object structure rather than manipulation logic 
-		\item \stress{Organize} your code in \hl{\defn{classes}} (blueprints for objects): Every object is \defn{instance} of its class
+		\item \stress{Organize} your code in \hldefn{classes} (blueprints for objects): Every object is \defn{instance} of its class
 	\end{itemize}
 	\end{block}
 	%idea, ..., formal definition, history?
@@ -40,7 +40,7 @@
 \end{frame}
 
 \begin{frame}[t]{Subclasses and Inheritance}
-	\only<1->{\hhl{\defn{Subclasses}} are specializations of a class
+	\only<1->{\hldefn{Subclasses} are specializations of a class
 	\begin{itemize}
 		\item inherit attributes/methods of their superclass
 		\item can introduce new attributes/methods
@@ -55,8 +55,8 @@
 	\begin{columns}[t]
 	\column{0.5\textwidth}	
 	\begin{itemize}
-		\item An \hhl{\defn{abstract method}} is a method that has to be implemented by a subclass
-		\item An \hhl{\defn{abstract class}} (\hhl{\defn{abstract type}}) is a class that cannot be instantiated directly but it might have \hhl{\defn{concrete subclasses}} that can
+		\item An \hldefn{abstract method} is a method that has to be implemented by a subclass
+		\item An \hldefn{abstract class} (\hldefn{abstract type}) is a class that cannot be instantiated directly but it might have \hldefn{concrete subclasses} that can
 		\item Use abstract classes to \hl{enforce interfaces} for the concrete classes
 	\end{itemize}
 	\column{0.5\textwidth}
