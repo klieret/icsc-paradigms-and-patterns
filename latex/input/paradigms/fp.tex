@@ -54,18 +54,18 @@
 	}
 	
 	\bigskip
-	Which of the following functions are pure?
+	\only<2->{Which of the following functions are pure?}
 	%
 	\begin{columns}[t]
 		\column{0.5\textwidth}
-		\only<+->{
+		\only<2->{
 			\inputminted[lastline=15]{python}{code/paradigms/fp/referential_transparency.py}
 		}
 		\column{0.5\textwidth}
-		\only<+->{
+		\only<2->{
 			\inputminted[firstline=18]{python}{code/paradigms/fp/referential_transparency.py}
 		}
-		\only<+->{
+		\only<3->{
 			\bigskip
 			\stress{Answer}: \texttt{f1} is pure; \texttt{f1}, \texttt{f3}, \texttt{f5} violate rule 2; \texttt{f4} violates rule 1.
 		}
@@ -73,33 +73,67 @@
 	
 \end{frame}
 
-\begin{frame}{Non strict evaluation}{}
+\begin{frame}[t]{Non strict evaluation}{}
 	\begin{itemize}
 		\item Some functional programming languages use \hldefn{non-strict evaluation}: The arguments of a function are \emph{only} evaluated once the function is called.
 		
+		\only<2->{
+			\medskip
+			Example: \mintinline{python}{print(sqrt(sin(a**2)))}
+			
+			\medskip
+			In a \hhl{strict} language \srem{(e.g. python, C++)}, we evaluate inside out: 
+			%
+			\begin{equation*}
+				a\lmt a^2\lmt \sin{a^2} \lmt \sqrt{\sin{a^2}}
+			\end{equation*}
+			%
+			In a \hhl{non-strict} language, the evaluation of the inner part is \stress{deferred}, until it is actually needed. 
+		}
+		\item<3->
 		\medskip
-		Example: \mintinline{python}{print(sqrt(sin(a**2)))}
-		
-		\medskip
-		In a \hhl{strict} language \srem{(e.g. python, C++)}, we evaluate inside out: 
-		%
-		\begin{equation*}
-			a\lmt a^2\lmt \sin{a^2} \lmt \sqrt{\sin{a^2}}
-		\end{equation*}
-		%
-		In a \hhl{non-strict} language, the evaluation of the inner part is \stress{deferred}, until it is actually needed. 
-		
-		\medskip
-		But python actually has something similar in the concept of \texttt{generators}:
+		But python actually has something similar in the concept of \hhl{\texttt{generators}}:
 		\inputminted[]{python}{code/paradigms/fp/generators.py}
-		%
-		\item This allows some crazy concept: 
-	\end{itemize}
 	
+		%
+		\item<4-> This allows for \hhl{infinite data structures} \srem{(which can be more practical than they sounds)}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Memoization}
+	\begin{itemize}
+		\item<+-> Non strict evaluation together with \hldefn{sharing} (avoid repeated evaluation of the same expression) is called \hldefn{lazy evaluation}
+		%
+		\item<+-> Generally, functional programming can get cheap performance boosts by very simple \hldefn{memoization}: Storing the results of expensive \stress{pure} function calls in a cache
+		
+		%\medskip
+		\only<+->{\inputminted[]{python}{code/paradigms/fp/memoization.py}}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Higher order functions}
+	A \hldefn{higher order function} does one of the following:
+	\begin{itemize}
+		\item returns a function
+		\item takes a function as an argument
+	\end{itemize}
+	Opposite: \hldefn{first-order function}.
 	
+	\medskip 
+	\srem{Mathematical examples (usually called \defn{operators} or \defn{functionals}): differential operator, integration, \dots}
+	
+	\medskip
+	Higher level functions are the FP answer to template methods in OOP \srem{(\enquote{configuring} object behavior by overriding methods in subclasses)}.
+	
+	\medskip
+	{We have already met two higher order functions from the python \texttt{functools} library: \texttt{map} and \texttt{reduce}, each taking a function and an iterator as arguments.}
+	\inputminted[lastline=8]{python}{code/paradigms/fp/higher_order.py}
+\end{frame}
+
+\begin{frame}{Higher order functions II}
+	A function that also returns a function:
+	
+	\inputminted[lastline=8]{python}{code/paradigms/fp/higher_order_2.py}
 \end{frame}
 
 \begin{frame}{Type systems and multiple dispatch}
