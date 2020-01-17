@@ -73,7 +73,28 @@
 	
 \end{frame}
 
-\begin{frame}{Eager and lazy evaluation}{Also called strict and non-strict evaluation}
+\begin{frame}{Non strict evaluation}{}
+	\begin{itemize}
+		\item Some functional programming languages use \hldefn{non-strict evaluation}: The arguments of a function are \emph{only} evaluated once the function is called.
+		
+		\medskip
+		Example: \mintinline{python}{print(sqrt(sin(a**2)))}
+		
+		\medskip
+		In a \hhl{strict} language \srem{(e.g. python, C++)}, we evaluate inside out: 
+		%
+		\begin{equation*}
+			a\lmt a^2\lmt \sin{a^2} \lmt \sqrt{\sin{a^2}}
+		\end{equation*}
+		%
+		In a \hhl{non-strict} language, the evaluation of the inner part is \stress{deferred}, until it is actually needed. 
+		
+		\medskip
+		But python actually has something similar in the concept of \texttt{generators}:
+		\inputminted[]{python}{code/paradigms/fp/generators.py}
+		%
+		\item This allows some crazy concept: 
+	\end{itemize}
 	
 \end{frame}
 
