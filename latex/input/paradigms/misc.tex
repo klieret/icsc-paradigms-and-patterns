@@ -1,6 +1,19 @@
-\section{Outlook}
-
-\begin{frame}{Outlook}
+\subsection{Others}
 
 
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
+
+\begin{frame}{Other paradigms}
+	\begin{itemize}
+		\item \hhl{Logic programming} (LP) (subset of declarative programming): Automatic reasoning by applying inference rules
+		\begin{itemize}
+			\item LP languages: \proglang{Prolog}, \proglang{Datalog}
+			\item LP can be made available with libraries, e.g. for \proglang{Python}: \texttt{Pyke} (inspired by \proglang{prolog}), \texttt{pyDatalog} (inspired by \proglang{Datalog})
+			\item Example:
+			\inputminted[]{prolog}{code/paradigms/lp/siblings.pl}
+		\end{itemize}
+		\item Symbolic programming
+		\item Differentiable programming
+	\end{itemize}
 \end{frame}

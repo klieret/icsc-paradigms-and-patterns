@@ -66,6 +66,7 @@
 \end{frame}
 
 \begin{frame}{Class methods, class variables}
+	Since this almost only has relevance for using creator patterns, it might be moved to lecture 2 
 	\begin{itemize}
 		\item class methods only have access to class variables and other class methods
 		\item important use case: to provide other constructors
@@ -73,28 +74,31 @@
 \end{frame}
 
 \begin{frame}{Class diagrams 1}
+	Maybe move to lecture 2, since we don't need it here
 	% https://perso.ensta-paris.fr/~kielbasi/tikzuml/var/files/doc/tikzumlmanual.pdf
 \end{frame}
 
 \begin{frame}{Class diagrams 2}
+	Maybe move to lecture 2, since we don't need it here
 	
 \end{frame}
 
 \begin{frame}{Strenghts and Weaknesses}
-	
+		
 \begin{block}{Strengths}
+	
 	\begin{itemize}
-		\item Easy to read and understand if done well (very natural way of thinking)
-		\item Natural way to structure large projects
-		\item Very wide spread way of thinking
-		\item Especially applicable to problems many very complex data types
+		\item \hhl{Easy to read} and understand if done well (very natural way of thinking if classes model real world objects)
+		\item Natural way to \hhl{structure large projects} (e.g. taking classes as components)
+		\item Very \hhl{wide spread} way of thinking
+		\item Especially applicable to problems that center around data and bookkeeping with logic that is strongly tied to the data
 	\end{itemize}
 \end{block}
 \begin{block}{Weaknesses}
 \begin{itemize}
-	\item Code duplicity due to wrong abstractions
-	\item Lasagna code: Too many layers 
-	\item Hard to parallelize to mutabilities
+	\item Wrong abstractions can lead to less \hhl{code reusability}
+	\item \hhl{Lasagna code}: Too many layers of classes can be hard to understand
+	\item Hard to \hhl{parallelize} ($\lra$ parallel patterns)
 \end{itemize}
 \end{block}
 \end{frame}

@@ -22,17 +22,18 @@
 \begin{frame}[t]{Programming Paradigms}
 	\only<1->{\begin{block}{What \stress{is} a programming paradigm?}
 		\begin{itemize}
-			\item A \hl{classification of programming languages} based on their features {\small (but most popular languages support multiple paradigms)}
-			\item A \hl{programming style} or way programming/thinking
+			\item A \hhl{classification of programming languages} based on their features {\small (but most popular languages support multiple paradigms)}
+			\item A \hhl{programming style} or way programming/thinking
 			\item Example: Object Oriented Programming \srem{(thinking in terms of objects which contain data and code)}
+			\item Many common languages support \srem{(to some extent)} \hhl{multiple paradigms} \srem{(C++, python, \dots)}
 		\end{itemize}
 	\end{block}
 	}
 	%	
 	\only<+->{\begin{block}{Why should I care?}
 			\begin{itemize}
-				\item Discovering \hl{new ways of thinking} let's you challenge your current believes about how to code 
-				\item Learning to choose the \hl{right paradigm for the right problem} or \hl{picking the best of many worlds}
+				\item Discover \hhl{new ways of thinking} $\lra$ challenge your current believes about how to code 
+				\item Choose the \hhl{right paradigm for the right problem} or \hhl{pick the best of many worlds}
 			\end{itemize}
 		\end{block}
 	}
@@ -46,19 +47,21 @@
 	\begin{block}{Some problems}
 		\begin{itemize}
 			\item Too formal definitions can be hard to grasp and sometimes impractical, too loose definitions can be meaningless
-			\item Comparing different paradigms requires substantial experience and knowledge in both
+			\item Comparing different paradigms requires experience and knowledge in both \srem{(if all you [know] is a hammer, everything looks like a nail)}
+			\item A perfect programmer might write great software using any PP
 		\end{itemize}
 	\end{block}
 	}
 	%
 	\begin{block}{My personal approach}
-		Rather than asking \enquote{How to define paradigm X?}, ask 
 		\begin{itemize}
-			\item 
-			\item How does it feel? \srem{(e.g. try to write in exotic languages)}
-			\item How would X approach my problems?
+			\item Rather than asking \enquote{How to define paradigm X?}, ask \enquote{How would I approach my problems in X?}.
+			\item Try out \enquote{academic languages} that enforce a certain paradigm \\\srem{$\lra$ How does it \emph{feel} to program in X}
+			\item Get back to your daily programming and rethink your design decisions
 		\end{itemize}
 	\end{block}
+	%
+	
 \end{frame}
 
 \begin{frame}{Lecture 1}{Programming Paradigms}
@@ -108,6 +111,7 @@
 \begin{frame}{Modularity}{Perhaps the most important principle of good software}
 	\hhl{Split up code} into parts, e.g. functions, classes, modules, packages, \dots
 	% http://aosd.net/importance-of-modularity-in-programming/
+	
 	\bigskip
 	You have done \goodc{\stress{well}} if the parts are 
 	\begin{itemize}
@@ -169,6 +173,11 @@
 	\begin{itemize}
 		\item Complicated problems might not have simple solutions
 		\item But it is often still possible to modularize to have several simple components
+	\end{itemize}
+
+	\bigskip
+	\begin{itemize}
+		\item For example, using classes and objects will make your code more \emph{complex}, but still easier to understand
 	\end{itemize}
 \end{frame}
 

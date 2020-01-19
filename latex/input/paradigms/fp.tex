@@ -9,7 +9,7 @@
 	% https://en.wikipedia.org/wiki/Functional_programming#Pure_functions
 	Functional programming
 	\begin{itemize}
-		\item expresses its computations in the style of mathematical functions
+		\item expresses its computations in the style of \hhl{mathematical functions}
 		\item emphasizes 
 		\begin{itemize}
 			\item \hhl{expressions} \srem{(\enquote{is} something: a series of identifiers, literals and operators that reduces to a value)} 
@@ -20,7 +20,33 @@
 		\item Avoids \hhl{mutability} \srem{(instead of changing properties, I need to create copies with the changed property)}
 		\item Avoids \hhl{side effects} \srem{(expressions should not change or depend on any external state)}  
 	\end{itemize}
-	
+	%
+\end{frame}
+
+\begin{frame}{Examples}
+	Languages made for FP (picture book examples):
+	\begin{itemize}
+		\item \proglang{Lisp} and derivates: \proglang{Common Lisp}, \proglang{Clojure}, \dots
+		\item \proglang{Haskell}
+		\item \proglang{OCaml}
+		\item \proglang{F\#}
+		\item \proglang{Wolfram Language} (Mathematica etc.)
+		\item \dots
+	\end{itemize}
+	%
+	With emphasis on FP:
+	\begin{itemize}
+		\item \proglang{JavaScript}
+		\item \proglang{R}
+		\item \dots
+	\end{itemize}
+	%
+	Not designed for, but offering strong support for FP:
+	\begin{itemize}
+		\item \proglang{C++11}
+		\item \proglang{Perl}
+		\item \dots
+	\end{itemize}
 \end{frame}
 
 %\begin{frame}[t]{Referential transparency}
@@ -82,7 +108,7 @@
 			Example: \mintinline{python}{print(sqrt(sin(a**2)))}
 			
 			\medskip
-			In a \hhl{strict} language \srem{(e.g. python, C++)}, we evaluate inside out: 
+			In a \hhl{strict} language \srem{(e.g. \proglang{Python}, \proglang{C++})}, we evaluate inside out: 
 			%
 			\begin{equation*}
 				a\lmt a^2\lmt \sin{a^2} \lmt \sqrt{\sin{a^2}}
@@ -92,7 +118,7 @@
 		}
 		\item<3->
 		\medskip
-		But python actually has something similar in the concept of \hhl{\texttt{generators}}:
+		But \proglang{Python} actually has something similar in the concept of \hhl{\texttt{generators}}:
 		\inputminted[]{python}{code/paradigms/fp/generators.py}
 	
 		%
@@ -133,19 +159,16 @@
 \begin{frame}{Higher order functions II}
 	A function that also returns a function:
 	
-	\inputminted[lastline=8]{python}{code/paradigms/fp/higher_order_2.py}
+	\inputminted[]{python}{code/paradigms/fp/higher_order_2.py}
 \end{frame}
 
 \begin{frame}{Type systems and multiple dispatch}
 	$\lra$ compare with inheritance
 \end{frame}
 
-\begin{frame}{Referential transparency}
-	% https://stackoverflow.com/questions/210835/what-is-referential-transparency
-\end{frame}
 
 \begin{frame}{Monads}
-	
+		
 \end{frame}
 
 \begin{frame}[t]{Example: Loops}
@@ -187,7 +210,7 @@
 	}
 \end{frame}
 
-\begin{frame}{Loops III}
+\begin{frame}{Example: Loops III}
 	$\lra$ Write about how the map-reduce pattern is quite a big topic in HPC
 \end{frame}
 
@@ -198,22 +221,29 @@
 \begin{frame}{Strenghts and Weaknesses}
 \begin{block}{Strengths}
 	\begin{itemize}
-		\item Proving things mathematically
-		\item Testing things
-		\item Very short and concise notations of algorithms
-		\item Sophisticated abstractions of logic $\lra$ very high code reuse
-		\item Performance boost because of easy parallelization
+		\item Proving things \hhl{mathematically} \srem{(referential transparency, \dots)}
+		\item \hhl{Testability} \srem{(no object initializations and complex ependencies, pure functions)}
+		\item Easy \hhl{debugging} \srem{(no hidden states)}
+		\item Can be very \hhl{short} and \hhl{concise} $\lra$ easy to verify
+		
+		\item Sophisticated logical abstractions \srem{(using high level functions)} $\lra$ modularity, \hhl{code reuse}
+		\item Performance boost because of easy \hhl{parallelization}
 	\end{itemize}
 \end{block}
+\end{frame}
 
+\begin{frame}{Strengths and Weaknesses}
 \begin{block}{Weaknesses}
 	\begin{itemize}
-		\item Less \enquote{natural} way to approach problems (\enquote{objects} are a natural way of thinking to most people)
-		\item Steeper learning curve
-		\item Can be harder to read (higher level functions, recursions, ...)
-		\item Performance issues due to immutability
-		\item Long tradition in academia, but gaining traction in other fields
+		\item Structuring code in terms of objects can feel more intuitive if logic \srem{(methods)} are strongly tied to data 
+		\item Imperative algorithms might be easier to read and feel more natural than declarative notation
+		\item FP might have a steeper \hhl{learning curve} \srem{(e.g. recursions instead of loops, \dots)}
+		\item \hhl{Performance issues} : EXPAND ME
+%		\begin{itemize}
+			%\item Declarative nature somewhat less efficient in CPU usage compared to imperative styles
+			%\item due to \hhl{immutability}: 
+%		\end{itemize}
+		\item Still \hhl{small user base outside of academia}, but gaining traction
 	\end{itemize}
 \end{block}
-
 \end{frame}
