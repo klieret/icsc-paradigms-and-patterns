@@ -1,0 +1,22 @@
+\begin{frame}{Class diagrams I}
+	
+	\begin{tikzpicture} 
+	\umlclass[x=0,y=3]{class A}{ 
+		+ public variable : type\\ 
+		-- private variable : type \\ 
+		\# protected variable : type
+	}{ 
+		+ public method(arg : type) : return type\\ 
+		\dots 
+	} 
+
+	\umlemptyclass[x=0,y=0]{class B}
+	\umlnote[x=3,y=0, width=2cm]{class B}{\footnotesize subclass of A}
+	\umlinherit{class B}{class A}
+	
+	
+	\umlemptyclass[x=0,y=-2]{class C}
+	\umlnote[x=3,y=-2,width=2cm]{class C}{\footnotesize subclass of B (and thereby A)}
+	\umlinherit{class C}{class B}
+\end{tikzpicture}
+\end{frame}
