@@ -1,6 +1,15 @@
+\begin{frame}{Repetition: Object Oriented Programming}
+	\begin{itemize}
+		\item \hhl{Inheritance:} Subclasses inherit all \srem{(public and protected)} attributes and methods of the base class
+		\item \hhl{Abstract methods} of an \hhl{abstract class} are methods that have to be implemented by a subclass (\hhl{concrete class})
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Class diagrams I}
+	UML \srem{(\underline Unified \underline Markup \underline Language)} class diagrams visualize classes and the relationships between them:
 	
-	\begin{tikzpicture} 
+	\bigskip
+	\begin{tikzpicture}[scale=0.9]
 	\umlclass[x=0,y=3]{class A}{ 
 		+ public variable : type\\ 
 		-- private variable : type \\ 
@@ -19,4 +28,72 @@
 	\umlnote[x=3,y=-2,width=2cm]{class C}{\footnotesize subclass of B (and thereby A)}
 	\umlinherit{class C}{class B}
 \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Class diagrams II}
+	
+\end{frame}
+
+\begin{frame}{What is a design pattern?}
+	
+\end{frame}
+
+\subsection{Golden rules of OOP: SOLID}
+
+%\begin{frame}{Golden rules of OOP: SOLID}
+%	
+%\end{frame}
+
+\begin{frame}{Golden rules of OOP: Single responsibility principle}{\underline SOLID}
+	% https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137
+	Commonly (mis-)quoted as:
+	
+	\begin{center}
+		A class should only have \hhl{one responsibility}.
+	\end{center}
+
+	More accurate:
+	
+	\begin{center}
+		A class should only have \hhl{one reason to change}.
+	\end{center}
+
+	Better still:
+	\begin{center}
+		\hhl{Gather} together the things that change for the same reasons. \\
+		\hhl{Separate} those things that change for different reasons.
+	\end{center}
+
+	So this actually proposes a \hhl{balance}!
+	\begin{itemize}
+		\item Avoid classes that do too much (\enquote{god class})
+		\item But also avoid having changes always span several classes
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Golden rules of OOP: Open Closed Principle}{S\underline  OLID}
+	\begin{center}
+		You should be able to \hhl{extend} the behavior of a system\\
+		without having to \hhl{modify} that system.
+	\end{center}
+
+	\begin{itemize}
+		\item Writing a library, \hhl{modifying} functionality means that all users have to be informed (\hhl{not backwards compatible}) $\lra$ Avoid!
+		\item In your own code: Modifying one functionality \srem{(also by overriding methods of the super class, etc.)} poses the danger of breaking other parts \srem{(though tests can help with that)}
+		\item Extending code by providing additional methods, attributes, etc. does not have this danger $\lra$ preferred!
+		\item Requires thinking ahead: What parts have to be flexible, what remains constant?
+		\item Again a \hhl{balance} is required:
+		\begin{itemize}
+			\item Be \hhl{too generic} (avoid modifications) and your code won't do anything
+			\item Be \hhl{too concrete} and you will need to modify \srem{(and potentially break things)} often
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Golden rules of OOP: Open Closed Principle}{SO\underline  LID}
+	
+\end{frame}
+
+\begin{frame}{Pattern overview}
+	
 \end{frame}
