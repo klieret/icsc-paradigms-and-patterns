@@ -24,25 +24,47 @@
 		If you build a very complex class, try to instantiate (build) it in several steps.
 	\end{quote}
 
-	\only<1-3| handout: 1>{\stress{\badc{Bad:}} }
-	\only<1| handout: 1>{
-		\inputminted{python}{code/patterns/creational/builder_bad.py}
-		
+	\stress{\badc{Bad:}}
+	\inputminted{python}{code/patterns/creational/builder_bad.py}	
+	\only<2>{You will probably consider different fits and plots; \hhl{violates Single Responsibility Principle} $\lra$ Rather have \texttt{Fit} and \texttt{Plot} classes}
+\end{frame}
+
+\begin{frame}[t]{Builder Pattern}
+	\begin{quote}
+		If you build a very complex class, try to instantiate (build) it in several steps.
+	\end{quote}
+
+	\stress{\badc{Bad:}}
+	\inputminted{python}{code/patterns/creational/builder_bad_2.py}	
+
+\end{frame}
+
+\begin{frame}[t]{Builder Pattern}
+	\begin{quote}
+		If you build a very complex class, try to instantiate (build) it in several steps.
+	\end{quote}
+	
+	\stress{\goodc{Better:}} 
+	\inputminted[]{python}{code/patterns/creational/builder_good.py}
+	\only<2>{
+		\begin{itemize}
+			\item What if we have multiple ways to build of the object?
+			\item Do I want to have the \texttt{add\_mc\_component} method after I start using the data?
+		\end{itemize}
+		$\lra$ Have a separate \texttt{Data} and \texttt{Builder} hierarchy. 	
 	}
-	\only<2-3| handout: 1>{You will probably consider different fits and plots; \hhl{violates Single Responsibility Principle} $\lra$ Rather have \texttt{Fit} and \texttt{Plot} classes}
-	\only<3| handout: 0>{
-		\inputminted{python}{code/patterns/creational/builder_bad.py}
-		\only<2| handout: 1>{You will probably consider different fits and plots; \hhl{violates Single Responsibility Principle} $\lra$ Rather have \texttt{Fit} and \texttt{Plot} classes}
-	}
-	\only<4| handout: 2>{
-		\stress{\goodc{Better:}} 
-		\inputminted[]{python}{code/patterns/creational/builder_good.py}
-	}
-	\only<5| handout: 2>{
-		But what if we have multiple ways to build of the object? Have a separate \texttt{Data} and \texttt{Builder} hierarchy. 	
-	}
-	\only<6| handout: 3>{
-		\stress{\goodc{Best:}}
-		\inputminted{python}{code/patterns/creational/builder_best.py}
-	}
+%	\only<6| handout: 3>{
+%		\stress{\goodc{Best:}}
+%		\inputminted{python}{code/patterns/creational/builder_best.py}
+%	}
+\end{frame} 
+
+\begin{frame}[t]{Builder Pattern}
+	\begin{quote}
+		If you build a very complex class, try to instantiate (build) it in several steps.
+	\end{quote}
+	
+	\stress{\goodc{Best:}}
+	\inputminted{python}{code/patterns/creational/builder_best.py}
+	And of course I could now create \texttt{AbstractData} and \texttt{AbstractBuilder} etc.
 \end{frame} 

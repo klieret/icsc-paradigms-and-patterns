@@ -6,7 +6,7 @@ class Data:
         pass
 
 
-fitter = Data(...)
-fitter.add_mc_component(...)
+data = Data(...)
+data.add_mc_component(...)
 ...
-fitter.add_mc_component(...)
+data.add_mc_component(...)
