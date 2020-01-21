@@ -1,0 +1,48 @@
+\subsection{Creational Patterns}
+
+\begin{frame}[t]{Factory method}
+	\begin{quote}
+		If there are multiple ways to instantiate objects of your class, use \hhl{factory methods} rather than adding too much logic to the default constructor.
+	\end{quote}
+	
+	\medskip
+	\only<1| handout: 1>{
+		\stress{\badc{Bad:}} 
+		\inputminted{python}{code/patterns/creational/uncertainties_bad.py}
+	}
+	\only<2| handout: 2>{
+		\stress{\badc{Good:}} 
+		\inputminted[]{python}{code/patterns/creational/uncertainties_good.py}
+	}
+	\only<3| handout: 2>{
+	Alternatively, you can also have subclasses that provide (implementations to) factory methods.
+	}
+\end{frame}
+
+\begin{frame}[t]{Builder Pattern}
+	\begin{quote}
+		If you build a very complex class, try to instantiate (build) it in several steps.
+	\end{quote}
+
+	\only<1-3| handout: 1>{\stress{\badc{Bad:}} }
+	\only<1| handout: 1>{
+		\inputminted{python}{code/patterns/creational/builder_bad.py}
+		
+	}
+	\only<2-3| handout: 1>{You will probably consider different fits and plots; \hhl{violates Single Responsibility Principle} $\lra$ Rather have \texttt{Fit} and \texttt{Plot} classes}
+	\only<3| handout: 0>{
+		\inputminted{python}{code/patterns/creational/builder_bad.py}
+		\only<2| handout: 1>{You will probably consider different fits and plots; \hhl{violates Single Responsibility Principle} $\lra$ Rather have \texttt{Fit} and \texttt{Plot} classes}
+	}
+	\only<4| handout: 2>{
+		\stress{\goodc{Better:}} 
+		\inputminted[]{python}{code/patterns/creational/builder_good.py}
+	}
+	\only<5| handout: 2>{
+		But what if we have multiple ways to build of the object? Have a separate \texttt{Data} and \texttt{Builder} hierarchy. 	
+	}
+	\only<6| handout: 3>{
+		\stress{\goodc{Best:}}
+		\inputminted{python}{code/patterns/creational/builder_best.py}
+	}
+\end{frame} 

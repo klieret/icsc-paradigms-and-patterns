@@ -1,4 +1,5 @@
 \begin{frame}{Repetition: Object Oriented Programming}
+	[Probably we don't need that, but can explain orally on one of the following slides]
 	\begin{itemize}
 		\item \hhl{Inheritance:} Subclasses inherit all \srem{(public and protected)} attributes and methods of the base class
 		\item \hhl{Abstract methods} of an \hhl{abstract class} are methods that have to be implemented by a subclass (\hhl{concrete class})
@@ -9,7 +10,9 @@
 	UML \srem{(\underline Unified \underline Markup \underline Language)} class diagrams visualize classes and the relationships between them:
 	
 	\bigskip
-	\begin{tikzpicture}[scale=0.9]
+	\begin{changemargin}{-1cm}{-1cm}
+	\centering
+	\begin{tikzpicture}[scale=0.9, transform shape]
 	\umlclass[x=0,y=3]{class A}{ 
 		+ public variable : type\\ 
 		-- private variable : type \\ 
@@ -20,14 +23,19 @@
 	} 
 
 	\umlemptyclass[x=0,y=0]{class B}
-	\umlnote[x=3,y=0, width=2cm]{class B}{\footnotesize subclass of A}
+	\umlnote[x=3,y=0, width=2cm, scale=0.9, transform shape]{class B}{\ subclass of A}
 	\umlinherit{class B}{class A}
 	
 	
 	\umlemptyclass[x=0,y=-2]{class C}
-	\umlnote[x=3,y=-2,width=2cm]{class C}{\footnotesize subclass of B (and thereby A)}
+	\umlnote[x=3,y=-2,width=2cm, scale=0.9, transform shape]{class C}{\ subclass of B}
 	\umlinherit{class C}{class B}
-\end{tikzpicture}
+	
+	\umlemptyclass[x=6, y=3]{class D}
+	\umlaggreg{class A}{class D}
+	\umlnote[x=9,y=3,width=2cm, scale=0.9, transform shape]{class D}{\ A contains\\\ instances of D}
+	\end{tikzpicture}
+	\end{changemargin}
 \end{frame}
 
 \begin{frame}{Class diagrams II}
@@ -38,44 +46,44 @@
 	
 \end{frame}
 
-\subsection{Golden rules of OOP: SOLID}
+\subsection{The SOLID rules of OOP}
 
-%\begin{frame}{Golden rules of OOP: SOLID}
+%\begin{frame}{The SOLID rules of OOP: SOLID}
 %	
 %\end{frame}
 
-\begin{frame}{Golden rules of OOP: Single responsibility principle}{\underline SOLID}
+\begin{frame}{The SOLID rules of OOP: Single responsibility principle}{\underline SOLID}
 	% https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137
 	Commonly (mis-)quoted as:
 	
-	\begin{center}
+	\begin{quote}
 		A class should only have \hhl{one responsibility}.
-	\end{center}
+	\end{quote}
 
 	More accurate:
 	
-	\begin{center}
+	\begin{quote}
 		A class should only have \hhl{one reason to change}.
-	\end{center}
+	\end{quote}
 
 	Better still:
-	\begin{center}
+	\begin{quote}
 		\hhl{Gather} together the things that change for the same reasons. \\
 		\hhl{Separate} those things that change for different reasons.
-	\end{center}
+	\end{quote}
 
 	So this actually proposes a \hhl{balance}!
 	\begin{itemize}
 		\item Avoid classes that do too much (\enquote{god class})
-		\item But also avoid having changes always span several classes
+		\item But also avoid having changes always affect many classes
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Golden rules of OOP: Open Closed Principle}{S\underline  OLID}
-	\begin{center}
+\begin{frame}{The SOLID rules of OOP: Open Closed Principle}{S\underline  OLID}
+	\begin{quote}
 		You should be able to \hhl{extend} the behavior of a system\\
 		without having to \hhl{modify} that system.
-	\end{center}
+	\end{quote}
 
 	\begin{itemize}
 		\item Writing a library, \hhl{modifying} functionality means that all users have to be informed (\hhl{not backwards compatible}) $\lra$ Avoid!
@@ -90,12 +98,149 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Golden rules of OOP: Liskov Substitution Principle}{SO\underline  LID}
-	\begin{center}
-		If $S$ is a subtype (subclass) of $T$, 
-	\end{center}
+\begin{frame}{The SOLID rules of OOP: Liskov Substitution Principle}{SO\underline  LID}
+	\begin{quote}
+		If $S$ is a \hhl{subtype} (subclass) of $T$, then objects of type $T$ can be \hhl{replaced} with objects of type $S$ without breaking anything
+	\end{quote}
+	%
+	This can be expanded to a series of properties that should be fulfilled:
+	\begin{itemize}
+		\item \hhl{Signature} of methods of the subclass:
+		\begin{itemize}
+			%
+			\item 
+			Required type of arguments should be supertype (\defn{contravariance})\\
+			\srem{Violation: Supermethod accepts any \texttt{Rectangle}, submethod only \texttt{Square}}
+			%
+			\item 
+			Return type of method should be a subtype (\defn{covariance})\\
+			\srem{Violation: Supermethod returns \texttt{Square}, submethod returns \texttt{Rectangle}}
+		\end{itemize}
+	\item Behavior:
+		\begin{itemize}
+		%
+		\item
+		\hhl{Preconditions} \srem{(requirements to be fulfilled before calling method)} cannot be strengthened in the subtype\\
+		\srem{Violation: Only in subclass \texttt{prepare()} must be called before \texttt{method()}}
+		%
+		\item 
+		\hhl{Postconditions} 
+		\srem{(conditions fulfilled after calling a method)} cannot be weakened by the subtype
+		%
+		\item 
+		\hhl{Invariants} \srem{(properties that stay the same)} of supertype must be preserved in the subtype
+		%
+		\item 
+		\hhl{History contraint}: Subtypes cannot modify properties that are not modifyable in supertype\\
+		\srem{Violation: \texttt{VariableRadiusCircle} as subtype of \texttt{FixedRadiusCircle}}
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Pattern overview}
+\begin{frame}{The SOLID rules of OOP: Interface segregation principle}{SOL\underline  ID}
+	Perhaps leave this one out? 
+\end{frame}
+
+\begin{frame}{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
+	This is about \hhl{decoupling} different classes and modules:
+	\begin{quote}
+		\begin{itemize}
+			\item[1.] High-level modules should not depend on low-level modules. Both should depend on abstractions \srem{(interfaces)}.
+		\end{itemize}
+	\end{quote}
+	Let's consider a very simple example: A \hhl{button} controlling a lamp. One way to implement this:
 	
+	\bigskip
+	\begin{columns}
+		\column{0.1\textwidth}
+		%
+		\begin{tikzpicture}[scale=0.7, transform shape]
+		\umlclass[x=0,y=3]{Button}{ 
+			- client
+		}{ 
+			+ turn\_on()\\ 
+			+ turn\_off()\\ 
+			+ flip()
+		} 
+		
+		\umlemptyclass[x=0,y=0]{Lamp}
+		\umlaggreg{Button}{Lamp}
+		\end{tikzpicture}
+		
+		\column{0.8\textwidth}
+		This violates the DIP, because \texttt{Button} \srem{(high-level)} depends on \texttt{Lamp} \srem{(detail)}.
+	
+		\bigskip
+		What if we have multiple consumers \srem{(\texttt{Motor}, \texttt{Lamp}, \dots)} and multiple types of buttons \srem{(swipe button, switch, push button, \dots)}? How can we force them to behave consistent? What methods does a consumer have to implement to work together with the button?\\
+		
+		\medskip
+		$\lra$ Enter abstractions (interfaces)
+	\end{columns}
+	
+	%
+\end{frame}
+
+\begin{frame}{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
+	\begin{tikzpicture}[scale=0.7, transform shape]
+	\umlclass[x=0,y=3]{AbstractButton}{ 
+		- client
+	}{ 
+		+ turn\_on()\\ 
+		+ turn\_off()\\ 
+		+ flip()
+	} 
+	
+	\umlemptyclass[x=0,y=0]{ConcreteButton}
+	\umlinherit{ConcreteButton}{AbstractButton}
+	
+	\umlclass[y=3,x=5]{AbstractClient}{ 
+	}{ 
+		+ turn\_on()\\ 
+		+ turn\_off()\\ 
+	} 
+	\umlaggreg{AbstractButton}{AbstractClient}
+	
+	\umlemptyclass[y=0,x=5]{ConcreteClient}
+	\umlinherit{ConcreteClient}{AbstractClient}
+	\end{tikzpicture}
+	
+	\medskip
+	Now it's clear which methods the concrete client has to implement. Both high level and low level modules only depend on abstractions.
+	
+	\bigskip
+	This also fulfills the second part of the DIP:
+	\begin{quote}
+		\begin{itemize}
+			\item[2.] Abstractions should not depend on details. Details \srem{(i.e. concrete implementations)} should depend on abstractions.
+		\end{itemize}
+	\end{quote}
+\end{frame}
+
+\begin{frame}{Interfaces and Performance}
+	Under construction
+	
+	When writing very performant code which gets called a lot, try to avoid having unnecessary interfaces that do nothing but forwarding
+	
+	\bigskip
+	Furthermore: in \proglang{C++}, frequently used getters and setters should be \texttt{inline}
+\end{frame}
+
+
+\begin{frame}{The patterns}
+	We consider several different patterns in the following:
+	
+	\begin{itemize}
+		%
+		\item 
+		\hhl{Creational patterns}: How are instances of classes instantiated? \srem{(E.g. what if I have a class that can create instances in different ways?)}
+		%
+		\item 
+		\hhl{Structural patterns}:
+		%
+		\item 
+		\hhl{Behavioral patterns}:
+		%
+		\item 
+		\hhl{Parallel patterns}: How to make OOP work with parallel processing? $\lra$ Will only mention this briefly
+	\end{itemize}
 \end{frame}
