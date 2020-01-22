@@ -1,12 +1,20 @@
-class BDT:
-	def prepare_features()
+class MLModel(ABC):  # <-- abstract class  
+	def load_data(...)
+	def prepare_features(...)
 	
-	def train()
+	@abstractmethod
+	def train(...):
+		pass
 	
-	def validate()
-	
-	def save_results()
+	def validate(...)
+	...
 
 
-class RandomForest:
-	pass
+class BDT(MLModel):  # <-- concrete class
+	def train(...):
+		# Implementation
+
+
+class RandomForest(MLModel):
+	def train(...):
+		# Implementation

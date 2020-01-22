@@ -2,9 +2,38 @@
 
 \begin{frame}{Template Method}
 	\begin{itemize}
-		\item Use case: Several different classes that only contain minor differences in few places
-		\item \hhl{Template method} solution: Put shared code in superclass, have subclasses implement or override specific methods
+		\item \hhl{Use case:} Several different classes that only contain minor differences in few places
+		\item \hhl{Solution:} Put shared code in superclass, have subclasses implement or override specific methods
+		
+		\begin{center}
+		\begin{tikzpicture}[scale=0.7, transform shape]
+		\umlclass[x=0,y=3]{MLModel}{ 
+		}{ 
+			+ preprocess()\\ 
+			\emph{+ train()}\\ 
+			+ validate()
+		} 
+		
+		\umlclass[x=-2,y=0]{BDT}{}{+ train()}
+		\umlinherit{BDT}{MLModel}
+		
+		\umlclass[x=2,y=0]{RandomForest}{}{+ train()}
+		\umlinherit{RandomForest}{MLModel}
+		\end{tikzpicture}
+		\end{center}
+		\item \hhl{Advantages:} Simple and clean with little overhead
+		\item \hhl{Potential problems:} 
+		\begin{itemize}
+			\item If there are many differences between original classes, we need many abstract methods $\lra$ increasingly hard to read and mantain
+			\item If overriding default methods, the Liskov Substitution Principle can be easily violated
+		\end{itemize}
 	\end{itemize}
+	%
+	
+\end{frame}
+
+\begin{frame}{Template Method}
+	\inputminted{python}{code/patterns/behavioral/template_method.py}
 \end{frame}
 
 \begin{frame}{Strategy}
