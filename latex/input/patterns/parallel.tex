@@ -1,0 +1,40 @@
+\subsection{Concurrency Patterns}
+
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
+\begin{frame}{Concurrency Patterns}
+	\begin{quote}
+		Concurrency patterns need their own lecture, so this will only quickly mention basic concepts.
+	\end{quote}
+
+	\bigskip
+	Use cases:
+	\begin{itemize}
+		\item Managing data access: \hhl{Locking}/\hhl{guarding}: \srem{(mutual exclusion concurrency control: e.g. while one thread is writing data field, all other threads have to wait before reading the field)}. Need to be careful to avoid \hl{dead-locking}.
+		\item \hhl{Scheduling} tasks in parallel
+%		\begin{itemize}
+%			\item {Thread pool}
+%			\item {Compute kernel} 
+%			\item \dots
+%		\end{itemize}
+		\item (A)synchronous \hhl{event handling}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Concurrency Patterns II}
+	Advanced example: \hhl{Active object} pattern
+
+	\begin{itemize}
+		\item Want to decouple method calling from method execution
+		\item Can request a calculation early and check later whether the result is available
+	\end{itemize}
+	
+	\bigskip
+	The pattern consists of multiple components:
+	\begin{itemize}
+		\item The \hhl{client} calls a method of a \hhl{proxy}, which (immediately) returns a \hhl{future} object \srem{(can be used to check if results are available and get them)}
+		\item At the same time the proxy turns the method call into a \hhl{request} object and adds it to a \hhl{request queue}
+		\item A \hhl{scheduler} takes requests from the request queue and executes it \srem{(on some thread)}
+		\item Once the request is executed, the result is added to the future object
+	\end{itemize}
+\end{frame}

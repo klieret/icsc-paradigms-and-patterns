@@ -1,5 +1,42 @@
 \subsection{Structural Patterns}
 
-\begin{frame}{}
-	
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
+\begin{frame}{Proxy, Adapter, Facade}
+	Three patterns that deal with interfaces:
+	\begin{itemize}
+		\item \hhl{Proxy}: Given a \defn{servant} class, create a new \defn{interface} class with the same interface in order to
+		\begin{itemize}
+			\item Inject code \srem{(e.g. enforce access rights)}
+			\item Switch between different servant classes
+		\end{itemize}
+		\begin{center}
+		\begin{tikzpicture}[scale=0.7, transform shape]
+		\umlsimpleclass[type=abstract, y=1.3, x=0]{OurInterface}
+		
+		\umlsimpleclass[y=0, x=-1.4]{Service}
+		\umlsimpleclass[y=0, x=1.5]{Proxy}
+		\umlaggreg{Proxy}{Service}
+		\umlinherit{Proxy}{OurInterface}
+		\umlinherit{Service}{OurInterface}
+		\end{tikzpicture}
+		\end{center}
+		%
+		\item \hhl{Adapter}: We have a 3rd party class \texttt{ForeignClass} whose interface is incompatible to interface \texttt{OurInterface} $\lra$ Create an \defn{adapter} class as a wrapper
+		
+		\begin{center}
+		\begin{tikzpicture}[scale=0.7, transform shape]
+		\umlsimpleclass[y=0, x=0]{ForeignClass}
+		
+		\umlsimpleclass[type=abstract, y=1.3, x=3]{OurInterface}
+		
+		\umlsimpleclass[y=0, x=3]{Adapter}
+		\umlaggreg{Adapter}{ForeignClass}
+		\umlinherit{Adapter}{OurInterface}
+		\end{tikzpicture}
+		\end{center}
+		%
+		\item \hhl{Facade}: Create a class that provides a simple interface for complicated operations often involving multiple servant classes \srem{(but often could use functions in modules to do this)}
+		%
+	\end{itemize}
 \end{frame}

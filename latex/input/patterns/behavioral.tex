@@ -1,13 +1,15 @@
 \subsection{Behavioral Patterns}
 
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
 \begin{frame}{Template Method}
 	\begin{itemize}
 		\item \hhl{Use case:} Several different classes that only contain minor differences in few places
-		\item \hhl{Solution:} Put shared code in superclass, have subclasses implement or override specific methods
+		\item \hhl{Suggestion:} Put shared code in superclass, have subclasses implement or override specific methods
 		
 		\begin{center}
 		\begin{tikzpicture}[scale=0.7, transform shape]
-		\umlclass[x=0,y=3]{MLModel}{ 
+		\umlclass[x=0,y=3, type=abstract]{MLModel}{ 
 		}{ 
 			+ preprocess()\\ 
 			\emph{+ train()}\\ 
@@ -22,9 +24,10 @@
 		\end{tikzpicture}
 		\end{center}
 		\item \hhl{Advantages:} Simple and clean with little overhead
-		\item \hhl{Potential problems:} 
+		\item \hhl{Criticism:} 
 		\begin{itemize}
 			\item If there are many differences between original classes, we need many abstract methods $\lra$ increasingly hard to read and mantain
+			\item If there are multiple \enquote{options} for every method and we want to realize them, the number of subclasses grows exponentially $\lra$ \emph{Strategy pattern}
 			\item If overriding default methods, the Liskov Substitution Principle can be easily violated
 		\end{itemize}
 	\end{itemize}
@@ -32,18 +35,97 @@
 	
 \end{frame}
 
+
 \begin{frame}{Template Method}
+	\stress{\badc{Questionable:}}
+	\inputminted{python}{code/patterns/behavioral/template_method_bad.py}
+	\begin{itemize}
+		\item What if multiple methods depend on the model? \srem{$\lra$ Need to keep track of more \texttt{if}s everywhere}
+		\item What if we want to add or remove a model? \srem{$\lra$ Need to make changes in many places $\lra$ \sout{Open/Closed Principle}}, \enquote{divergent change}
+		\item Depend on all implementations $\lra$ \srem{\sout{Dependency Inversion Principle}}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Template Method}
+	\stress{\goodc{Better:}}
 	\inputminted{python}{code/patterns/behavioral/template_method.py}
 \end{frame}
 
 \begin{frame}{Strategy}
+	\begin{itemize}
+		%
+		\item 
+		\hhl{Usage:} You have a problem that can be solved with different algorithms (strategies)
+		%
+		\item 
+		\hhl{Suggestion:} Create abstract class for algorithm and concrete subclasses with specific implementation; original class holds instance of algorithm class
 		
+		\begin{center}
+			\begin{tikzpicture}[scale=0.7, transform shape]
+			\umlclass[x=0,y=3]{MyAnalysis}{ 
+				+ ml\_model: MLModel\\
+				+ fitter: Fitter
+			}{ 
+				%\dots\\
+				+ train()\\
+				+ fit()\\
+				%\dots
+			} 
+			
+			\umlclass[y=3, x=4, type=abstract]{MLModel}{}{\emph{+ train()}}
+			\umlaggreg{MyAnalysis}{MLModel}
+			
+			\umlclass[x=2,y=0]{BDT}{}{+ train()}
+			\umlinherit{BDT}{MLModel}
+			
+			\umlclass[x=6,y=0]{RandomForest}{}{+ train()}
+			\umlinherit{RandomForest}{MLModel}
+			
+			\umlclass[y=3, x=-4, type=abstract]{Fitter}{}{\emph{+ fit()}}
+			\umlaggreg{MyAnalysis}{Fitter}
+			
+			\umlclass[x=-5,y=0]{KernelDensityFit}{}{+ fit()}
+			\umlinherit{KernelDensityFit}{Fitter}
+			
+			\umlclass[x=-2,y=0]{CrystalBallFit}{}{+ fit()}
+			\umlinherit{CrystalBallFit}{Fitter}
+			\end{tikzpicture}
+		\end{center}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Strategy}
+	\inputminted{python}{code/patterns/behavioral/strategy.py}
+\end{frame}
+
+\begin{frame}{Strategy}
+	\begin{itemize}
+		\item \hhl{Note}: This basically uses the template method pattern for its strategy classes
+		\item \hhl{Advantages}:
+		\begin{itemize}
+			\item \hl{Open/Closed} principle: Easily add new strategies
+			\item \hl{Dependencies inverted} (\texttt{MyAnalysis} does not depend on the individual implementations)
+			\item \hl{Small number of subclasses}
+			\item \hl{Seperated implementation} of algorithms from higher level code
+			\item For compiled languages: Change algorithms at \hl{runtime}
+		\end{itemize}
+		\item \hhl{Criticism}: 
+			\begin{itemize}
+				\item Might be overkill for very simple problems
+				\item For maximum performance, avoid virtual calls
+			\end{itemize}
+		\item \hhl{Alternatives}:
+		\begin{itemize}
+			\item If your language supports it: Use functions instead of objects \srem{(e.g. provide several \texttt{fit()} functions and pass them to the class)}
+			\item Use template pattern if there is only one strategy that can be replaced
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Command}
 	
 \end{frame}
 
-\begin{frame}{Iterator and Visitor}
+\begin{frame}{Iterator}
 	
 \end{frame}

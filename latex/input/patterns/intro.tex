@@ -1,3 +1,5 @@
+\frame{\tableofcontents[]}
+
 \begin{frame}{Repetition: Object Oriented Programming}
 	[Probably we don't need that, but can explain orally on one of the following slides]
 	\begin{itemize}
@@ -5,6 +7,11 @@
 		\item \hhl{Abstract methods} of an \hhl{abstract class} are methods that have to be implemented by a subclass (\hhl{concrete class})
 	\end{itemize}
 \end{frame}
+
+
+\section{More on OOP}
+
+\subsection{Class Diagrams}
 
 \begin{frame}{Class diagrams I}
 	UML \srem{(\underline Unified \underline Markup \underline Language)} class diagrams visualize classes and the relationships between them:
@@ -42,9 +49,6 @@
 	
 \end{frame}
 
-\begin{frame}{What is a design pattern?}
-	
-\end{frame}
 
 \subsection{The SOLID rules of OOP}
 
@@ -74,8 +78,8 @@
 
 	So this actually proposes a \hhl{balance}!
 	\begin{itemize}
-		\item Avoid classes that do too much (\enquote{god class})
-		\item But also avoid having changes always affect many classes
+		\item Avoid classes that do too much \srem{(\enquote{god class})}
+		\item But also avoid having changes always affect many classes \srem{(\enquote{shotgun surgery})}
 	\end{itemize}
 \end{frame}
 
@@ -181,8 +185,9 @@
 \end{frame}
 
 \begin{frame}{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
+	\begin{center}
 	\begin{tikzpicture}[scale=0.7, transform shape]
-	\umlclass[x=0,y=3]{AbstractButton}{ 
+	\umlclass[x=0,y=3, type=abstract]{AbstractButton}{ 
 		- client
 	}{ 
 		+ turn\_on()\\ 
@@ -193,7 +198,7 @@
 	\umlemptyclass[x=0,y=0]{ConcreteButton}
 	\umlinherit{ConcreteButton}{AbstractButton}
 	
-	\umlclass[y=3,x=5]{AbstractClient}{ 
+	\umlclass[y=3,x=5, type=abstract]{AbstractClient}{ 
 	}{ 
 		+ turn\_on()\\ 
 		+ turn\_off()\\ 
@@ -203,6 +208,7 @@
 	\umlemptyclass[y=0,x=5]{ConcreteClient}
 	\umlinherit{ConcreteClient}{AbstractClient}
 	\end{tikzpicture}
+	\end{center}
 	
 	\medskip
 	Now it's clear which methods the concrete client has to implement. Both high level and low level modules only depend on abstractions.
@@ -225,8 +231,19 @@
 	Furthermore: in \proglang{C++}, frequently used getters and setters should be \texttt{inline}
 \end{frame}
 
+\section{Patterns}
 
-\begin{frame}{The patterns}
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
+\subsection{Patterns}
+
+\begin{frame}{What is a design pattern?}
+	
+\end{frame}
+
+
+
+\begin{frame}{Patterns}
 	We consider several different patterns in the following:
 	
 	\begin{itemize}
