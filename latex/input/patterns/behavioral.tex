@@ -123,9 +123,56 @@
 \end{frame}
 
 \begin{frame}{Command}
+	\begin{quote}
+	The command pattern turns a \hhl{method call} into a \hhl{standalone object}.
+	\end{quote}
 	
+	\medskip
+	Rather than directly calling a method, the interface creates a \texttt{Command} object \srem{(describing what we want to execute)} and passing it on to a \texttt{Receiver} that executes it
+	
+	\bigskip
+	Use cases:
+	\begin{itemize}
+		\item \hhl{Decouple} user interfaces from the backend \srem{(by using \texttt{Command} objects as means of communication)}
+		\item Build up a command \hhl{history} with \hhl{undo} functionality
+		\item \hhl{Remote execution} of commands
+		\item \hhl{Queue} or \hhl{schedule} operations
+		%\end{itemize}
+	\end{itemize}
+
+	\bigskip
+	HEP specific use case example (Belle II software framework):
+	\begin{itemize}
+		\item Build up analysis by adding modules \srem{(\texttt{Command} objects)} to a path \srem{(list of modules)}, each implementing a \texttt{event()} method to process one event
+		\item After all modules are added, process the path: Loop over all events, calling the \texttt{event()} method of all modules in order
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Iterator}
+\begin{frame}{Command}
+	Slightly simplified Belle II steering file:
 	
+	\inputminted[fontsize=\small]{python}{code/patterns/behavioral/belle2_steering_file.py}
+\end{frame}
+
+\begin{frame}{Command}
+	Upon processing path:
+	%
+	\begin{center}
+	\includegraphics[height=3.5cm]{figures/patterns/behavioral/ModulePath.png}
+	\end{center}
+	
+	\bigskip
+	\begin{itemize}
+		\item Strictly \hhl{declarative} approach \srem{(no for loops or implementation details)}
+		\item Modules can be implemented in \proglang{python} or \proglang{C++}
+		\item \hhl{\enquote{Building block}} approach makes steering files extremely easy to write and understand \srem{(even browser based graphical interface for highschoolers: try it at \url{masterclass.ijs.si})}
+	\end{itemize}
+\end{frame}
+
+%\begin{frame}{Iterator}
+%	
+%\end{frame}
+
+\begin{frame}{Visitor}
+	Might still add this, but unsure of any HEP/science applications and there's already a lot of content...
 \end{frame}

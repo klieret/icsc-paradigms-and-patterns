@@ -2,14 +2,44 @@
 
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
-\begin{frame}{Are patterns an anti-pattern?}
-	
+\begin{frame}{Common criticism}
+	%Common criticism% of programming by patterns:
+	\begin{quote}
+		Repetitive use of the same patterns and lots of boilerplate indicates lack or abstraction or lacking features of your programming language.
+	\end{quote}
+	\begin{itemize}
+		\item \hhl{Example}: If functions are first-level objects \srem{(can be passed around like normal datatypes)}, I do not need to define a strategy class hierarchy. \\
+		However, this could still be considered the same \enquote{pattern} \srem{(only with a simpler implementation)}
+		\item The \enquote{Patterns} give you \hhl{vocabulary} to describe your problem in an abstract way, even if the implementation details very a lot between languages
+		\item Lots of pattern boilerplate should make you think about your design and language choices
+		\item Be aware that the implementation of \srem{(or even the need for)} certain patterns can be very dependent on your language features 
+	\end{itemize}	
 \end{frame}
 
-\begin{frame}{Different languages}
-	
+\begin{frame}{Common criticism}
+	\begin{quote}
+		Design patterns are used \hhl{excessively} and introduce \hhl{unneeded complexity}.
+	\end{quote}
+	%
+	\begin{itemize}
+		%
+		\item 
+		Remember the zen of python: simple is better than complex; but complex is better than complicated
+		%
+		\item
+		Do not introduce complexity \srem{(use the design pattern)} if you do not fully understand why you need it. 
+		\item 
+		Some people highlight the KISS \srem{(\underline keep \underline it \underline simple, \underline stupid)} and YAGNI \srem{(\underline you \underline aren't \underline gonna \underline need \underline it)} principle
+		\item 
+		Extreme opposite: \defn{Inner platform effect} (a system so customizable, that it reproduces your development platform)
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Only use patterns you understand}
-	
+\begin{frame}{Common criticism}
+	\begin{quote}
+		The common design patterns are often the direct results of thinking about good software design; focusing on patterns replaces actual thought with cut-and-paste programming.
+	\end{quote}
+	\begin{itemize}
+		\item Take discussion of patterns as a mental practice of thinking about good design; avoid simple cut-and-paste
+	\end{itemize}
 \end{frame}

@@ -1,11 +1,14 @@
 \frame{\tableofcontents[]}
 
 \begin{frame}{Repetition: Object Oriented Programming}
-	[Probably we don't need that, but can explain orally on one of the following slides]
 	\begin{itemize}
 		\item \hhl{Inheritance:} Subclasses inherit all \srem{(public and protected)} attributes and methods of the base class
 		\item \hhl{Abstract methods} of an \hhl{abstract class} are methods that have to be implemented by a subclass (\hhl{concrete class})
 	\end{itemize}
+
+	\bigskip
+	\dots
+	Perhaps introduce class methods since we need them for the factory patterns
 \end{frame}
 
 
@@ -14,7 +17,7 @@
 \subsection{Class Diagrams}
 
 \begin{frame}{Class diagrams I}
-	UML \srem{(\underline Unified \underline Markup \underline Language)} class diagrams visualize classes and the relationships between them:
+	UML \srem{(\underline Unified \underline Markup \underline Language)} class diagrams visualize classes and the relationships between them. We will use the following subset of notations:
 	
 	\bigskip
 	\begin{changemargin}{-1cm}{-1cm}
@@ -41,12 +44,15 @@
 	\umlemptyclass[x=6, y=3]{class D}
 	\umlaggreg{class A}{class D}
 	\umlnote[x=9,y=3,width=2cm, scale=0.9, transform shape]{class D}{\ A contains\\\ instances of D}
+	
+	\umlemptyclass[x=6, y=1]{class E}
+%	\umlaggreg{class A}{class D}
+	\umlnote[x=9,y=1,width=2cm, scale=0.9, transform shape]{class E}{\ A is otherwise associated with E}
+	\umlassoc{class E}{class A}
+%	
+	
 	\end{tikzpicture}
 	\end{changemargin}
-\end{frame}
-
-\begin{frame}{Class diagrams II}
-	
 \end{frame}
 
 
@@ -56,6 +62,8 @@
 %	
 %\end{frame}
 
+\frame{\tableofcontents[currentsection, currentsubsection]}
+
 \begin{frame}{The SOLID rules of OOP: Single responsibility principle}{\underline SOLID}
 	% https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137
 	Commonly (mis-)quoted as:
@@ -64,18 +72,21 @@
 		A class should only have \hhl{one responsibility}.
 	\end{quote}
 
+	\medskip
 	More accurate:
 	
 	\begin{quote}
 		A class should only have \hhl{one reason to change}.
 	\end{quote}
 
+	\medskip
 	Better still:
 	\begin{quote}
 		\hhl{Gather} together the things that change for the same reasons. \\
 		\hhl{Separate} those things that change for different reasons.
 	\end{quote}
 
+	\medskip
 	So this actually proposes a \hhl{balance}!
 	\begin{itemize}
 		\item Avoid classes that do too much \srem{(\enquote{god class})}
@@ -142,7 +153,7 @@
 \end{frame}
 
 \begin{frame}{The SOLID rules of OOP: Interface segregation principle}{SOL\underline  ID}
-	Perhaps leave this one out? 
+	todo or leave out 
 \end{frame}
 
 \begin{frame}{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
@@ -222,13 +233,25 @@
 	\end{quote}
 \end{frame}
 
-\begin{frame}{Interfaces and Performance}
-	Under construction
+\begin{frame}{Performance considerations}
 	
-	When writing very performant code which gets called a lot, try to avoid having unnecessary interfaces that do nothing but forwarding
+	Some patterns will advocate:
+	\begin{itemize}
+		\item classes that only act as interfaces and pass on calls to other (worker) classes
+		\item using separate classes to facilitate communication between classes
+		\item accessing attributes (only) through methods
+		\item prefer composition over inheritance
+	\end{itemize}
 	
 	\bigskip
-	Furthermore: in \proglang{C++}, frequently used getters and setters should be \texttt{inline}
+	However, when writing performance critical (C++) code, you should avoid unnecessary \enquote{detours}:
+	
+	\begin{itemize}
+		\item Avoid unncessary interfaces
+		\item consider inlining simple functions \srem{(e.g. getters and setters)}
+		\item inheritance > composition > \texttt{if} statements
+	\end{itemize}
+	%
 \end{frame}
 
 \section{Patterns}
@@ -237,28 +260,29 @@
 
 \subsection{Patterns}
 
-\begin{frame}{What is a design pattern?}
-	
-\end{frame}
-
-
-
 \begin{frame}{Patterns}
-	We consider several different patterns in the following:
+	\begin{quote}
+		Software design patters try to offer \hhl{general} and \hhl{reusable} solutions for \hhl{commonly} occuring problems in a given \hhl{context}.
+	\end{quote}
+
+	\bigskip
 	
+	Commonly categorized as:
+	
+	\medskip
 	\begin{itemize}
 		%
 		\item 
-		\hhl{Creational patterns}: How are instances of classes instantiated? \srem{(E.g. what if I have a class that can create instances in different ways?)}
+		\hhl{Creational patterns}: How are instances of classes instantiated? \srem{(What if I have a class that can create instances in different ways?)}
 		%
 		\item 
-		\hhl{Structural patterns}:
+		\hhl{Structural patterns}: Concerned with relationships between classes. \srem{(How can classes form flexible larger structures?)}
 		%
 		\item 
-		\hhl{Behavioral patterns}:
+		\hhl{Behavioral patterns}: Concerned with algorithms and communication between classes. \srem{(How are responsibilities assigned between classes?)}
 		%
 		\item 
-		\hhl{Parallel patterns}: How to make OOP work with parallel processing? $\lra$ Will only mention this briefly
+		\hhl{Parallel patterns}: Parallel processing and OOP \srem{$\lra$ only mentioned briefly}
 	\end{itemize}
 \end{frame}
 %
