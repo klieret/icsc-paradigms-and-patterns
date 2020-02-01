@@ -1,0 +1,6 @@
+stages:
+ - BasicVars: Define
+ - DiMuons: cms_hep_tutorial.DiObjectMass
+ - NumberMuons: fast_carpenter.BinnedDataframe
+ - EventSelection: CutFlow
+ - DiMuonMass: BinnedDataframe

@@ -35,37 +35,50 @@
 			\mintinline{HTML}{<h1 style="color:blue;">This is a Blue Heading</h1>
 			}
 		\end{center}
-		\item Strict functional programming languages like \proglang{Haskell}
+		\item Functional programming languages like \proglang{Haskell} \srem{(even though they allow some \enquote{encapsulated} imperative parts)}
 		\item \dots
 \end{itemize}
 \end{frame}
-
-\begin{frame}{Referential transparency}
-	% https://stackoverflow.com/questions/210835/what-is-referential-transparency
-	
-	
-\end{frame}
-%
-\begin{frame}{A broader definition...}
-	Using powerful backends, your source code starts to look very declarative
-\end{frame}
-%
 %
 \begin{frame}{Powerful backends I}
-	Comparison of code fragments using \texttt{numpy}, \texttt{scipy}: Plain python (loops etc.), numpy (declarative), scipy (our problem is already solved)
+	Idea:
+	\begin{itemize}
+		\item Split up your code into \hhl{application/analysis specific code} \srem{(describing the problem)} and a \hhl{backend/library} \srem{(implementing solution strategies)}
+		\item The application specific code starts to \emph{feel} very \hhl{declarative}
+		\item The backend can use different strategies depending on the nature/scale of the problem
+	\end{itemize}
+
+	\medskip
+	Example:
+	\inputminted{python}{code/paradigms/dp/py_pandas.py}
 \end{frame}
 %
 %
 \begin{frame}{Powerful backends II}
 	\begin{itemize}
-		\item \texttt{pandas} \srem{(\proglang{python} package to describe operations on tables)} can be viewed as a \enquote{declarative language} $\lra$ have a more sophisticated backend handle all operations $\lra$ \texttt{modin pandas}
+		\item However, we want more of our backend, e.g. delayed or distributed executation
+		\item \texttt{pandas} can also be viewed as a \enquote{declarative language} describing the problem $\lra$ have a more sophisticated backend handle all operations $\lra$ \texttt{modin pandas}
 		
 		\includegraphics[width=8cm, trim=0cm 2.5cm 0cm 2.5cm, clip]{figures/paradigms/dp/modin_architecture.png}
 		%
-		\item \proglang{ROOT} can also do dataframes: \texttt{RDataFrame}
+%		\item \proglang{ROOT} can also do dataframes: \texttt{RDataFrame}
 	\end{itemize}
 \end{frame}
 %
 \begin{frame}{Powerful backends III}
-	Many new things coming specifically for HEP, e.g. LINQToROOT
+	Belle II steering file:
+	\inputminted{python}{code/paradigms/dp/belle2_steering_file.py}
+	%Many new things coming specifically for HEP, e.g. LINQToROOT
+\end{frame}
+%
+\begin{frame}{Powerful backends IV}
+	Many more powerful tools coming, e.g.
+	\smallskip 
+	\begin{itemize}
+		\item LINQtoROOT: Uses \proglang{C\#} with \proglang{LINQ} queries to describe problem
+		\inputminted[fontsize=\small]{csharp}{code/paradigms/dp/linqtoroot.cs}
+		\item The FAST HEP toolkit: Uses yaml config files to describe problem; using pandas, numpy, etc. in the backend
+		\inputminted[fontsize=\small]{yaml}{code/paradigms/dp/fast.yaml}
+		\item Many more\dots
+	\end{itemize}
 \end{frame}
