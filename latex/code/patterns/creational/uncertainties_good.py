@@ -2,7 +2,7 @@ class Uncertainty:
     def __init__(self, absolute_errors):
         # construct from absolute errors
     
-    @classmethod
+    @classmethod  # <-- doesn't need instance to be called (cf. first slide)
     def from_config(cls, config):
         # get absolute errors from config file
         return cls(absolute_errors)

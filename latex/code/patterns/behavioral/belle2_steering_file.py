@@ -1,20 +1,21 @@
-# Create path to add modules to
-my_path = create_path()
+# Create path to add modules (=Command objects) to
+path = create_path()
 
-# Adding modules to path:
+# Load data (convenience function that adds a "DataLoader" module to the path)
+inputMdstList("default", "/path/to/input/file", path=path)
 
-# Load data from ROOT file:
-inputMdst(filename="input.root", path=my_path)
-# Get final state particles and put them in a particle list:
-fillParticleListsFromMC([("gamma", ...), ("pi-", ...), ...], path=my_path)
-# Reconstruct pi0 -> gamma gamma:
-ma.reconstructDecay(
-	decayString='pi0 -> gamma gamma', 
-	cut='0.1 < InvM < 0.15',
-    path=my_path
+# Get final state particles
+
+# Fill 'pi+:loose' particle list with all particles that have pion ID > 0.01:
+fillParticleList("pi+:loose", "piid > 0.01", path=path)
+# Fill 'mu+:loose' particle list with all particles that have muon ID > 0.01:
+fillParticleList("mu+:loose", "piid > 0.01", path=path)
+
+# Reconstruct decay
+# Fill 'K_S0:pipi' particle list with combinations of our pions and muons
+reconstructDecay(
+	"K_S0:pipi -> pi+:loose pi-:loose", "0.4 < M < 0.6", path=path
 )
-# Write NTuple output file:
-variablesToNtuple(..., path=my_path)
 
-# Process path:
+# Process path = call execute() on all Command objects 
 process(my_path)

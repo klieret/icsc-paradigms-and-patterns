@@ -1,14 +1,18 @@
-\frame{\tableofcontents[]}
+\begin{frame}
+	\tableofcontents[]
+	Slides + material available at \hhl{\url{github.com/klieret/icsc-paradigms-and-patterns}}
+\end{frame}
 
 \begin{frame}{Repetition: Object Oriented Programming}
 	\begin{itemize}
 		\item \hhl{Inheritance:} Subclasses inherit all \srem{(public and protected)} attributes and methods of the base class
+		\item Methods and attributes can be \hhl{public} \srem{(anyone has access)}, \hhl{private} \srem{(only the class itself has access)} or \hhl{protected} \srem{(only the class and its subclasses have access)}
 		\item \hhl{Abstract methods} of an \hhl{abstract class} are methods that have to be implemented by a subclass (\hhl{concrete class})
 	\end{itemize}
 
 	\bigskip
-	\dots
-	Perhaps introduce class methods since we need them for the factory patterns
+	\stress{New}: \hhl{class methods}: Methods of the class, rather than its instances
+	\inputminted[fontsize=\small]{python}{code/patterns/intro/classmethod.py}
 \end{frame}
 
 
@@ -152,8 +156,21 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{The SOLID rules of OOP: Interface segregation principle}{SOL\underline  ID}
-	todo or leave out 
+\begin{frame}{The SOLID rules of OOP: Interface segregation principle (ISP)}{SOL\underline  ID}
+	\begin{quote}
+		Clients should not be forced to depend on methods they do not use
+	\end{quote}
+	
+	\bigskip
+	\begin{itemize}
+		\item 
+		\hhl{\enquote{Thin} interfaces} offering a reasonably small number of methods with \defn{high cohesion} \srem{(serve similar purposes; belong logically together)} are \stress{preferred} over \hhl{\enquote{fat} interfaces} offering a large number of methods with low cohesion
+		\item 
+		Sometimes we should therefore split up (\hhl{segregate}) fat interfaces into thinner \hldefn{role interfaces}
+		\item 
+		This leads to a more \hhl{decoupled} system that is easier to maintain
+		\item \hhl{Example}: Even if all data is contained in one \srem{(e.g. SQL)} database, the ISP asks to write \emph{different} interfaces to do different things, e.g. have a \texttt{CustomerDb}, \texttt{OrderDb}, \texttt{StoreDb}, \dots
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
@@ -237,19 +254,19 @@
 	
 	Some patterns will advocate:
 	\begin{itemize}
-		\item classes that only act as interfaces and pass on calls to other (worker) classes
-		\item using separate classes to facilitate communication between classes
-		\item accessing attributes (only) through methods
-		\item prefer composition over inheritance
+		\item Classes that only act as interfaces and pass on calls to other (worker) classes
+		\item Using separate classes to facilitate communication between classes
+		\item Accessing attributes (only) through methods
+		\item Prefer composition over inheritance
 	\end{itemize}
 	
 	\bigskip
-	However, when writing performance critical (C++) code, you should avoid unnecessary \enquote{detours}:
+	However, when writing \hhl{performance critical} (\proglang{C++}, \dots) code, you should avoid unnecessary \enquote{detours}:
 	
 	\begin{itemize}
 		\item Avoid unncessary interfaces
-		\item consider inlining simple functions \srem{(e.g. getters and setters)}
-		\item inheritance > composition > \texttt{if} statements
+		\item Consider inlining simple functions \srem{(e.g. getters and setters)}
+		\item Inheritance > composition > \texttt{if} statements
 	\end{itemize}
 	%
 \end{frame}

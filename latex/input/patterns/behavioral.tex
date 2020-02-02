@@ -24,9 +24,9 @@
 		\end{tikzpicture}
 		\end{center}
 		\item \hhl{Advantages:} Simple and clean with little overhead
-		\item \hhl{Criticism:} 
+		\item \hhl{Warnings:} 
 		\begin{itemize}
-			\item If there are many differences between original classes, we need many abstract methods $\lra$ increasingly hard to read and mantain
+			\item If there are many differences between original classes, we need (to override) many methods $\lra$ increasingly hard to read and mantain
 			\item If there are multiple \enquote{options} for every method and we want to realize them, the number of subclasses grows exponentially $\lra$ \emph{Strategy pattern}
 			\item If overriding default methods, the Liskov Substitution Principle can be easily violated
 		\end{itemize}
@@ -100,16 +100,16 @@
 
 \begin{frame}{Strategy}
 	\begin{itemize}
-		\item \hhl{Note}: This basically uses the template method pattern for its strategy classes
+		\item \hhl{Note}: The main class holds instances of algorithm classes; the algorithm classes use the the \hl{template method} pattern
 		\item \hhl{Advantages}:
 		\begin{itemize}
 			\item \hl{Open/Closed} principle: Easily add new strategies
 			\item \hl{Dependencies inverted} (\texttt{MyAnalysis} does not depend on the individual implementations)
 			\item \hl{Small number of subclasses}
-			\item \hl{Seperated implementation} of algorithms from higher level code
+			\item \hl{Separated implementation} of algorithms from higher level code
 			\item For compiled languages: Change algorithms at \hl{runtime}
 		\end{itemize}
-		\item \hhl{Criticism}: 
+		\item \hhl{Warnings}: 
 			\begin{itemize}
 				\item Might be overkill for very simple problems
 				\item For maximum performance, avoid virtual calls
@@ -174,5 +174,71 @@
 %\end{frame}
 
 \begin{frame}{Visitor}
-	Might still add this, but unsure of any HEP/science applications and there's already a lot of content...
+	\begin{itemize}
+		\item 
+		\hhl{Concrete example}: Serialize a collection of instances of different classes \srem{(e.g. provide JSON export for a list  of different data objects)}
+		\item
+		\hhl{Possible implementation}: Provide a \texttt{to\_json()} method to all classes
+		\item 
+		\hhl{Potential issue}: 
+		Might soon want to add export for export possibilities: \srem{(\texttt{XML}, \texttt{CSV}, \texttt{YAML}, etc.)}
+		\Lrapar{more and more unrelated methods need to be added to the data class}
+		\Lrapar{\hl{\enquote{polluted} interface} \srem{(methods are irrelevant for core functionality)}; people might be wary of \hl{frequent changes} to a well working class}
+		\item 
+		\hhl{Solution}: 
+		Separate algorithms from the objects they operate on
+		\medskip
+		\begin{center}
+			\begin{tikzpicture}[scale=0.7, transform shape]
+			\umlclass[x=-2,y=3, type=abstract]{Visitor}{ 
+				
+			}{ 
+				+ \emph{visit\_element\_a()}\\
+				+ \emph{visit\_element\_b()}
+			} 
+			
+			\umlemptyclass[x=-2,y=0]{JSONExport}
+			\umlinherit{JSONExport}{Visitor}
+			
+			\umlclass[y=3,x=5, type=abstract]{Element}{ 
+			}{ 
+				+ \emph{accept(visitor)}\\ 
+			} 
+			
+			\umlclass[y=0,x=3.5]{ElementA}{}{+ accept(visitor)}
+			\umlVHVinherit{ElementA}{Element}
+			\umluniassoc[geometry=-|-, anchor1=-160, anchor2=-8]{ElementA}{Visitor}
+			
+			
+			\umlclass[y=0,x=6.5]{ElementB}{}{+ accept(visitor)}
+			\umlVHVinherit{ElementB}{Element}
+			\umluniassoc[anchor1=-160, anchor2=-22]{ElementB}{Visitor}
+			\end{tikzpicture}
+		\end{center}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Visitor}
+	\hhl{Use case} \srem{(more formally)}:
+	\begin{itemize}
+		\item Given a heterogeneous family of \texttt{Element} classes
+		\item Do not expect significant changes to \texttt{Element} classes 
+		\item Various unrelated operations need to be performed on a collection of \texttt{Element} objects
+		\item We expect frequent additions and changes for the operations
+		\item Do not want to frequently change \texttt{Element} classes because of that 
+		\end{itemize}
+	
+	\bigskip
+	\hhl{Advantages of visitor pattern}:
+	\begin{itemize}
+		\item Single responsibility principle: All the operation functionality is in one place
+		\item Open/Closed principle: Easy to add new operations
+	\end{itemize}
+	
+	\bigskip
+	\hhl{Disadvantages of the visitor pattern}:
+	\begin{itemize}
+		\item No access to private information of \texttt{Element} classes
+		\item Changes to \texttt{Element} classes can require changes to all visitors
+	\end{itemize}
 \end{frame}
