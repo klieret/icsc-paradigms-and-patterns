@@ -88,7 +88,7 @@
 \begin{itemize}
 	\item Wrong abstractions can lead to less \hhl{code reusability}
 	\item \hhl{Lasagna code}: Too many layers of classes can be hard to understand
-	\item Hard to \hhl{parallelize} ($\lra$ parallel patterns)
+	\item Can be hard to \hhl{parallelize} if many entangled and interdependent classes with shared mutable states are involved \srem{($\lra$ if required, should be design requirement from the start; \defn{parallel patterns} address some difficulties)}
 \end{itemize}
 \end{block}
 \end{frame}

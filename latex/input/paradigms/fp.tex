@@ -183,7 +183,7 @@
 %	\end{itemize}
 \end{frame}
 
-\begin{frame}{Type systems and polymorphism}
+\begin{frame}{Polymorphism}
 	In FP, the type system allows to bring back some OOP thinking but is more flexible. Usually you can do some of the following:
 	
 	\bigskip
@@ -238,12 +238,13 @@
 	}
 	%
 	\only<+->{
-		\inputminted[]{python}{code/paradigms/fp/sum_tail_recursion.py}
+		\inputminted[fontsize=\small]{python}{code/paradigms/fp/sum_tail_recursion.py}
 	}
 	\only<+->{
 		\bigskip
 		Another FP way is to use the higher level functions \hhl{\texttt{map}} and \hhl{\texttt{reduce}} together with anonymous functions (\hhl{lambda}):
-		\inputminted[]{python}{code/paradigms/fp/sum_map_reduce.py}
+		\inputminted[fontsize=\small]{python}{code/paradigms/fp/sum_map_reduce.py}
+		\srem{This also opens the door for concurrency ($\lra$ parallel versions of \texttt{map} and \texttt{reduce})}
 	}
 \end{frame}
 
@@ -260,7 +261,7 @@
 		\item Can be very \hhl{short} and \hhl{concise} $\lra$ easy to verify
 		
 		\item Sophisticated logical abstractions \srem{(using high level functions)} $\lra$ modularity, \hhl{code reuse}
-		\item Performance boost because of easy \hhl{parallelization}
+		\item Easy \hhl{parallelization} \srem{(no (shared) mutable states)}
 	\end{itemize}
 \end{block}
 \end{frame}
@@ -271,12 +272,12 @@
 		\item Structuring code in terms of objects can feel more intuitive if logic \srem{(methods)} are strongly tied to data 
 		\item Imperative algorithms might be easier to read and feel more natural than declarative notation
 		\item FP might have a steeper \hhl{learning curve} \srem{(e.g. recursions instead of loops, \dots)}
-		\item \hhl{Performance issues} : EXPAND ME
+		\item \hhl{Performance issues}: Immutable data types and recursion can lead to performance problems (speed and RAM), whereas many mutable data structures are very performant on modern hardware
 %		\begin{itemize}
 			%\item Declarative nature somewhat less efficient in CPU usage compared to imperative styles
 			%\item due to \hhl{immutability}: 
 %		\end{itemize}
-		\item Still \hhl{small user base outside of academia}, but gaining traction
+		\item Pure FP has still only a \hhl{small user base outside of academia}, but FP support more and more wide spread in common languages
 	\end{itemize}
 \end{block}
 \end{frame}
