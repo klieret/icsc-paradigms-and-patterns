@@ -265,9 +265,13 @@
 	
 	\begin{itemize}
 		\item Avoid unncessary interfaces
-		\item Consider inlining simple functions \srem{(e.g. getters and setters)}
+		\item Consider inlining simple, often-called functions \srem{(e.g. getters and setters)}
 		\item Inheritance > composition > \texttt{if} statements
 	\end{itemize}
+	Modern compilers will try to apply some optimization techniques automatically \srem{(automatic inling, return value optimization, \dots)}
+	
+	\bigskip
+	General rule: \hl{Profile before Optimizing} 
 	%
 \end{frame}
 
