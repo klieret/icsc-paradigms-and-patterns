@@ -184,10 +184,13 @@
 \end{frame}
 
 \begin{frame}{Polymorphism}
+	% contrast this with subtype polymorphism which is the standard OOP polymorphism
+	% Category: Generic programming	
+	
 	In FP, the type system allows to bring back some OOP thinking but is more flexible. Usually you can do some of the following:
 	
 	\bigskip
-	\hhl{Single/multiple dispatch:}
+	\hhl{Single/multiple dispatch/ad hock polymorphism:}
 	\begin{itemize}
 		\item Can \hhl{overload} function definitions \srem{(e.g. define \mintinline{python}{def print(i: int)} differently from \mintinline{python}{def print(string: str)})}
 		\item The right function is resolved based on the type at compile- or runtime 
@@ -203,7 +206,7 @@
 	\hhl{Type classes:}
 	\begin{itemize}
 		\item Define a \enquote{type} by what functions it has to support \srem{(e.g. define \texttt{Duck} as anything that allows me to call the \texttt{quack} function on it)}
-		\item Similar to a class with only abstract methods or duck-typing \srem{(if it looks like a duck and quacks like a duck, it's a duck)}
+		\item Similar to a class with only abstract methods (=\emph{interface}) and no encapsulated data
 	\end{itemize}
 \end{frame}
 %

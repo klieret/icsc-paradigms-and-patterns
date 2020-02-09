@@ -47,17 +47,18 @@
 		\item The application specific code starts to \emph{feel} very \hhl{declarative}
 		\item The backend can use different strategies depending on the nature/scale of the problem
 	\end{itemize}
-
-	\medskip
+\end{frame}
+%
+\begin{frame}{Powerful backends II}
 	Example:
-	\inputminted{python}{code/paradigms/dp/py_pandas.py}
+	\inputminted{python}{code/paradigms/dp/dataframes.py}
 \end{frame}
 %
 %
-\begin{frame}{Powerful backends II}
+\begin{frame}{Powerful backends III}
 	\begin{itemize}
-		\item However, we want more of our backend, e.g. delayed or distributed execution
-		\item \texttt{pandas} can also be viewed as a \enquote{declarative language} describing the problem $\lra$ have a more sophisticated backend handle all operations $\lra$ \texttt{modin pandas}
+		\item We might want even more of our backend, e.g. delayed or distributed execution
+		\item \texttt{pandas} can also be viewed as a \enquote{declarative language} describing the problem $\lra$ have a more sophisticated backend handle all operations $\lra$ \hhl{\texttt{modin pandas}}
 		
 		\includegraphics[width=8cm, trim=0cm 2.5cm 0cm 2.5cm, clip]{figures/paradigms/dp/modin_architecture.png}
 		%
@@ -65,14 +66,14 @@
 	\end{itemize}
 \end{frame}
 %
-\begin{frame}{Powerful backends III}
+\begin{frame}{Powerful backends IV}
 	Belle II steering file:
 	\inputminted{python}{code/paradigms/dp/belle2_steering_file.py}
 	%Many new things coming specifically for HEP, e.g. LINQToROOT
 \end{frame}
 %
-\begin{frame}{Powerful backends IV}
-	Many more powerful tools coming, e.g.
+\begin{frame}{Powerful backends V}
+	Many more high level tools available:
 	\smallskip 
 	\begin{itemize}
 		\item LINQtoROOT: Uses \proglang{C\#} with \proglang{LINQ} queries to describe problem
