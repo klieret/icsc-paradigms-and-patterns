@@ -13,9 +13,19 @@ This means you don't have to install anything, but you can simply use the binder
 to provide you with a Jupyter environment in your browser.
 It might be a bit slow to start up, but once it's running you're ready to go!
 
-Simply click on the following link and then navigate to the ``exercises`` folder:
+Simply click on the following link:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/klieret/icsc-paradigms-and-patterns/master)
+
+You should see something like this:
+
+![binder loading](readme_assets/binder_loading.png)
+
+After some time you are brought to the Jupyter server:
+
+![binder ready](readme_assets/binder_ready.png)
+
+Navigate on ``exercises`` and then click on one of the two notebooks (``patterns.ipynb`` or ``paradigms.ipynb``) to start your training!
 
 ### Option 2: Local run
 
