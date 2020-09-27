@@ -7,6 +7,8 @@ The course was presented September/October 2020 at the [iCSC 2020](https://indic
 
 ## Running the exercises
 
+If you're completely new to this, use option 1 or 2. If you already have python and Jupyter set up on your computer, we recommend option 3.
+
 ### Option 1: Using binder
 
 This means you don't have to install anything, but you can simply use the binder service
@@ -25,9 +27,16 @@ After some time (don't worry if it takes 5 minutes) you are brought to the Jupyt
 
 ![binder ready](readme_assets/binder_ready.png)
 
-Navigate on ``exercises`` and then click on one of the two notebooks (``patterns.ipynb`` or ``paradigms.ipynb``) to start your training!
+Navigate on ``exercises`` and then click on one of the two notebooks (``patterns.ipynb`` or ``paradigms.ipynb``) to start your training!
 
-### Option 2: Local run
+### Option 2: Google colab
+
+Simply click the link (you need to log in to your google account though)
+
+* [Programming Paradigms](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/paradigms.ipynb)
+* [Software Design Patterns](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/patterns.ipynb)
+
+### Option 3: Local run
 
 You need to have python3 and its package manager pip3.
 
