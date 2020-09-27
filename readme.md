@@ -21,7 +21,7 @@ You should see something like this:
 
 ![binder loading](readme_assets/binder_loading.png)
 
-After some time you are brought to the Jupyter server:
+After some time (don't worry if it takes 5 minutes) you are brought to the Jupyter server:
 
 ![binder ready](readme_assets/binder_ready.png)
 
