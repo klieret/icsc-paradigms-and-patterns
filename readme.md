@@ -24,7 +24,7 @@ You need to have python3 and its package manager pip3.
 Install everything you need:
 
 ```sh
-pip3 install exercises/requirements.txt
+pip3 install requirements.txt
 ```
 
 Then run the Jupyter notebook
