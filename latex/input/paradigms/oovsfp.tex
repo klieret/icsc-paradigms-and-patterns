@@ -1,23 +1,27 @@
 \subsection{OOP vs FP}
 
-\begin{frame}{Object oriented vs functional programming}
+\begin{frame}[t]{Object oriented vs functional programming}
 	Some key aspects to keep in mind:
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item $\text{FP} \neq \text{OOP} - \text{classes}$
 		\item FP is \stress{not} the opposite of OOP: Both paradigms take opposite stances in several aspects: declarative vs imperative, mutable vs immutable, \dots{} $\Longrightarrow$ Not everything can be classified into one of these categories
 		\item Rather: Two different \hhl{ways to think} and to approach problems \srem{$\longrightarrow$ see caveats at the beginning}
 	\end{itemize}
 	
-	\medskip	
-	In a multi-paradigm language, you can use the best of both worlds!
-	\begin{itemize}
-		\item \hhl{OOP} has its classical use cases where there is strong coupling between data and methods and the bookkeeping is in the focus (especially of "real-world" objects)
-		\item \hhl{FP} instead focuses on algorithms and \emph{doing} things
-		\item Some people advocate \hhl{\enquote{OOP in the large, FP in the small}} \srem{(using OOP as the high level interface, using FP techniques for implementing the logic)}
-	\end{itemize}
+	\only<+->{
+		\medskip	
+		In a multi-paradigm language, you can use the best of both worlds!
+		\begin{itemize}[<+->]
+			\item \hhl{OOP} has its classical use cases where there is strong coupling between data and methods and the bookkeeping is in the focus (especially of "real-world" objects)
+			\item \hhl{FP} instead focuses on algorithms and \emph{doing} things
+			\item Some people advocate \hhl{\enquote{OOP in the large, FP in the small}} \srem{(using OOP as the high level interface, using FP techniques for implementing the logic)}
+		\end{itemize}
+	}
 
-	For example:
-	\begin{itemize}
-		\item Many complicated class structures implementing \hhl{manipulations} can be made more flexible with a system of high level functions, anonymous functions etc.
-	\end{itemize}
+	\only<+->{
+		For example:
+		\begin{itemize}
+			\item Many complicated class structures implementing \hhl{manipulations} can be made more flexible with a system of high level functions, anonymous functions etc.
+		\end{itemize}
+	}
 \end{frame}

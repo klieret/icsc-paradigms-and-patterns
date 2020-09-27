@@ -56,8 +56,8 @@
 	\column{0.5\textwidth}	
 	\begin{itemize}
 		\item An \hldefn{abstract method} is a method that has to be implemented by a subclass
-		\item An \hldefn{abstract class} (\hldefn{abstract type}) is a class that cannot be instantiated directly but it might have \hldefn{concrete subclasses} that can
-		\item Use abstract classes to \hl{enforce interfaces} for the concrete classes
+		\item<2-> An \hldefn{abstract class} (\hldefn{abstract type}) is a class that cannot be instantiated directly but it might have \hldefn{concrete subclasses} that can
+		\item<3-> Use abstract classes to \hl{enforce interfaces} for the concrete classes
 	\end{itemize}
 	\column{0.5\textwidth}
 	\only<1| handout:0>{\inputminted[fontsize=\small, lastline=11]{python}{code/paradigms/oop/class_abstract.py}}
@@ -76,19 +76,19 @@
 \begin{frame}{Strenghts and Weaknesses}
 		
 \begin{block}{Strengths}
-	
+	\only<+->{}
 	\begin{itemize}
-		\item \hhl{Easy to read} and understand if done well (very natural way of thinking if classes model real world objects)
-		\item Natural way to \hhl{structure large projects} (e.g. taking classes as components)
-		\item Very \hhl{wide spread} way of thinking
-		\item Especially applicable to problems that center around data and bookkeeping with logic that is strongly tied to the data
+		\item<+-> \hhl{Easy to read} and understand if done well (very natural way of thinking if classes model real world objects)
+		\item<+-> Natural way to \hhl{structure large projects} (e.g. taking classes as components)
+		\item<+-> Very \hhl{wide spread} way of thinking
+		\item<+-> Especially applicable to problems that center around data and bookkeeping with logic that is strongly tied to the data
 	\end{itemize}
 \end{block}
 \begin{block}{Weaknesses}
 \begin{itemize}
-	\item Wrong abstractions can lead to less \hhl{code reusability}
-	\item \hhl{Lasagna code}: Too many layers of classes can be hard to understand
-	\item Can be hard to \hhl{parallelize} if many entangled and interdependent classes with shared mutable states are involved \srem{($\lra$ if required, should be design requirement from the start; \defn{parallel patterns} address some difficulties)}
+	\item<+-> Wrong abstractions can lead to less \hhl{code reusability}
+	\item<+-> \hhl{Lasagna code}: Too many layers of classes can be hard to understand
+	\item<+-> Can be hard to \hhl{parallelize} if many entangled and interdependent classes with shared mutable states are involved \srem{($\lra$ if required, should be design requirement from the start; \defn{parallel patterns} address some difficulties)}
 \end{itemize}
 \end{block}
 \end{frame}

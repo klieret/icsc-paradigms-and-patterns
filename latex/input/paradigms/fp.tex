@@ -9,16 +9,16 @@
 	% https://en.wikipedia.org/wiki/Functional_programming#Pure_functions
 	Functional programming
 	\begin{itemize}
-		\item expresses its computations in the style of \hhl{mathematical functions}
-		\item emphasizes 
+		\item<+-> expresses its computations in the style of \hhl{mathematical functions}
+		\item<+-> emphasizes 
 		\begin{itemize}
 			\item \hhl{expressions} \srem{(\enquote{is} something: a series of identifiers, literals and operators that reduces to a value)} 
 			\item[over\hspace{-0.7em}]
 			\item \hhl{statements} \srem{(\enquote{does} something, e.g. stores value, etc.)}
 		\end{itemize} 
 		$\lra$ \hhl{declarative} nature
-		\item Data is \hhl{immutable} \srem{(instead of changing properties, I need to create copies with the changed property)}
-		\item Avoids \hhl{side effects} \srem{(expressions should not change or depend on any external state)}  
+		\item<+-> Data is \hhl{immutable} \srem{(instead of changing properties, I need to create copies with the changed property)}
+		\item<+-> Avoids \hhl{side effects} \srem{(expressions should not change or depend on any external state)}  
 	\end{itemize}
 	%
 \end{frame}
@@ -93,7 +93,7 @@
 		}
 		\only<3->{
 			\bigskip
-			\stress{Answer}: \texttt{f1} is pure; \texttt{f1}, \texttt{f3}, \texttt{f5} violate rule 2; \texttt{f4} violates rule 1.
+			\stress{Answer}: \texttt{f1} is pure; \texttt{f2}, \texttt{f3}, \texttt{f5} violate rule 2; \texttt{f4}, \texttt{f3} violate rule 1.
 		}
 	\end{columns}
 	
@@ -137,7 +137,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Higher order functions}
+\begin{frame}[t]{Higher order functions}
 	A \hldefn{higher order function} does one of the following:
 	\begin{itemize}
 		\item returns a function
@@ -148,12 +148,15 @@
 	\medskip 
 	\srem{Mathematical examples (usually called \defn{operators} or \defn{functionals}): differential operator, integration, \dots}
 	
-	\medskip
+	\only<2->{\medskip
 	Higher level functions are the FP answer to template methods in OOP \srem{(\enquote{configuring} object behavior by overriding methods in subclasses)}.
-	
+	}
+
+	\only<3->{
 	\medskip
 	Classic example of a higher order function: \texttt{map} \srem{(applies function to all elements in list)}:
 	\inputminted[lastline=8]{python}{code/paradigms/fp/higher_order.py}
+	}
 \end{frame}
 
 \begin{frame}{Higher order functions II}
@@ -183,31 +186,37 @@
 %	\end{itemize}
 \end{frame}
 
-\begin{frame}{Polymorphism}
+\begin{frame}[t]{Polymorphism}
 	% contrast this with subtype polymorphism which is the standard OOP polymorphism
 	% Category: Generic programming	
 	
 	In FP, the type system allows to bring back some OOP thinking but is more flexible. Usually you can do some of the following:
 	
-	\bigskip
-	\hhl{Single/multiple dispatch/ad hoc polymorphism:}
-	\begin{itemize}
-		\item Can \hhl{overload} function definitions \srem{(e.g. define \mintinline{python}{def print(i: int)} differently from \mintinline{python}{def print(string: str)})}
-		\item The right function is resolved based on the type at compile- or runtime 
-	\end{itemize}
+	\only<2->{
+		\bigskip
+		\hhl{Single/multiple dispatch/ad hoc polymorphism:}
+		\begin{itemize}
+			\item Can \hhl{overload} function definitions \srem{(e.g. define \mintinline{python}{def print(i: int)} differently from \mintinline{python}{def print(string: str)})}
+			\item The right function is resolved based on the type at compile- or runtime 
+		\end{itemize}
+	}
 	
-	\medskip
-	\hhl{Parametric polymorphism:}
-	\begin{itemize}
-		\item Parameterize types in function signatures \srem{(e.g. \mintinline{python}{def first(List[a]) -> a}; \texttt{a} represents an arbitrary type)}
-	\end{itemize}
+	\only<3->{
+		\medskip
+		\hhl{Parametric polymorphism:}
+		\begin{itemize}
+			\item Parameterize types in function signatures \srem{(e.g. \mintinline{python}{def first(List[a]) -> a}; \texttt{a} represents an arbitrary type)}
+		\end{itemize}
+	}
 
-	\medskip
-	\hhl{Type classes:}
-	\begin{itemize}
-		\item Define a \enquote{type} by what functions it has to support \srem{(e.g. define \texttt{Duck} as anything that allows me to call the \texttt{quack} function on it)}
-		\item Similar to a class with only abstract methods (=\emph{interface}) and no encapsulated data
-	\end{itemize}
+	\only<4->{
+		\medskip
+		\hhl{Type classes:}
+		\begin{itemize}
+			\item Define a \enquote{type} by what functions it has to support \srem{(e.g. define \texttt{Duck} as anything that allows me to call the \texttt{quack} function on it)}
+			\item Similar to a class with only abstract methods (=\emph{interface}) and no encapsulated data
+		\end{itemize}
+	}
 \end{frame}
 %
 %
@@ -257,12 +266,11 @@
 
 \begin{frame}{Strengths and Weaknesses}
 \begin{block}{Strengths}
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item Proving things \hhl{mathematically} \srem{(referential transparency, \dots)}
 		\item \hhl{Testability} \srem{(no object initializations and complex dependencies, pure functions)}
 		\item Easy \hhl{debugging} \srem{(no hidden states)}
 		\item Can be very \hhl{short} and \hhl{concise} $\lra$ easy to verify
-		
 		\item Sophisticated logical abstractions \srem{(using high level functions)} $\lra$ modularity, \hhl{code reuse}
 		\item Easy \hhl{parallelization} \srem{(no (shared) mutable states)}
 	\end{itemize}
@@ -271,7 +279,7 @@
 
 \begin{frame}{Strengths and Weaknesses}
 \begin{block}{Weaknesses}
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item Structuring code in terms of objects can feel more intuitive if logic \srem{(methods)} are strongly tied to data 
 		\item Imperative algorithms might be easier to read and feel more natural than declarative notation
 		\item FP might have a steeper \hhl{learning curve} \srem{(e.g. recursions instead of loops, \dots)}

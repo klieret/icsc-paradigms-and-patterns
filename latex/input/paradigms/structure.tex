@@ -2,14 +2,14 @@
 
 \begin{frame}{Overview}
 	\begin{itemize}
-	\item Lecture 1: Programming Paradigms (PPs): Monday 9:15 -- 10:15
-	\item Lecture 2: Design Patterns (DPs): Tuesday 14:30 -- 15:30
+	\item Lecture 1: Programming Paradigms (PPs): Monday 14:15 -- 15:25
+	\item Lecture 2: Design Patterns (DPs): Tuesday 14:00 -- 15:10
 	\item Exercises: Wednesday 09:00 -- 11:00
 	\end{itemize}
-	
+
 	\bigskip
 	All material at: \hhl{\url{github.com/klieret/icsc-paradigms-and-patterns}}
-	
+
 	\bigskip
 	\begin{block}{The goal of this course}
 		\begin{itemize}
@@ -23,7 +23,7 @@
 
 
 \begin{frame}[t]{Programming Paradigms}
-	\only<1->{\begin{block}{What \stress{is} a programming paradigm?}
+	\only<+->{\begin{block}{What \stress{is} a programming paradigm?}
 		\begin{itemize}
 			\item A \hhl{classification of programming languages} based on their features {\small (but most popular languages support multiple paradigms)}
 			\item A \hhl{programming style} or way programming/thinking
@@ -32,10 +32,10 @@
 		\end{itemize}
 	\end{block}
 	}
-	%	
+	%
 	\only<+->{\begin{block}{Why should I care?}
 			\begin{itemize}
-				\item Discover \hhl{new ways of thinking} $\lra$ challenge your current believes about how to code 
+				\item Discover \hhl{new ways of thinking} $\lra$ challenge your current believes about how to code
 				\item Choose the \hhl{right paradigm for the right problem} or \hhl{pick the best of many worlds}
 			\end{itemize}
 		\end{block}
@@ -43,7 +43,7 @@
 	%
 \end{frame}
 
-\begin{frame}{Programming Paradigms}
+\begin{frame}[t]{Programming Paradigms}
 	\only<+->{
 	\begin{block}{Some problems}
 		\begin{itemize}
@@ -54,6 +54,7 @@
 	\end{block}
 	}
 	%
+	\only<+->{
 	\begin{block}{My personal approach}
 		\begin{itemize}
 			\item Rather than asking \enquote{How to define paradigm X?}, ask \enquote{How would I approach my problems in X?}.
@@ -61,8 +62,9 @@
 			\item Get back to your daily programming and rethink your design decisions
 		\end{itemize}
 	\end{block}
+	}
 	%
-	
+
 \end{frame}
 
 %\begin{frame}{Lecture 1}{Programming Paradigms}
@@ -109,12 +111,12 @@
 
 \subsection{Core concepts}
 
-\begin{frame}{Modularity}{Perhaps the most important principle of good software}
+\begin{frame}[t]{Modularity}{Perhaps the most important principle of good software}
 	\hhl{Split up code} into parts, e.g. functions, classes, modules, packages, \dots
 	% http://aosd.net/importance-of-modularity-in-programming/
-	
+
 	\bigskip
-	You have done \goodc{\stress{well}} if the parts are 
+	You have done \goodc{\stress{well}} if the parts are
 	\begin{itemize}
 		\item independent of each other
 		\item have clear responsibilities
@@ -126,25 +128,26 @@
 	\end{itemize}
 
 	\bigskip
-	This has benefits for almost all of your goals:
+	\only<2->{This has benefits for almost all of your goals:
 	\begin{itemize}
 		\item Easier and more complete \hhl{testability} by using unit tests, better debugging
 		\item Confidence from unit tests allows for better \hhl{maintainability} and \hhl{flexibility}
 		\item Allowing to split responsibilities for different \enquote{modules} enhances collaboration and thereby \hhl{maintainability}
 		\item Code \hhl{reusability} (obvious)
 	\end{itemize}
+	}
 	%high cohesion?
-	
-	
+
+
 \end{frame}
 
 \begin{frame}{Modularity}{Perhaps the most important principle of good software}
 	A related principle: \hhl{Isolate what changes!}
-	
+
 	\begin{itemize}
 		\item Which parts of your code will likely have to change in the future?\\
 		 \lrapar{These parts should be \hhl{isolated} \srem{(you should be able to change them in one place, without having to change anything else)}}
-		 \item This also leads to the concept of a separation of 
+		 \item This also leads to the concept of a separation of
 		 \begin{itemize}
 		 	\item \hhl{interface} \srem{(used by other \enquote{modules}, stays untouched)} and
 		 	\item \hhl{implementation} \srem{(only used by the module itself, can change easily)}
@@ -157,14 +160,14 @@
 	%
 	% https://reinout.vanrees.org/weblog/2015/12/21/complex-complicated.html
 	From the Zen of python:
-	
+
 	\bigskip
 	\begin{center}
 		\hhl{Simple} is better than \hhl{complex}.\\
 		\hhl{Complex} is better than \hhl{complicated}.
 	\end{center}
 	\bigskip
-	
+
 	\begin{itemize}
 		\item The more \defn{complicated} something is, the harder it is to understand
 		\item The more \defn{complex} something is, the more parts it has
