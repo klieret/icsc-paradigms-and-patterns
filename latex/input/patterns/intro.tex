@@ -1,6 +1,9 @@
 \begin{frame}
 	\tableofcontents[]
-	Slides + material available at \hhl{\url{github.com/klieret/icsc-paradigms-and-patterns}}
+	Slides + exercises available at \hhl{\href{https://github.com/klieret/icsc-paradigms-and-patterns}{github.com/klieret/icsc-paradigms-and-patterns}}
+
+    \medskip
+    Thursday 17:00-17:30: \hhl{Exercise consultation time}
 \end{frame}
 
 \begin{frame}{Repetition: Object Oriented Programming}
@@ -22,39 +25,39 @@
 
 \begin{frame}{Class diagrams I}
 	UML \srem{(\underline Unified \underline Markup \underline Language)} class diagrams visualize classes and the relationships between them. We will use the following subset of notations:
-	
+
 	\bigskip
 	\begin{changemargin}{-1cm}{-1cm}
 	\centering
 	\begin{tikzpicture}[scale=0.9, transform shape]
-	\umlclass[x=0,y=3]{class A}{ 
-		+ public variable : type\\ 
-		-- private variable : type \\ 
+	\umlclass[x=0,y=3]{class A}{
+		+ public variable : type\\
+		-- private variable : type \\
 		\# protected variable : type
-	}{ 
-		+ public method(arg : type) : return type\\ 
-		\dots 
-	} 
+	}{
+		+ public method(arg : type) : return type\\
+		\dots
+	}
 
 	\umlemptyclass[x=0,y=0]{class B}
 	\umlnote[x=3,y=0, width=2cm, scale=0.9, transform shape]{class B}{\ subclass of A}
 	\umlinherit{class B}{class A}
-	
-	
+
+
 	\umlemptyclass[x=0,y=-2]{class C}
 	\umlnote[x=3,y=-2,width=2cm, scale=0.9, transform shape]{class C}{\ subclass of B}
 	\umlinherit{class C}{class B}
-	
+
 	\umlemptyclass[x=6, y=3]{class D}
 	\umlaggreg{class A}{class D}
 	\umlnote[x=9,y=3,width=2cm, scale=0.9, transform shape]{class D}{\ A contains\\\ instances of D}
-	
+
 	\umlemptyclass[x=6, y=1]{class E}
 %	\umlaggreg{class A}{class D}
 	\umlnote[x=9,y=1,width=2cm, scale=0.9, transform shape]{class E}{\ A is otherwise associated with E}
 	\umlassoc{class E}{class A}
-%	
-	
+%
+
 	\end{tikzpicture}
 	\end{changemargin}
 \end{frame}
@@ -63,7 +66,7 @@
 \subsection{The SOLID rules of OOP}
 
 %\begin{frame}{The SOLID rules of OOP: SOLID}
-%	
+%
 %\end{frame}
 
 \frame{\tableofcontents[currentsection, currentsubsection]}
@@ -71,14 +74,14 @@
 \begin{frame}{The SOLID rules of OOP: Single responsibility principle}{\underline SOLID}
 	% https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137
 	Commonly (mis-)quoted as:
-	
+
 	\begin{quote}
 		A class should only have \hhl{one responsibility}.
 	\end{quote}
 
 	\medskip
 	More accurate:
-	
+
 	\begin{quote}
 		A class should only have \hhl{one reason to change}.
 	\end{quote}
@@ -127,11 +130,11 @@
 		\item \hhl{Signature} of methods of the subclass:
 		\begin{itemize}
 			%
-			\item 
+			\item
 			Required type of arguments should be supertype (\defn{contravariance})\\
 			\srem{Violation: Supermethod accepts any \texttt{Rectangle}, submethod only \texttt{Square}}
 			%
-			\item 
+			\item
 			Return type of method should be a subtype (\defn{covariance})\\
 			\srem{Violation: Supermethod returns \texttt{Square}, submethod returns \texttt{Rectangle}}
 		\end{itemize}
@@ -142,14 +145,14 @@
 		\hhl{Preconditions} \srem{(requirements to be fulfilled before calling method)} cannot be strengthened in the subtype\\
 		\srem{Violation: Only in subclass \texttt{prepare()} must be called before \texttt{method()}}
 		%
-		\item 
-		\hhl{Postconditions} 
+		\item
+		\hhl{Postconditions}
 		\srem{(conditions fulfilled after calling a method)} cannot be weakened by the subtype
 		%
-		\item 
+		\item
 		\hhl{Invariants} \srem{(properties that stay the same)} of supertype must be preserved in the subtype
 		%
-		\item 
+		\item
 		\hhl{History contraint}: Subtypes cannot modify properties that are not modifyable in supertype\\
 		\srem{Violation: \texttt{VariableRadiusCircle} as subtype of \texttt{FixedRadiusCircle}}
 		\end{itemize}
@@ -160,14 +163,14 @@
 	\begin{quote}
 		Clients should not be forced to depend on methods they do not use
 	\end{quote}
-	
+
 	\bigskip
 	\begin{itemize}
-		\item 
+		\item
 		\hhl{\enquote{Thin} interfaces} offering a reasonably small number of methods with \defn{high cohesion} \srem{(serve similar purposes; belong logically together)} are \stress{preferred} over \hhl{\enquote{fat} interfaces} offering a large number of methods with low cohesion
-		\item 
+		\item
 		Sometimes we should therefore split up (\hhl{segregate}) fat interfaces into thinner \hldefn{role interfaces}
-		\item 
+		\item
 		This leads to a more \hhl{decoupled} system that is easier to maintain
 		\item \hhl{Example}: Even if all data is contained in one \srem{(e.g. SQL)} database, the ISP asks to write \emph{different} interfaces to do different things, e.g. have a \texttt{CustomerDb}, \texttt{OrderDb}, \texttt{StoreDb}, \dots
 	\end{itemize}
@@ -181,66 +184,66 @@
 		\end{itemize}
 	\end{quote}
 	Let's consider a very simple example: A \hhl{button} controlling a lamp. One way to implement this:
-	
+
 	\bigskip
 	\begin{columns}
 		\column{0.1\textwidth}
 		%
 		\begin{tikzpicture}[scale=0.7, transform shape]
-		\umlclass[x=0,y=3]{Button}{ 
+		\umlclass[x=0,y=3]{Button}{
 			- client
-		}{ 
-			+ turn\_on()\\ 
-			+ turn\_off()\\ 
+		}{
+			+ turn\_on()\\
+			+ turn\_off()\\
 			+ flip()
-		} 
-		
+		}
+
 		\umlemptyclass[x=0,y=0]{Lamp}
 		\umlaggreg{Button}{Lamp}
 		\end{tikzpicture}
-		
+
 		\column{0.8\textwidth}
 		This violates the DIP, because \texttt{Button} \srem{(high-level)} depends on \texttt{Lamp} \srem{(detail)}.
-	
+
 		\bigskip
 		What if we have multiple consumers \srem{(\texttt{Motor}, \texttt{Lamp}, \dots)} and multiple types of buttons \srem{(swipe button, switch, push button, \dots)}? How can we force them to behave consistent? What methods does a consumer have to implement to work together with the button?\\
-		
+
 		\medskip
 		$\lra$ Enter abstractions (interfaces)
 	\end{columns}
-	
+
 	%
 \end{frame}
 
 \begin{frame}{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
 	\begin{center}
 	\begin{tikzpicture}[scale=0.7, transform shape]
-	\umlclass[x=0,y=3, type=abstract]{AbstractButton}{ 
+	\umlclass[x=0,y=3, type=abstract]{AbstractButton}{
 		- client
-	}{ 
-		+ turn\_on()\\ 
-		+ turn\_off()\\ 
+	}{
+		+ turn\_on()\\
+		+ turn\_off()\\
 		+ flip()
-	} 
-	
+	}
+
 	\umlemptyclass[x=0,y=0]{ConcreteButton}
 	\umlinherit{ConcreteButton}{AbstractButton}
-	
-	\umlclass[y=3,x=5, type=abstract]{AbstractClient}{ 
-	}{ 
-		+ turn\_on()\\ 
-		+ turn\_off()\\ 
-	} 
+
+	\umlclass[y=3,x=5, type=abstract]{AbstractClient}{
+	}{
+		+ turn\_on()\\
+		+ turn\_off()\\
+	}
 	\umlaggreg{AbstractButton}{AbstractClient}
-	
+
 	\umlemptyclass[y=0,x=5]{ConcreteClient}
 	\umlinherit{ConcreteClient}{AbstractClient}
 	\end{tikzpicture}
 	\end{center}
-	
+
 	\medskip
 	Now it's clear which methods the concrete client has to implement. Both high level and low level modules only depend on abstractions.
-	
+
 	\bigskip
 	This also fulfills the second part of the DIP:
 	\begin{quote}
@@ -251,7 +254,7 @@
 \end{frame}
 
 \begin{frame}{Performance considerations}
-	
+
 	Some patterns will advocate:
 	\begin{itemize}
 		\item Classes that only act as interfaces and pass on calls to other (worker) classes
@@ -259,19 +262,19 @@
 		\item Accessing attributes (only) through methods
 		\item Prefer composition over inheritance
 	\end{itemize}
-	
+
 	\bigskip
 	However, when writing \hhl{performance critical} (\proglang{C++}, \dots) code, you should avoid unnecessary \enquote{detours}:
-	
+
 	\begin{itemize}
 		\item Avoid unncessary interfaces
 		\item Consider inlining simple, often-called functions \srem{(e.g. getters and setters)}
 		\item Inheritance > composition > \texttt{if} statements
 	\end{itemize}
 	Modern compilers will try to apply some optimization techniques automatically \srem{(automatic inling, return value optimization, \dots)}
-	
+
 	\bigskip
-	General rule: \hl{Profile before Optimizing} 
+	General rule: \hl{Profile before Optimizing}
 	%
 \end{frame}
 
@@ -287,22 +290,22 @@
 	\end{quote}
 
 	\bigskip
-	
+
 	Commonly categorized as:
-	
+
 	\medskip
 	\begin{itemize}
 		%
-		\item 
+		\item
 		\hhl{Creational patterns}: How are instances of classes instantiated? \srem{(What if I have a class that can create instances in different ways?)}
 		%
-		\item 
+		\item
 		\hhl{Structural patterns}: Concerned with relationships between classes. \srem{(How can classes form flexible larger structures?)}
 		%
-		\item 
+		\item
 		\hhl{Behavioral patterns}: Concerned with algorithms and communication between classes. \srem{(How are responsibilities assigned between classes?)}
 		%
-		\item 
+		\item
 		\hhl{Parallel patterns}: Parallel processing and OOP \srem{$\lra$ only mentioned briefly}
 	\end{itemize}
 \end{frame}
