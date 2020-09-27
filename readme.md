@@ -7,7 +7,33 @@ The course was presented September/October 2020 at the [iCSC 2020](https://indic
 
 ## Running the exercises
 
+### Option 1: Using binder
 
+This means you don't have to install anything, but you can simply use the binder service
+to provide you with a Jupyter environment in your browser.
+It might be a bit slow to start up, but once it's running you're ready to go!
+
+Simply click on the following link and then navigate to the ``exercises`` folder:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/klieret/icsc-paradigms-and-patterns/master)
+
+### Option 2: Local run
+
+You need to have python3 and its package manager pip3.
+
+Install everything you need:
+
+```sh
+pip3 install exercises/requirements.txt
+```
+
+Then run the Jupyter notebook
+
+```sh
+jupyter-notebook
+```
+
+It should open in your browser.
 
 ## Generating lecture slides from source
 
