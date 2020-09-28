@@ -29,6 +29,8 @@ After some time (don't worry if it takes 5 minutes) you are brought to the Jupyt
 
 Navigate on ``exercises`` and then click on one of the two notebooks (``patterns.ipynb`` or ``paradigms.ipynb``) to start your training!
 
+If you've never use Jupyter notebook, you can also do [this training](https://mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb) or take a look at [the documentation](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html). But basically you can execute a cell by hitting ``Shift+Enter`` and add cells with the menu.
+
 ### Option 2: Google colab
 
 Simply click the link (you need to log in to your google account though)
@@ -36,14 +38,23 @@ Simply click the link (you need to log in to your google account though)
 * [Programming Paradigms ![google colab](readme_assets/colab-button.png)](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/paradigms.ipynb)
 * [Software Design Patterns ![google colab](readme_assets/colab-button.png)](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/patterns.ipynb)
 
+If you've never used Google colab, you can also go to [this page](https://colab.research.google.com/notebooks/intro.ipynb) and try it out (but it's very similar to Jupyter notebooks if you're familiar with that). 
+
 ### Option 3: Local run
 
 You need to have python3 and its package manager pip3.
 
-Install everything you need:
+Clone the repository
 
 ```sh
-pip3 install requirements.txt
+git clone git@github.com:klieret/icsc-paradigms-and-patterns.git
+cd icsc-paradigms-and-patterns
+```
+
+Make sure you have the required python packages:
+
+```sh
+pip3 install -r requirements.txt
 ```
 
 Then run the Jupyter notebook
