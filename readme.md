@@ -33,8 +33,8 @@ Navigate on ``exercises`` and then click on one of the two notebooks (``patterns
 
 Simply click the link (you need to log in to your google account though)
 
-* [Programming Paradigms](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/paradigms.ipynb)
-* [Software Design Patterns](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/patterns.ipynb)
+* [Programming Paradigms ![google colab](readme_assets/colab-button.png)](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/paradigms.ipynb)
+* [Software Design Patterns ![google colab](readme_assets/colab-button.png)](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/patterns.ipynb)
 
 ### Option 3: Local run
 
