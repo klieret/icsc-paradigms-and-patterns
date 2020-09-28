@@ -5,9 +5,20 @@ exercises.
 
 The course was presented September/October 2020 at the [iCSC 2020](https://indico.cern.ch/event/853710/).
 
+## Getting help
+
+During the event, there are two channels on CERN mattermost (you might need to create a CERN lightweight account, which is free for everyone):
+
+* [Programming Paradigms](https://mattermost.web.cern.ch/csc/channels/programming-paradigms)
+* [Software Design Patterns](https://mattermost.web.cern.ch/csc/channels/software-design)
+
+After the event, you can open an issue in this repository.
+
 ## Running the exercises
 
 If you're completely new to this, use option 1 or 2. If you already have python and Jupyter set up on your computer, we recommend option 3.
+
+**IMPORTANT NOTE**: The exercises might still be updated up to the lecture. In particular the Patterns exercises are not complete yet.
 
 ### Option 1: Using binder
 
@@ -82,3 +93,8 @@ The slides work with overlays (partial reveals of bullet points and other elemen
 As this is less practical for studying yourself, take a look at the main ``.tex`` file
 and change ``\handoutfalse`` to ``\handouttrue`` if needed.
 
+## Developing this further
+
+We are planning to convert this into a training similar to that of the [Software Carpentry](https://software-carpentry.org/) in order to be included in the [HSF curriculum](https://hepsoftwarefoundation.org/training/curriculum.html). Help is much appreciated. 
+
+If you have any particular comments, feel free to open an issue on github for this repository.
