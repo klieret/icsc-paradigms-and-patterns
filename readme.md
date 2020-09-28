@@ -40,7 +40,7 @@ After some time (don't worry if it takes 5 minutes) you are brought to the Jupyt
 
 Navigate on ``exercises`` and then click on one of the two notebooks (``patterns.ipynb`` or ``paradigms.ipynb``) to start your training!
 
-If you've never use Jupyter notebook, you can also do [this training](https://mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb) or take a look at [the documentation](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html). But basically you can execute a cell by hitting ``Shift+Enter`` and add cells with the menu.
+If you've never use Jupyter notebook, you can also do [this training](https://mybinder.org/v2/gh/ipython/ipython-in-depth/master?filepath=binder/Index.ipynb) or take a look at [the documentation](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html). But basically you can execute a cell by hitting ``Shift+Enter`` and add cells with the menu.
 
 ### Option 2: Google colab
 
@@ -98,3 +98,7 @@ and change ``\handoutfalse`` to ``\handouttrue`` if needed.
 We are planning to convert this into a training similar to that of the [Software Carpentry](https://software-carpentry.org/) in order to be included in the [HSF curriculum](https://hepsoftwarefoundation.org/training/curriculum.html). Help is much appreciated. 
 
 If you have any particular comments, feel free to open an issue on github for this repository.
+
+## Citation & License
+
+A zenodo ID will be added to this repository after the event (to wait for exercise finalization) together with a license. 
