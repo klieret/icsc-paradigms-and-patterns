@@ -160,10 +160,16 @@
 	}
 \end{frame}
 
-\begin{frame}{Higher order functions II}
+\begin{frame}[t]{Higher order functions II}
+	\bigskip
 	A function that also returns a function:
 	
-	\inputminted[]{python}{code/paradigms/fp/higher_order_2.py}
+	\only<1| handout:0>{
+		\inputminted[lastline=12]{python}{code/paradigms/fp/higher_order_2.py}
+	}
+	\only<2>{
+		\inputminted[]{python}{code/paradigms/fp/higher_order_2.py}
+	}
 \end{frame}
 
 \begin{frame}{Type systems}
@@ -238,9 +244,11 @@
 	}
 	\only<+->{
 	\bigskip
-		How to change this? $\lra$ Use \hhl{recursion}
+		How to change this? 
+		\only<+->{$\lra$ Use \hhl{recursion}
 		%
 		\inputminted[]{python}{code/paradigms/fp/sum_head_recursion.py}
+	}
 	}
 	%Tail recursions $\lra$ Compiler optimization
 \end{frame}
