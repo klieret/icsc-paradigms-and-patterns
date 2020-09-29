@@ -2,7 +2,8 @@
 
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
-\begin{frame}{Proxy, Adapter, Facade}
+\begin{frame}[t]{Proxy, Adapter, Facade}
+	\bigskip
 	Three patterns that deal with \hhl{interfaces}:
 	
 	\bigskip
@@ -25,22 +26,24 @@
 			\end{tikzpicture}
 		\end{center}
 		\medskip
-		Usage examples:
-		\begin{itemize}
-			\item \hhl{Protection proxy}: Enforce access rights \srem{(always check authorization before method call/attribute access; e.g. in web applications)}
-			\item \hhl{Remote proxy}: If the \texttt{Service} is located remotely, the proxy deals with transferring requests and results 
-			\item Extend the \hhl{Service} class with \hhl{caching} or \hhl{logging}
-			\item \dots
-		\end{itemize}
+		\only<2->{
+			Usage examples:
+			\begin{itemize}
+				\item<2-> \hhl{Protection proxy}: Enforce access rights \srem{(always check authorization before method call/attribute access; e.g. in web applications)}
+				\item<3-> \hhl{Remote proxy}: If the \texttt{Service} is located remotely, the proxy deals with transferring requests and results 
+				\item<4-> Extend the \hhl{Service} class with \hhl{caching} or \hhl{logging}
+				\item<4-> \dots
+			\end{itemize}
+		}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Adapter}
 	\begin{itemize}
-	\item \hhl{Facade}: A class providing a simple interface for complicated operations that involve multiple servant classes
+	\item<1-> \hhl{Facade}: A class providing a simple interface for complicated operations that involve multiple servant classes
 	
 	\bigskip
-	\item \hhl{Adapter}: We have a 3rd party class \texttt{ForeignClass} whose interface is incompatible to interface \texttt{OurInterface} $\lra$ Create an \defn{adapter} class as a wrapper
+	\item<2-> \hhl{Adapter}: We have a 3rd party class \texttt{ForeignClass} whose interface is incompatible to interface \texttt{OurInterface} $\lra$ Create an \defn{adapter} class as a wrapper
 	\medskip
 	\begin{center}
 		\begin{tikzpicture}[scale=0.7, transform shape]

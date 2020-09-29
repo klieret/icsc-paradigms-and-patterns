@@ -99,12 +99,14 @@
 			\hhl{Separate} those things that change for different reasons.
 		\end{quote}
 	
-		\medskip
-		So this actually proposes a \hhl{balance}!
-		\begin{itemize}
-			\item Avoid classes that do too much \srem{(\enquote{god class})}
-			\item But also avoid having changes always affect many classes \srem{(\enquote{shotgun surgery})}
-		\end{itemize}
+		\only<3->{
+			\medskip
+			So this actually proposes a \hhl{balance}!
+			\begin{itemize}
+				\item Avoid classes that do too much \srem{(\enquote{god class})}
+				\item But also avoid having changes always affect many classes \srem{(\enquote{shotgun surgery})}
+			\end{itemize}
+		}
 	}
 \end{frame}
 
@@ -143,11 +145,11 @@
 				%
 				\item
 				Required type of arguments should be supertype (\defn{contravariance})\\
-				\srem{Violation: Supermethod accepts any \texttt{Rectangle}, submethod only \texttt{Square}}
+				\srem{Violation: Supermethod accepts any \texttt{Animal}, submethod only \texttt{Cat}}
 				%
 				\item
 				Return type of method should be a subtype (\defn{covariance})\\
-				\srem{Violation: Supermethod returns \texttt{Square}, submethod returns \texttt{Rectangle}}
+				\srem{Violation: Supermethod returns \texttt{Cat}, submethod returns \texttt{Animal}}
 			\end{itemize}
 		\item Behavior:
 			\begin{itemize}[<+->]
@@ -177,57 +179,61 @@
 	\end{quote}
 
 	\bigskip
-	\begin{itemize}
-		\item
+	\begin{itemize}[]
+		\item<2->
 		\hhl{\enquote{Thin} interfaces} offering a reasonably small number of methods with \defn{high cohesion} \srem{(serve similar purposes; belong logically together)} are \stress{preferred} over \hhl{\enquote{fat} interfaces} offering a large number of methods with low cohesion
-		\item
+		\item<3->
 		Sometimes we should therefore split up (\hhl{segregate}) fat interfaces into thinner \hldefn{role interfaces}
-		\item
+		\item<3->
 		This leads to a more \hhl{decoupled} system that is easier to maintain
-		\item \hhl{Example}: Even if all data is contained in one \srem{(e.g. SQL)} database, the ISP asks to write \emph{different} interfaces to do different things, e.g. have a \texttt{CustomerDb}, \texttt{OrderDb}, \texttt{StoreDb}, \dots
+		\item<4-> \hhl{Example}: Even if all data is contained in one \srem{(e.g. SQL)} database, the ISP asks to write \emph{different} interfaces to do different things, e.g. have a \texttt{CustomerDb}, \texttt{OrderDb}, \texttt{StoreDb}, \dots
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
+\begin{frame}[t]{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
 	This is about \hhl{decoupling} different classes and modules:
 	\begin{quote}
 		\begin{itemize}
 			\item[1.] High-level modules should not depend on low-level modules. Both should depend on abstractions \srem{(interfaces)}.
 		\end{itemize}
 	\end{quote}
-	Let's consider a very simple example: A \hhl{button} controlling a lamp. One way to implement this:
-
-	\bigskip
-	\begin{columns}
-		\column{0.1\textwidth}
-		%
-		\begin{tikzpicture}[scale=0.7, transform shape]
-		\umlclass[x=0,y=3]{Button}{
-			- client
-		}{
-			+ turn\_on()\\
-			+ turn\_off()\\
-			+ flip()
-		}
-
-		\umlemptyclass[x=0,y=0]{Lamp}
-		\umlaggreg{Button}{Lamp}
-		\end{tikzpicture}
-
-		\column{0.8\textwidth}
-		This violates the DIP, because \texttt{Button} \srem{(high-level)} depends on \texttt{Lamp} \srem{(detail)}.
+	\only<2->{
+		Let's consider a very simple example: A \hhl{button} controlling a lamp. One way to implement this:
 
 		\bigskip
-		What if we have multiple consumers \srem{(\texttt{Motor}, \texttt{Lamp}, \dots)} and multiple types of buttons \srem{(swipe button, switch, push button, \dots)}? How can we force them to behave consistent? What methods does a consumer have to implement to work together with the button?\\
-
-		\medskip
-		$\lra$ Enter abstractions (interfaces)
-	\end{columns}
-
+		\begin{columns}
+			\column{0.1\textwidth}
+			%
+			\begin{tikzpicture}[scale=0.7, transform shape]
+			\umlclass[x=0,y=3]{Button}{
+				- client
+			}{
+				+ turn\_on()\\
+				+ turn\_off()\\
+				+ flip()
+			}
+	
+			\umlemptyclass[x=0,y=0]{Lamp}
+			\umlaggreg{Button}{Lamp}
+			\end{tikzpicture}
+	
+			\column{0.8\textwidth}
+			\only<3->{
+				This violates the DIP, because \texttt{Button} \srem{(high-level)} depends on \texttt{Lamp} \srem{(detail)}.
+				\bigskip
+				
+				What if we have multiple consumers \srem{(\texttt{Motor}, \texttt{Lamp}, \dots)} and multiple types of buttons \srem{(swipe button, switch, push button, \dots)}? How can we force them to behave consistent? What methods does a consumer have to implement to work together with the button?\\
+		
+				\bigskip
+				$\lra$ Enter abstractions (interfaces)	
+			}
+		\end{columns}
+	}
 	%
 \end{frame}
 
-\begin{frame}{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
+\begin{frame}[t]{The SOLID rules of OOP: Dependency Inversion Principle}{SOLI\underline  D}
+	\bigskip
 	\begin{center}
 	\begin{tikzpicture}[scale=0.7, transform shape]
 	\umlclass[x=0,y=3, type=abstract]{AbstractButton}{
@@ -253,40 +259,48 @@
 	\end{tikzpicture}
 	\end{center}
 
-	\medskip
-	Now it's clear which methods the concrete client has to implement. Both high level and low level modules only depend on abstractions.
-
-	\bigskip
-	This also fulfills the second part of the DIP:
-	\begin{quote}
-		\begin{itemize}
-			\item[2.] Abstractions should not depend on details. Details \srem{(i.e. concrete implementations)} should depend on abstractions.
-		\end{itemize}
-	\end{quote}
+	\only<2->{
+		\medskip
+		Now it's clear which methods the concrete client has to implement. Both high level and low level modules only depend on abstractions.
+	
+		\bigskip
+		\only<3->{
+			This also fulfills the second part of the DIP:
+			\begin{quote}
+				\begin{itemize}
+					\item[2.] Abstractions should not depend on details. Details \srem{(i.e. concrete implementations)} should depend on abstractions.
+				\end{itemize}
+			\end{quote}
+		}
+	}
 \end{frame}
 
-\begin{frame}{Performance considerations}
+\begin{frame}[t]{Performance considerations}
 
-	Some patterns will advocate:
-	\begin{itemize}
-		\item Classes that only act as interfaces and pass on calls to other (worker) classes
-		\item Using separate classes to facilitate communication between classes
-		\item Accessing attributes (only) through methods
-		\item Prefer composition over inheritance
-	\end{itemize}
+	\only<1->{
+		Some patterns will advocate:
+		\begin{itemize}
+			\item Classes that only act as interfaces and pass on calls to other (worker) classes
+			\item Using separate classes to facilitate communication between classes
+			\item Accessing attributes (only) through methods
+			\item Prefer composition over inheritance
+		\end{itemize}
+	}
 
-	\bigskip
-	However, when writing \hhl{performance critical} (\proglang{C++}, \dots) code, you should avoid unnecessary \enquote{detours}:
-
-	\begin{itemize}
-		\item Avoid unncessary interfaces
-		\item Consider inlining simple, often-called functions \srem{(e.g. getters and setters)}
-		\item Inheritance > composition > \texttt{if} statements
-	\end{itemize}
-	Modern compilers will try to apply some optimization techniques automatically \srem{(automatic inling, return value optimization, \dots)}
-
-	\bigskip
-	General rule: \hl{Profile before Optimizing}
+	\only<2->{
+		\bigskip
+		However, when writing \hhl{performance critical} (\proglang{C++}, \dots) code, you should avoid unnecessary \enquote{detours}:
+	
+		\begin{itemize}
+			\item Avoid unncessary interfaces
+			\item Consider inlining simple, often-called functions \srem{(e.g. getters and setters)}
+			\item Inheritance > composition > \texttt{if} statements
+		\end{itemize}
+		Modern compilers will try to apply some optimization techniques automatically \srem{(automatic inling, return value optimization, \dots)}
+	
+		\bigskip
+		General rule: \hl{Profile before Optimizing}
+	}
 	%
 \end{frame}
 
@@ -296,30 +310,35 @@
 
 \subsection{Patterns}
 
-\begin{frame}{Patterns}
-	\begin{quote}
-		Software design patters try to offer \hhl{general} and \hhl{reusable} solutions for \hhl{commonly} occuring problems in a given \hhl{context}.
-	\end{quote}
+\begin{frame}[t]{Patterns}
+	\only<+->{
+			\bigskip
+		\begin{quote}
+			Software design patters try to offer \hhl{general} and \hhl{reusable} solutions for \hhl{commonly} occuring problems in a given \hhl{context}.
+		\end{quote}
+	
+		\bigskip
+	}
+	
+	\only<+->{
+		Commonly categorized as:
 
-	\bigskip
-
-	Commonly categorized as:
-
-	\medskip
-	\begin{itemize}
-		%
-		\item
-		\hhl{Creational patterns}: How are instances of classes instantiated? \srem{(What if I have a class that can create instances in different ways?)}
-		%
-		\item
-		\hhl{Structural patterns}: Concerned with relationships between classes. \srem{(How can classes form flexible larger structures?)}
-		%
-		\item
-		\hhl{Behavioral patterns}: Concerned with algorithms and communication between classes. \srem{(How are responsibilities assigned between classes?)}
-		%
-		\item
-		\hhl{Parallel patterns}: Parallel processing and OOP \srem{$\lra$ only mentioned briefly}
-	\end{itemize}
+		\medskip
+		\begin{itemize}[<+->]
+			%
+			\item
+			\hhl{Creational patterns}: How are instances of classes instantiated? \srem{(What if I have a class that can create instances in different ways?)}
+			%
+			\item
+			\hhl{Structural patterns}: Concerned with relationships between classes. \srem{(How can classes form flexible larger structures?)}
+			%
+			\item
+			\hhl{Behavioral patterns}: Concerned with algorithms and communication between classes. \srem{(How are responsibilities assigned between classes?)}
+			%
+			\item
+			\hhl{Parallel patterns}: Parallel processing and OOP \srem{$\lra$ only mentioned briefly}
+		\end{itemize}
+	}
 \end{frame}
 %
 %

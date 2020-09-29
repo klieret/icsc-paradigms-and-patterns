@@ -4,10 +4,12 @@
 
 \begin{frame}{Common criticism}
 	%Common criticism% of programming by patterns:
-	\begin{quote}
+	\only<+->{
+		\begin{quote}
 		\enquote{Repetitive use of the same patterns and lots of boilerplate indicates lack or abstraction or lacking features of your programming language.}
-	\end{quote}
-	\begin{itemize}
+		\end{quote}
+	}
+	\begin{itemize}[<+->]
 		\item \hhl{Example}: If functions are first-level objects \srem{(can be passed around like normal datatypes)}, I do not need to define a strategy class hierarchy. \\
 		However, this could still be considered the same \enquote{pattern} \srem{(only with a simpler implementation)}
 		\item The \enquote{Patterns} give you \hhl{vocabulary} to describe your problem in an abstract way, even if the implementation details very a lot between languages
@@ -17,11 +19,13 @@
 \end{frame}
 
 \begin{frame}{Common criticism}
-	\begin{quote}
-		\enquote{Design patterns are used \hhl{excessively} and introduce \hhl{unneeded complexity}.}
-	\end{quote}
+	\only<+->{
+		\begin{quote}
+			\enquote{Design patterns are used \hhl{excessively} and introduce \hhl{unneeded complexity}.}
+		\end{quote}
+	}
 	%
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		%
 		\item 
 		Remember the zen of python: simple is better than complex; but complex is better than complicated
@@ -38,6 +42,6 @@
 		\enquote{The common design patterns are often the direct results of thinking about good software design; focusing on patterns replaces actual thought with \hhl{cut-and-paste programming}.}
 	\end{quote}
 	\begin{itemize}
-		\item Take discussion of patterns as a \hhl{mental practice} of thinking about good design; \stress{avoid} simple cut-and-paste
+		\item<2-> Take discussion of patterns as a \hhl{mental practice} of thinking about good design; \stress{avoid} simple cut-and-paste
 	\end{itemize}
 \end{frame}

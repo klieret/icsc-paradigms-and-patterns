@@ -8,15 +8,15 @@
 	\end{quote}
 	
 	\medskip
-	\only<1| handout: 1>{
+	\only<2| handout: 1>{
 		\stress{\badc{Bad:}} 
 		\inputminted{python}{code/patterns/creational/uncertainties_bad.py}
 	}
-	\only<2| handout: 2>{
+	\only<3-4| handout: 2>{
 		\stress{\badc{Good:}} 
 		\inputminted[]{python}{code/patterns/creational/uncertainties_good.py}
 	}
-	\only<3| handout: 2>{
+	\only<4| handout: 2>{
 	Alternatively, you can also have subclasses that provide (implementations to) factory methods.
 	}
 \end{frame}
@@ -31,15 +31,15 @@
 	\only<2>{You will probably consider different fits and plots; \hhl{violates Single Responsibility Principle} $\lra$ Rather have \texttt{Fit} and \texttt{Plot} classes}
 \end{frame}
 
-\begin{frame}[t]{Builder Pattern}
-	\begin{quote}
-		If you build a very complex class, try to instantiate (build) it in several steps.
-	\end{quote}
-
-	\stress{\badc{Bad:}}
-	\inputminted{python}{code/patterns/creational/builder_bad_2.py}	
-
-\end{frame}
+%\begin{frame}[t]{Builder Pattern}
+%	\begin{quote}
+%		If you build a very complex class, try to instantiate (build) it in several steps.
+%	\end{quote}
+%
+%	\stress{\badc{Bad:}}
+%	\inputminted{python}{code/patterns/creational/builder_bad_2.py}	
+%
+%\end{frame}
 
 \begin{frame}[t]{Builder Pattern}
 	\begin{quote}

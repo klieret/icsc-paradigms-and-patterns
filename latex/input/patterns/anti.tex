@@ -3,7 +3,7 @@
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
 \begin{frame}{Anti-patterns}
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item \hhl{God object}, \hhl{The blob}: One massive class containing all functionality
 		\item \hhl{Object orgy}: Not using data encapsulation \srem{(not distinguishing between public and private members)}; some objects modify the internals of others more than their own \srem{($\lra$ it is not clear \enquote{who is doing what to whom})}
 		\item \hhl{Not using polymorphism}: Having many parallel sections of identical \texttt{if} statements rather than using classes and subclasses

@@ -9,29 +9,29 @@
 
 	\bigskip
 	Use cases:
-	\begin{itemize}
-		\item Manage/synchronize access to \hhl{shared resources} \srem{(e.g. to avoid race conditions when several threads perform read and write operations)}
-		\item \hhl{Scheduling} tasks in parallel
+	\begin{itemize}[]
+		\item<2-> Manage/synchronize access to \hhl{shared resources} \srem{(e.g. to avoid race conditions when several threads perform read and write operations)}
+		\item<3-> \hhl{Scheduling} tasks in parallel
 %		\begin{itemize}
 %			\item {Thread pool}
 %			\item {Compute kernel} 
 %			\item \dots
 %		\end{itemize}
-		\item (A)synchronous \hhl{event handling}
+		\item<4-> (A)synchronous \hhl{event handling}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Concurrency Patterns II}
 	Advanced example: \hhl{Active object} pattern
 
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item Want to decouple method calling from method execution
 		\item Can request a calculation early and check later whether the result is available
 	\end{itemize}
 	
 	\bigskip
 	The pattern consists of multiple components:
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item The \hhl{client} calls a method of a \hhl{proxy}, which (immediately) returns a \hhl{future} object \srem{(can be used to check if results are available and get them)}
 		\item At the same time the proxy turns the method call into a \hhl{request} object and adds it to a \hhl{request queue}
 		\item A \hhl{scheduler} takes requests from the request queue and executes it \srem{(on some thread)}

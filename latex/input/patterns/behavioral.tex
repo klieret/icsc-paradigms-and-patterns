@@ -2,9 +2,23 @@
 
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
+
+\begin{frame}[t]{Template Method}
+	\stress{\badc{Questionable:}}
+	\inputminted{python}{code/patterns/behavioral/template_method_bad.py}
+	\only<2->{
+		\begin{itemize}
+			\item What if multiple methods depend on the model? \srem{$\lra$ Need to keep track of more \texttt{if}s everywhere}
+			\item What if we want to add or remove a model? \srem{$\lra$ Need to make changes in many places $\lra$ \sout{Open/Closed Principle}}, \enquote{divergent change}
+			\item Depend on all implementations $\lra$ \srem{\sout{Dependency Inversion Principle}}
+		\end{itemize}
+	}
+\end{frame}
+
+
 \begin{frame}{Template Method}
-	\begin{itemize}
-		\item \hhl{Use case:} Several different classes that only contain minor differences in few places
+	\begin{itemize}[<+->]
+		\item \hhl{Use case:} Several different algorithms that only contain minor differences in few places
 		\item \hhl{Suggestion:} Put shared code in superclass, have subclasses implement or override specific methods
 		
 		\begin{center}
@@ -35,30 +49,19 @@
 	
 \end{frame}
 
-
-\begin{frame}{Template Method}
-	\stress{\badc{Questionable:}}
-	\inputminted{python}{code/patterns/behavioral/template_method_bad.py}
-	\begin{itemize}
-		\item What if multiple methods depend on the model? \srem{$\lra$ Need to keep track of more \texttt{if}s everywhere}
-		\item What if we want to add or remove a model? \srem{$\lra$ Need to make changes in many places $\lra$ \sout{Open/Closed Principle}}, \enquote{divergent change}
-		\item Depend on all implementations $\lra$ \srem{\sout{Dependency Inversion Principle}}
-	\end{itemize}
-\end{frame}
-
 \begin{frame}{Template Method}
 	\stress{\goodc{Better:}}
 	\inputminted{python}{code/patterns/behavioral/template_method.py}
 \end{frame}
 
 \begin{frame}{Strategy}
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		%
 		\item 
-		\hhl{Usage:} You have a problem that can be solved with different algorithms (strategies)
+		\hhl{Usage:} Your problem consists of several steps. Each step can be solved with different algorithms (strategies)
 		%
 		\item 
-		\hhl{Suggestion:} Create abstract class for algorithm and concrete subclasses with specific implementation; original class holds instance of algorithm class
+		\hhl{Suggestion:} Create abstract class for each step and concrete subclasses with specific algorithms; original class holds instances of algorithms
 		
 		\begin{center}
 			\begin{tikzpicture}[scale=0.7, transform shape]
@@ -100,21 +103,21 @@
 
 \begin{frame}{Strategy}
 	\begin{itemize}
-		\item \hhl{Note}: The main class holds instances of algorithm classes; the algorithm classes use the the \hl{template method} pattern
-		\item \hhl{Advantages}:
-		\begin{itemize}
+		\item<1-> \hhl{Note}: The main class holds instances of algorithm classes; the algorithm classes use the the \hl{template method} pattern
+		\item<2-> \hhl{Advantages}:
+		\begin{itemize}[]
 			\item \hl{Open/Closed} principle: Easily add new strategies
 			\item \hl{Dependencies inverted} (\texttt{MyAnalysis} does not depend on the individual implementations)
 			\item \hl{Small number of subclasses}
 			\item \hl{Separated implementation} of algorithms from higher level code
 			\item For compiled languages: Change algorithms at \hl{runtime}
 		\end{itemize}
-		\item \hhl{Warnings}: 
+		\item<3-> \hhl{Warnings}: 
 			\begin{itemize}
 				\item Might be overkill for very simple problems
 				\item For maximum performance, avoid virtual calls
 			\end{itemize}
-		\item \hhl{Alternatives}:
+		\item<4-> \hhl{Alternatives}:
 		\begin{itemize}
 			\item If your language supports it: Use functions instead of objects \srem{(e.g. provide several \texttt{fit()} functions and pass them to the class)}
 			\item Use template pattern if there is only one strategy that can be replaced
@@ -122,7 +125,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Command}
+\begin{frame}[t]{Command}
 	\begin{quote}
 	The command pattern turns a \hhl{method call} into a \hhl{standalone object}.
 	\end{quote}
@@ -130,22 +133,25 @@
 	\medskip
 	Rather than directly calling a method, the interface creates a \texttt{Command} object \srem{(describing what we want to execute)} and passing it on to a \texttt{Receiver} that executes it
 	
-	\bigskip
-	Use cases:
-	\begin{itemize}
-		\item \hhl{Decouple} user interfaces from the backend \srem{(by using \texttt{Command} objects as means of communication)}
-		\item Build up a command \hhl{history} with \hhl{undo} functionality
-		\item \hhl{Remote execution} of commands
-		\item \hhl{Queue} or \hhl{schedule} operations
-		%\end{itemize}
-	\end{itemize}
-
-	\bigskip
-	HEP specific use case example (Belle II software framework):
-	\begin{itemize}
-		\item Build up analysis by adding modules \srem{(\texttt{Command} objects)} to a path \srem{(list of modules)}, each implementing a \texttt{event()} method to process one event
-		\item After all modules are added, process the path: Loop over all events, calling the \texttt{event()} method of all modules in order
-	\end{itemize}
+	\only<2->{
+		\bigskip
+		Use cases:
+		\begin{itemize}
+			\item<2-> \hhl{Decouple} user interfaces from the backend \srem{(by using \texttt{Command} objects as means of communication)}
+			\item<3-> Build up a command \hhl{history} with \hhl{undo} functionality
+			\item<4-> \hhl{Remote execution} of commands
+			\item<5-> \hhl{Queue} or \hhl{schedule} operations
+			%\end{itemize}
+		\end{itemize}
+	}
+	\only<6->{
+		\bigskip
+		HEP specific use case example (Belle II software framework):
+		\begin{itemize}
+			\item<7-> Build up analysis by adding modules \srem{(\texttt{Command} objects)} to a path \srem{(list of modules)}, each implementing a \texttt{event()} method to process one event
+			\item<8-> After all modules are added, process the path: Loop over all events, calling the \texttt{event()} method of all modules in order
+		\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{Command}
@@ -162,7 +168,7 @@
 	\end{center}
 	
 	\bigskip
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item Strictly \hhl{declarative} approach \srem{(no for loops or implementation details)}
 		\item Modules can be implemented in \proglang{python} or \proglang{C++}
 		\item \hhl{\enquote{Building block}} approach makes steering files extremely easy to write and understand \srem{(even browser based graphical interface for highschoolers: try it at \url{masterclass.ijs.si})}
@@ -221,24 +227,24 @@
 \begin{frame}{Visitor}
 	\hhl{Use case} \srem{(more formally)}:
 	\begin{itemize}
-		\item Given a heterogeneous family of \texttt{Element} classes
-		\item Do not expect significant changes to \texttt{Element} classes 
-		\item Various unrelated operations need to be performed on a collection of \texttt{Element} objects
-		\item We expect frequent additions and changes for the operations
-		\item Do not want to frequently change \texttt{Element} classes because of that 
+		\item<2-> Given a heterogeneous family of \texttt{Element} classes
+		\item<2-> Do not expect significant changes to \texttt{Element} classes 
+		\item<3-> Various unrelated operations need to be performed on a collection of \texttt{Element} objects
+		\item<3-> We expect frequent additions and changes for the operations
+		\item<3-> Do not want to frequently change \texttt{Element} classes because of that 
 		\end{itemize}
 	
 	\bigskip
 	\hhl{Advantages of visitor pattern}:
 	\begin{itemize}
-		\item Single responsibility principle: All the operation functionality is in one place
-		\item Open/Closed principle: Easy to add new operations
+		\item<4-> Single responsibility principle: All the operation functionality is in one place
+		\item<4-> Open/Closed principle: Easy to add new operations
 	\end{itemize}
 	
 	\bigskip
 	\hhl{Disadvantages of the visitor pattern}:
-	\begin{itemize}
-		\item No access to private information of \texttt{Element} classes
-		\item Changes to \texttt{Element} classes can require changes to all visitors
+	\begin{itemize}[<+->]
+		\item<5-> No access to private information of \texttt{Element} classes
+		\item<6-> Changes to \texttt{Element} classes can require changes to all visitors
 	\end{itemize}
 \end{frame}
