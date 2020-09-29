@@ -6,16 +6,18 @@
     Thursday 17:00-17:30: \hhl{Exercise consultation time}
 \end{frame}
 
-\begin{frame}{Repetition: Object Oriented Programming}
-	\begin{itemize}
+\begin{frame}[t]{Repetition: Object Oriented Programming}
+	\begin{itemize}[<+->]
 		\item \hhl{Inheritance:} Subclasses inherit all \srem{(public and protected)} attributes and methods of the base class
 		\item Methods and attributes can be \hhl{public} \srem{(anyone has access)}, \hhl{private} \srem{(only the class itself has access)} or \hhl{protected} \srem{(only the class and its subclasses have access)}
 		\item \hhl{Abstract methods} of an \hhl{abstract class} are methods that have to be implemented by a subclass (\hhl{concrete class})
 	\end{itemize}
 
-	\bigskip
-	\stress{New}: \hhl{class methods}: Methods of the class, rather than its instances
-	\inputminted[fontsize=\small]{python}{code/patterns/intro/classmethod.py}
+	\only<+->{
+		\bigskip
+		\stress{New}: \hhl{class methods}: Methods of the class, rather than its instances
+		\inputminted[fontsize=\small]{python}{code/patterns/intro/classmethod.py}
+	}
 \end{frame}
 
 
@@ -71,7 +73,8 @@
 
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
-\begin{frame}{The SOLID rules of OOP: Single responsibility principle}{\underline SOLID}
+\begin{frame}[t]{The SOLID rules of OOP: Single responsibility principle}{\underline SOLID}
+	\bigskip
 	% https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137
 	Commonly (mis-)quoted as:
 
@@ -79,26 +82,30 @@
 		A class should only have \hhl{one responsibility}.
 	\end{quote}
 
-	\medskip
-	More accurate:
+	{
+		\medskip
+		More accurate:
+	
+		\begin{quote}
+			A class should only have \hhl{one reason to change}.
+		\end{quote}
+	}
 
-	\begin{quote}
-		A class should only have \hhl{one reason to change}.
-	\end{quote}
-
-	\medskip
-	Better still:
-	\begin{quote}
-		\hhl{Gather} together the things that change for the same reasons. \\
-		\hhl{Separate} those things that change for different reasons.
-	\end{quote}
-
-	\medskip
-	So this actually proposes a \hhl{balance}!
-	\begin{itemize}
-		\item Avoid classes that do too much \srem{(\enquote{god class})}
-		\item But also avoid having changes always affect many classes \srem{(\enquote{shotgun surgery})}
-	\end{itemize}
+	\only<2->{
+		\medskip
+		Better still:
+		\begin{quote}
+			\hhl{Gather} together the things that change for the same reasons. \\
+			\hhl{Separate} those things that change for different reasons.
+		\end{quote}
+	
+		\medskip
+		So this actually proposes a \hhl{balance}!
+		\begin{itemize}
+			\item Avoid classes that do too much \srem{(\enquote{god class})}
+			\item But also avoid having changes always affect many classes \srem{(\enquote{shotgun surgery})}
+		\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{The SOLID rules of OOP: Open Closed Principle}{S\underline  OLID}
@@ -108,11 +115,11 @@
 	\end{quote}
 
 	\begin{itemize}
-		\item Writing a library, \hhl{modifying} functionality means that all users have to be informed (\hhl{not backwards compatible}) $\lra$ Avoid!
-		\item In your own code: Modifying one functionality \srem{(also by overriding methods of the super class, etc.)} poses the danger of breaking other parts \srem{(though tests can help with that)}
-		\item Extending code by providing additional methods, attributes, etc. does not have this danger $\lra$ preferred!
-		\item Requires thinking ahead: What parts have to be flexible, what remains constant?
-		\item Again a \hhl{balance} is required:
+		\item<2-> Writing a library, \hhl{modifying} functionality means that all users have to be informed (\hhl{not backwards compatible}) $\lra$ Avoid!
+		\item<2-> In your own code: Modifying one functionality \srem{(also by overriding methods of the super class, etc.)} poses the danger of breaking other parts \srem{(though tests can help with that)}
+		\item<3-> Extending code by providing additional methods, attributes, etc. does not have this danger $\lra$ preferred!
+		\item<4-> Requires thinking ahead: What parts have to be flexible, what remains constant?
+		\item<4-> Again a \hhl{balance} is required:
 		\begin{itemize}
 			\item Be \hhl{too generic} (avoid modifications) and your code won't do anything
 			\item Be \hhl{too concrete} and you will need to modify \srem{(and potentially break things)} often
@@ -120,43 +127,48 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{The SOLID rules of OOP: Liskov Substitution Principle}{SO\underline  LID}
+\begin{frame}[t]{The SOLID rules of OOP: Liskov Substitution Principle}{SO\underline  LID}
 	\begin{quote}
 		If $S$ is a \hhl{subtype} (subclass) of $T$, then objects of type $T$ can be \hhl{replaced} with objects of type $S$ without breaking anything
 	\end{quote}
-	%
-	This can be expanded to a series of properties that should be fulfilled:
-	\begin{itemize}
-		\item \hhl{Signature} of methods of the subclass:
-		\begin{itemize}
+	
+	\srem{e.g. I can replace all instances of \texttt{Animal} with instances of \texttt{Cat}}
+	
+	\medskip
+	\only<2->{
+		This can be expanded to a series of properties that should be fulfilled:
+		\begin{itemize}[<+->]
+			\item \hhl{Signature} of methods of the subclass:
+			\begin{itemize}[<+->]
+				%
+				\item
+				Required type of arguments should be supertype (\defn{contravariance})\\
+				\srem{Violation: Supermethod accepts any \texttt{Rectangle}, submethod only \texttt{Square}}
+				%
+				\item
+				Return type of method should be a subtype (\defn{covariance})\\
+				\srem{Violation: Supermethod returns \texttt{Square}, submethod returns \texttt{Rectangle}}
+			\end{itemize}
+		\item Behavior:
+			\begin{itemize}[<+->]
 			%
 			\item
-			Required type of arguments should be supertype (\defn{contravariance})\\
-			\srem{Violation: Supermethod accepts any \texttt{Rectangle}, submethod only \texttt{Square}}
+			\hhl{Preconditions} \srem{(requirements to be fulfilled before calling method)} cannot be strengthened in the subtype\\
+			\srem{Violation: Only in subclass \texttt{prepare()} must be called before \texttt{method()}}
 			%
 			\item
-			Return type of method should be a subtype (\defn{covariance})\\
-			\srem{Violation: Supermethod returns \texttt{Square}, submethod returns \texttt{Rectangle}}
+			\hhl{Postconditions}
+			\srem{(conditions fulfilled after calling a method)} cannot be weakened by the subtype
+			%
+			\item
+			\hhl{Invariants} \srem{(properties that stay the same)} of supertype must be preserved in the subtype
+			%
+			\item
+			\hhl{History contraint}: Subtypes cannot modify properties that are not modifyable in supertype\\
+			\srem{Violation: \texttt{VariableRadiusCircle} as subtype of \texttt{FixedRadiusCircle}}
+			\end{itemize}
 		\end{itemize}
-	\item Behavior:
-		\begin{itemize}
-		%
-		\item
-		\hhl{Preconditions} \srem{(requirements to be fulfilled before calling method)} cannot be strengthened in the subtype\\
-		\srem{Violation: Only in subclass \texttt{prepare()} must be called before \texttt{method()}}
-		%
-		\item
-		\hhl{Postconditions}
-		\srem{(conditions fulfilled after calling a method)} cannot be weakened by the subtype
-		%
-		\item
-		\hhl{Invariants} \srem{(properties that stay the same)} of supertype must be preserved in the subtype
-		%
-		\item
-		\hhl{History contraint}: Subtypes cannot modify properties that are not modifyable in supertype\\
-		\srem{Violation: \texttt{VariableRadiusCircle} as subtype of \texttt{FixedRadiusCircle}}
-		\end{itemize}
-	\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{The SOLID rules of OOP: Interface segregation principle (ISP)}{SOL\underline  ID}
