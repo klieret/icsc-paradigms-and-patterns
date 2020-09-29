@@ -14,9 +14,15 @@ During the event, there are two channels on CERN mattermost (you might need to c
 
 After the event, you can open an issue in this repository.
 
+## The slides
+
+The final versions of the rendered slides at the time of the presentation are in the root directory of this repository. There are two version, one with animations and one without (``*_handout.pdf``).
+
 ## Running the exercises
 
-If you're completely new to this, use option 1 or 2. If you already have python and Jupyter set up on your computer, we recommend option 3.
+The exercises come with solutions for you to compare to. If you have any questions, please join the exercise discussion slot.
+
+If you're completely new to this, use option 1 or 2. If you already have python and Jupyter set up on your computer, we recommend option 3. Note that your changes are not saved automatically in the first two options!
 
 **IMPORTANT NOTE**: The exercises might still be updated up to the lecture. In particular the Patterns exercises are not complete yet.
 
