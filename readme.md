@@ -24,8 +24,6 @@ The exercises come with solutions for you to compare to. If you have any questio
 
 If you're completely new to this, use option 1 or 2. If you already have python and Jupyter set up on your computer, we recommend option 3. Note that your changes are not saved automatically in the first two options!
 
-**IMPORTANT NOTE**: The exercises might still be updated up to the lecture. In particular the Patterns exercises are not complete yet.
-
 ### Option 1: Using binder
 
 This means you don't have to install anything, but you can simply use the binder service
