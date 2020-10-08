@@ -101,11 +101,14 @@ and change ``\handoutfalse`` to ``\handouttrue`` if needed.
 
 ## Developing this further
 
-We are planning to convert this into a training similar to that of the [Software Carpentry](https://software-carpentry.org/) in order to be included in the [HSF curriculum](https://hepsoftwarefoundation.org/training/curriculum.html). Help is much appreciated. 
+We are planning to convert this into a training similar to that of the [Software Carpentry](https://software-carpentry.org/) in order to be included in the [HSF curriculum](https://hepsoftwarefoundation.org/training/curriculum.html). Help is much appreciated.
 
 If you have any particular comments, feel free to open an issue on github for this repository.
 
 ## Citation & License
+
+Licensed as CC BY 4.0, see file ``license.md``. Please use the following zenodo ID to cite this
+work:
 
 [![DOI](https://zenodo.org/badge/240011587.svg)](https://zenodo.org/badge/latestdoi/240011587)
 
