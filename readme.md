@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/240011587.svg)](https://zenodo.org/badge/latestdoi/240011587)
+
 # Lecture and Material for "Programming Paradigms and Patterns" at the iCSC 2020
 
 This repository contains the source code of the lecture slides as well as the
@@ -105,4 +107,5 @@ If you have any particular comments, feel free to open an issue on github for th
 
 ## Citation & License
 
-A zenodo ID will be added to this repository after the event (to wait for exercise finalization) together with a license. 
+[![DOI](https://zenodo.org/badge/240011587.svg)](https://zenodo.org/badge/latestdoi/240011587)
+
