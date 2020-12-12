@@ -5,7 +5,12 @@
 This repository contains the source code of the lecture slides as well as the
 exercises.
 
-The course was presented September/October 2020 at the [iCSC 2020](https://indico.cern.ch/event/853710/).
+The course was presented September/October 2020 at the [iCSC 2020](https://indico.cern.ch/event/853710/). 
+
+There are recordings of the lectures:
+
+* [Programming Paradigms](https://cds.cern.ch/record/2736118)
+* [Software Design Patterns](https://cds.cern.ch/record/2737225)
 
 ## Getting help
 
