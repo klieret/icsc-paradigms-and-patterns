@@ -1,9 +1,6 @@
 \begin{frame}
 	\tableofcontents[]
 	Slides + exercises available at \hhl{\href{https://github.com/klieret/icsc-paradigms-and-patterns}{github.com/klieret/icsc-paradigms-and-patterns}}
-
-    \medskip
-    Thursday 17:00-17:30: \hhl{Exercise consultation time}
 \end{frame}
 
 \begin{frame}[t]{Repetition: Object Oriented Programming}
@@ -85,7 +82,7 @@
 	{
 		\medskip
 		More accurate:
-	
+
 		\begin{quote}
 			A class should only have \hhl{one reason to change}.
 		\end{quote}
@@ -98,7 +95,7 @@
 			\hhl{Gather} together the things that change for the same reasons. \\
 			\hhl{Separate} those things that change for different reasons.
 		\end{quote}
-	
+
 		\only<3->{
 			\medskip
 			So this actually proposes a \hhl{balance}!
@@ -133,9 +130,9 @@
 	\begin{quote}
 		If $S$ is a \hhl{subtype} (subclass) of $T$, then objects of type $T$ can be \hhl{replaced} with objects of type $S$ without breaking anything
 	\end{quote}
-	
+
 	\srem{e.g. I can replace all instances of \texttt{Animal} with instances of \texttt{Cat}}
-	
+
 	\medskip
 	\only<2->{
 		This can be expanded to a series of properties that should be fulfilled:
@@ -212,20 +209,20 @@
 				+ turn\_off()\\
 				+ flip()
 			}
-	
+
 			\umlemptyclass[x=0,y=0]{Lamp}
 			\umlaggreg{Button}{Lamp}
 			\end{tikzpicture}
-	
+
 			\column{0.8\textwidth}
 			\only<3->{
 				This violates the DIP, because \texttt{Button} \srem{(high-level)} depends on \texttt{Lamp} \srem{(detail)}.
 				\bigskip
-				
+
 				What if we have multiple consumers \srem{(\texttt{Motor}, \texttt{Lamp}, \dots)} and multiple types of buttons \srem{(swipe button, switch, push button, \dots)}? How can we force them to behave consistent? What methods does a consumer have to implement to work together with the button?\\
-		
+
 				\bigskip
-				$\lra$ Enter abstractions (interfaces)	
+				$\lra$ Enter abstractions (interfaces)
 			}
 		\end{columns}
 	}
@@ -262,7 +259,7 @@
 	\only<2->{
 		\medskip
 		Now it's clear which methods the concrete client has to implement. Both high level and low level modules only depend on abstractions.
-	
+
 		\bigskip
 		\only<3->{
 			This also fulfills the second part of the DIP:
@@ -290,14 +287,14 @@
 	\only<2->{
 		\bigskip
 		However, when writing \hhl{performance critical} (\proglang{C++}, \dots) code, you should avoid unnecessary \enquote{detours}:
-	
+
 		\begin{itemize}
 			\item Avoid unnecessary interfaces
 			\item Consider inlining simple, often-called functions \srem{(e.g. getters and setters)}
 			\item Inheritance > composition > \texttt{if} statements
 		\end{itemize}
 		Modern compilers will try to apply some optimization techniques automatically \srem{(automatic inling, return value optimization, \dots)}
-	
+
 		\bigskip
 		General rule: \hl{Profile before Optimizing}
 	}
@@ -316,10 +313,10 @@
 		\begin{quote}
 			Software design patters try to offer \hhl{general} and \hhl{reusable} solutions for \hhl{commonly} occurring problems in a given \hhl{context}.
 		\end{quote}
-	
+
 		\bigskip
 	}
-	
+
 	\only<+->{
 		Commonly categorized as:
 
