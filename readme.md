@@ -93,8 +93,8 @@ You need to use [XeLaTeX](https://en.wikipedia.org/wiki/XeTeX):
 
 ```sh
 cd latex
-mkdir -p build && xelatex --ouput-directory build -shell-escape software_patterns.tex
-mkdir -p build && xelatex --ouput-directory build -shell-escape software_paradigms.tex
+mkdir -p build && xelatex --output-directory build -shell-escape software_patterns.tex 
+mkdir -p build && xelatex --output-directory build -shell-escape programming_paradigms.tex
 ```
 
 The ``-shell-escape`` flag is needed for code highlighting. You might need to install
