@@ -36,6 +36,6 @@
 		\item At the same time the proxy turns the method call into a \hhl{request} object and adds it to a \hhl{request queue}
 		\item A \hhl{scheduler} takes requests from the request queue and executes it \srem{(on some thread)}
 		\item Once the request is executed, the result is added to the future object
-		\item Only when the client accesses the future \srem{(wants to get the result value)}, the client thread waits \srem{(if the result is already available by that time, no waiting/blocking occurrs)} 
+		\item Only when the client accesses the future \srem{(wants to get the result value)}, the client thread waits \srem{(if the result is already available by that time, no waiting/blocking occurs)}
 	\end{itemize}
 \end{frame}
