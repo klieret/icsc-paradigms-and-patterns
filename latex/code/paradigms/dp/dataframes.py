@@ -17,6 +17,6 @@ chi2 = ROOT.ROOT.RDataFrame(...)  # initialize
         .Sum("sqd").GetValue()  # sum it up
 
 # Pandas example:
-chi2 = pd.DataFrame(...)  # initialize
+df = pd.DataFrame(...)  # initialize
 _df = df.query("~(data==theory & error==0)")  # filter
-chi2 = (_df["data"] - _df["theory"]).pow(2) / _df["error"].pow(2)).sum()
+chi2 = (_df["data"] - _df["theory"]).pow(2) / _df["error"].pow(2).sum()
