@@ -15,11 +15,11 @@ class TheirMLModel(ABC):
 class ModelAdapter(OurMLModel):  # <-- implements our interface
 	def __init__(self, model: TheirMLModel):
 		self._model = model   # <-- our adapter holds the foreign model
-	
+
 	def train(...):           # <-- and defines a different interface for it
 		self._model.training(...)
 
 
 # Their model with our interface:
-model = ModelAdapter(TheirMLModel(...))
+model = ModelAdapter(TheirMLModel(...))  # (actually need TheirConcreteMLModel)
 
