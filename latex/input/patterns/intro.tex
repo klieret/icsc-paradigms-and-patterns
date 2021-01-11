@@ -3,6 +3,10 @@
 	Slides + exercises available at \hhl{\href{https://github.com/klieret/icsc-paradigms-and-patterns}{github.com/klieret/icsc-paradigms-and-patterns}}
 \end{frame}
 
+\section{More on OOP}
+
+\subsection{Repetition}
+
 \begin{frame}[t]{Repetition: Object Oriented Programming}
 	\begin{itemize}[<+->]
 		\item \hhl{Inheritance:} Subclasses inherit all \srem{(public and protected)} attributes and methods of the base class
@@ -16,9 +20,6 @@
 		\inputminted[fontsize=\small]{python}{code/patterns/intro/classmethod.py}
 	}
 \end{frame}
-
-
-\section{More on OOP}
 
 \subsection{Class Diagrams}
 
@@ -120,7 +121,7 @@
 		\item<4-> Requires thinking ahead: What parts have to be flexible, what remains constant?
 		\item<4-> Again a \hhl{balance} is required:
 		\begin{itemize}
-			\item Be \hhl{too generic} (avoid modifications) and your code won't do anything
+			\item Be \hhl{too generic} \srem{(avoid future modifications at any cost)} and your code won't do anything
 			\item Be \hhl{too concrete} and you will need to modify \srem{(and potentially break things)} often
 		\end{itemize}
 	\end{itemize}
