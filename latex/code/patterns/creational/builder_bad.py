@@ -1,5 +1,6 @@
 class Data:
     def __init__(
+        self,
         data: array,
         data_error: array
         mc_components: List[array],
@@ -8,7 +9,7 @@ class Data:
         mc_color: List[string],
         ...
     )
-    
+
     def fit(...)
-    
+
     def plot(...)
