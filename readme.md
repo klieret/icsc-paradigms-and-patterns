@@ -1,16 +1,20 @@
 [![DOI](https://zenodo.org/badge/240011587.svg)](https://zenodo.org/badge/latestdoi/240011587)
 
-# Lecture and Material for "Programming Paradigms and Patterns" at the iCSC 2020
+# Programming Paradigms and Patterns
 
-This repository contains the source code of the lecture slides as well as the
-exercises.
+This repository contains lecture slides (both as source code and as rendered pdfs) 
+and exercises.
 
-The course was presented September/October 2020 at the [iCSC 2020](https://indico.cern.ch/event/853710/). 
+The course was first taught  in September/October 2020 at the [iCSC 2020](https://indico.cern.ch/event/853710/).
 
-There are recordings of the lectures:
+**Recordings** of the lectures:
 
 * [Programming Paradigms](https://cds.cern.ch/record/2736118)
 * [Software Design Patterns](https://cds.cern.ch/record/2737225)
+
+**Slides**: The final versions of the rendered slides at the time of the presentation are in the root directory of this repository. There are two version, one with animations and one without (``*_handout.pdf``).
+
+**Exercises**: See below.
 
 ## Getting help
 
@@ -20,10 +24,6 @@ During the event, there are two channels on CERN mattermost (you might need to c
 * [Software Design Patterns](https://mattermost.web.cern.ch/csc/channels/software-design)
 
 After the event, you can open an issue in this repository.
-
-## The slides
-
-The final versions of the rendered slides at the time of the presentation are in the root directory of this repository. There are two version, one with animations and one without (``*_handout.pdf``).
 
 ## Running the exercises
 
@@ -60,7 +60,7 @@ Simply click the link (you need to log in to your google account though)
 * [Programming Paradigms ![google colab](readme_assets/colab-button.png)](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/paradigms.ipynb)
 * [Software Design Patterns ![google colab](readme_assets/colab-button.png)](https://colab.research.google.com/github/klieret/icsc-paradigms-and-patterns/blob/master/exercises/patterns.ipynb)
 
-If you've never used Google colab, you can also go to [this page](https://colab.research.google.com/notebooks/intro.ipynb) and try it out (but it's very similar to Jupyter notebooks if you're familiar with that). 
+If you've never used Google colab, you can also go to [this page](https://colab.research.google.com/notebooks/intro.ipynb) and try it out (but it's very similar to Jupyter notebooks if you're familiar with that).
 
 ### Option 3: Local run
 
