@@ -2,7 +2,7 @@
 
 # Programming Paradigms and Patterns
 
-This repository contains lecture slides (both as source code and as rendered pdfs) 
+This repository contains lecture slides (both as source code and as rendered pdfs)
 and exercises.
 
 The course was first taught  in September/October 2020 at the [iCSC 2020](https://indico.cern.ch/event/853710/).
@@ -93,7 +93,7 @@ You need to use [XeLaTeX](https://en.wikipedia.org/wiki/XeTeX):
 
 ```sh
 cd latex
-mkdir -p build && xelatex --output-directory build -shell-escape software_patterns.tex 
+mkdir -p build && xelatex --output-directory build -shell-escape software_patterns.tex
 mkdir -p build && xelatex --output-directory build -shell-escape programming_paradigms.tex
 ```
 
@@ -116,4 +116,3 @@ Licensed as CC BY 4.0, see file ``license.md``. Please use the following zenodo 
 work:
 
 [![DOI](https://zenodo.org/badge/240011587.svg)](https://zenodo.org/badge/latestdoi/240011587)
-

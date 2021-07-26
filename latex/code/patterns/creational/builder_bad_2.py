@@ -9,4 +9,3 @@ class Data:
         mc_color: List[string],
         ...
     )
-

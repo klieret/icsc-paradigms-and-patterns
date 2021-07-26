@@ -20,25 +20,25 @@
 	\begin{itemize}[<+->]
 		\item \hhl{Use case:} Several different algorithms that only contain minor differences in few places
 		\item \hhl{Suggestion:} Put shared code in superclass, have subclasses implement or override specific methods
-		
+
 		\begin{center}
 		\begin{tikzpicture}[scale=0.7, transform shape]
-		\umlclass[x=0,y=3, type=abstract]{MLModel}{ 
-		}{ 
-			+ preprocess()\\ 
-			\emph{+ train()}\\ 
+		\umlclass[x=0,y=3, type=abstract]{MLModel}{
+		}{
+			+ preprocess()\\
+			\emph{+ train()}\\
 			+ validate()
-		} 
-		
+		}
+
 		\umlclass[x=-2,y=0]{BDT}{}{+ train()}
 		\umlinherit{BDT}{MLModel}
-		
+
 		\umlclass[x=2,y=0]{RandomForest}{}{+ train()}
 		\umlinherit{RandomForest}{MLModel}
 		\end{tikzpicture}
 		\end{center}
 		\item \hhl{Advantages:} Simple and clean with little overhead
-		\item \hhl{Warnings:} 
+		\item \hhl{Warnings:}
 		\begin{itemize}
 			\item If there are many differences between original classes, we need (to override) many methods $\lra$ increasingly hard to read and maintain
 			\item If there are multiple \enquote{options} for every method and we want to realize them, the number of subclasses grows exponentially $\lra$ \emph{Strategy pattern}
@@ -46,7 +46,7 @@
 		\end{itemize}
 	\end{itemize}
 	%
-	
+
 \end{frame}
 
 \begin{frame}{Template Method}
@@ -57,39 +57,39 @@
 \begin{frame}{Strategy}
 	\begin{itemize}[<+->]
 		%
-		\item 
+		\item
 		\hhl{Usage:} Your problem consists of several steps. Each step can be solved with different algorithms (strategies)
 		%
-		\item 
+		\item
 		\hhl{Suggestion:} Create abstract class for each step and concrete subclasses with specific algorithms; original class holds instances of algorithms
-		
+
 		\begin{center}
 			\begin{tikzpicture}[scale=0.7, transform shape]
-			\umlclass[x=0,y=3]{MyAnalysis}{ 
+			\umlclass[x=0,y=3]{MyAnalysis}{
 				+ ml\_model: MLModel\\
 				+ fitter: Fitter
-			}{ 
+			}{
 				%\dots\\
 				+ train()\\
 				+ fit()\\
 				%\dots
-			} 
-			
+			}
+
 			\umlclass[y=3, x=4, type=abstract]{MLModel}{}{\emph{+ train()}}
 			\umlaggreg{MyAnalysis}{MLModel}
-			
+
 			\umlclass[x=2,y=0]{BDT}{}{+ train()}
 			\umlinherit{BDT}{MLModel}
-			
+
 			\umlclass[x=6,y=0]{RandomForest}{}{+ train()}
 			\umlinherit{RandomForest}{MLModel}
-			
+
 			\umlclass[y=3, x=-4, type=abstract]{Fitter}{}{\emph{+ fit()}}
 			\umlaggreg{MyAnalysis}{Fitter}
-			
+
 			\umlclass[x=-5,y=0]{KernelDensityFit}{}{+ fit()}
 			\umlinherit{KernelDensityFit}{Fitter}
-			
+
 			\umlclass[x=-2,y=0]{CrystalBallFit}{}{+ fit()}
 			\umlinherit{CrystalBallFit}{Fitter}
 			\end{tikzpicture}
@@ -112,7 +112,7 @@
 			\item \hl{Separated implementation} of algorithms from higher level code
 			\item For compiled languages: Change algorithms at \hl{runtime}
 		\end{itemize}
-		\item<3-> \hhl{Warnings}: 
+		\item<3-> \hhl{Warnings}:
 			\begin{itemize}
 				\item Might be overkill for very simple problems
 				\item For maximum performance, avoid virtual calls
@@ -129,10 +129,10 @@
 	\begin{quote}
 	The command pattern turns a \hhl{method call} into a \hhl{standalone object}.
 	\end{quote}
-	
+
 	\medskip
 	Rather than directly calling a method, the interface creates a \texttt{Command} object \srem{(describing what we want to execute)} and passing it on to a \texttt{Receiver} that executes it
-	
+
 	\only<2->{
 		\bigskip
 		Use cases:
@@ -156,7 +156,7 @@
 
 \begin{frame}{Command}
 	Slightly simplified Belle II steering file:
-	
+
 	\inputminted[fontsize=\small]{python}{code/patterns/behavioral/belle2_steering_file.py}
 \end{frame}
 
@@ -166,7 +166,7 @@
 	\begin{center}
 	\includegraphics[height=3.5cm]{figures/patterns/behavioral/ModulePath.png}
 	\end{center}
-	
+
 	\bigskip
 	\begin{itemize}[<+->]
 		\item Strictly \hhl{declarative} approach \srem{(no for loops or implementation details)}
@@ -176,46 +176,46 @@
 \end{frame}
 
 %\begin{frame}{Iterator}
-%	
+%
 %\end{frame}
 
 \begin{frame}{Visitor}
 	\begin{itemize}
-		\item 
+		\item
 		\hhl{Concrete example}: Serialize a collection of instances of different classes \srem{(e.g. provide JSON export for a list  of different data objects)}
 		\item
 		\hhl{Possible implementation}: Provide a \texttt{to\_json()} method to all classes
-		\item 
-		\hhl{Potential issue}: 
+		\item
+		\hhl{Potential issue}:
 		Might soon want to add export for export possibilities: \srem{(\texttt{XML}, \texttt{CSV}, \texttt{YAML}, etc.)}
 		\Lrapar{more and more unrelated methods need to be added to the data class}
 		\Lrapar{\hl{\enquote{polluted} interface} \srem{(methods are irrelevant for core functionality)}; people might be wary of \hl{frequent changes} to a well working class}
-		\item 
-		\hhl{Solution}: 
+		\item
+		\hhl{Solution}:
 		Separate algorithms from the objects they operate on
 		\medskip
 		\begin{center}
 			\begin{tikzpicture}[scale=0.7, transform shape]
-			\umlclass[x=-2,y=3, type=abstract]{Visitor}{ 
-				
-			}{ 
+			\umlclass[x=-2,y=3, type=abstract]{Visitor}{
+
+			}{
 				+ \emph{visit\_element\_a()}\\
 				+ \emph{visit\_element\_b()}
-			} 
-			
+			}
+
 			\umlemptyclass[x=-2,y=0]{JSONExport}
 			\umlinherit{JSONExport}{Visitor}
-			
-			\umlclass[y=3,x=5, type=abstract]{Element}{ 
-			}{ 
-				+ \emph{accept(visitor)}\\ 
-			} 
-			
+
+			\umlclass[y=3,x=5, type=abstract]{Element}{
+			}{
+				+ \emph{accept(visitor)}\\
+			}
+
 			\umlclass[y=0,x=3.5]{ElementA}{}{+ accept(visitor)}
 			\umlVHVinherit{ElementA}{Element}
 			\umluniassoc[geometry=-|-, anchor1=-160, anchor2=-8]{ElementA}{Visitor}
-			
-			
+
+
 			\umlclass[y=0,x=6.5]{ElementB}{}{+ accept(visitor)}
 			\umlVHVinherit{ElementB}{Element}
 			\umluniassoc[anchor1=-160, anchor2=-22]{ElementB}{Visitor}
@@ -228,19 +228,19 @@
 	\hhl{Use case} \srem{(more formally)}:
 	\begin{itemize}
 		\item<2-> Given a heterogeneous family of \texttt{Element} classes
-		\item<2-> Do not expect significant changes to \texttt{Element} classes 
+		\item<2-> Do not expect significant changes to \texttt{Element} classes
 		\item<3-> Various unrelated operations need to be performed on a collection of \texttt{Element} objects
 		\item<3-> We expect frequent additions and changes for the operations
-		\item<3-> Do not want to frequently change \texttt{Element} classes because of that 
+		\item<3-> Do not want to frequently change \texttt{Element} classes because of that
 		\end{itemize}
-	
+
 	\bigskip
 	\hhl{Advantages of visitor pattern}:
 	\begin{itemize}
 		\item<4-> Single responsibility principle: All the operation functionality is in one place
 		\item<4-> Open/Closed principle: Easy to add new operations
 	\end{itemize}
-	
+
 	\bigskip
 	\hhl{Disadvantages of the visitor pattern}:
 	\begin{itemize}[<+->]

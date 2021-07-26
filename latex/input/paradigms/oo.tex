@@ -6,16 +6,16 @@
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
 \begin{frame}{OOP: Idea}
-	
+
 	\begin{itemize}
 		\item Before OOP: Two \stress{separate} entities: \emph{data} and \emph{functions} (logic)
 		\item Inspiration: In the {real world}, {objects} have a \enquote{state} (data) and \enquote{behaviors} (functions)
-	\end{itemize}	
-	
+	\end{itemize}
+
 	\begin{block}{OOP}
-	\begin{itemize}		
+	\begin{itemize}
 		\item \stress{Think} in terms of \hldefn{objects} that contain data and offer \hldefn{methods} (functions that operate on objects) $\lra$ Data and functions form a unit
-		\item \stress{Focus} on object structure rather than manipulation logic 
+		\item \stress{Focus} on object structure rather than manipulation logic
 		\item \stress{Organize} your code in \hldefn{classes} (blueprints for objects): Every object is \defn{instance} of its class
 	\end{itemize}
 	\end{block}
@@ -31,10 +31,10 @@
 \begin{frame}[fragile]{Encapsulation and data hiding}
 	% data hiding provides security and avoids data corruption
 	%Remember: ... separate interface from implementation ... $\lra$ hide internals
-	
+
 	\begin{itemize}
 		\item \hl{Do not expose object internals that may change in the future} $\lra$ Make certain attributes and methods \hhl{private} (\defn{data hiding})
-		\item Rephrased: Separate \hhl{interface} (won't be touched because it's used by others) from \hhl{implementation} (might change) 
+		\item Rephrased: Separate \hhl{interface} (won't be touched because it's used by others) from \hhl{implementation} (might change)
 		\item In some languages this is \enquote{enforced} (e.g. using the \verb|private| keyword), in others it is denoted by naming conventions (e.g. leading underscore)
 	\end{itemize}
 \end{frame}
@@ -46,14 +46,14 @@
 		\item can introduce new attributes/methods
 		\item can override methods of superclass
 	\end{itemize}
-	}	
+	}
 	\only<2| handout:0>{\inputminted[fontsize=\footnotesize, lastline=6]{python}{code/paradigms/oop/class_inheritance.py}}
 	\only<3>{\inputminted[fontsize=\footnotesize]{python}{code/paradigms/oop/class_inheritance.py}}
 \end{frame}
 
 \begin{frame}[t]{Abstract methods}
 	\begin{columns}[t]
-	\column{0.5\textwidth}	
+	\column{0.5\textwidth}
 	\begin{itemize}
 		\item An \hldefn{abstract method} is a method that has to be implemented by a subclass
 		\item<2-> An \hldefn{abstract class} (\hldefn{abstract type}) is a class that cannot be instantiated directly but it might have \hldefn{concrete subclasses} that can
@@ -66,7 +66,7 @@
 \end{frame}
 
 %\begin{frame}{Class methods, class variables}
-%	Since this almost only has relevance for using creator patterns, it might be moved to lecture 2 
+%	Since this almost only has relevance for using creator patterns, it might be moved to lecture 2
 %	\begin{itemize}
 %		\item class methods only have access to class variables and other class methods
 %		\item important use case: to provide other constructors
@@ -74,7 +74,7 @@
 %\end{frame}
 
 \begin{frame}{Strengths and Weaknesses}
-		
+
 \begin{block}{Strengths}
 	\only<+->{}
 	\begin{itemize}

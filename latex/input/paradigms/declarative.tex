@@ -3,7 +3,7 @@
 \frame{\tableofcontents[currentsection, currentsubsection]}
 
 \begin{frame}[t]{Declarative vs imperative programming}
-	
+
 	\bigskip
 	\only<1->{\hhl{Declarative programming}:
 		\begin{itemize}
@@ -14,7 +14,7 @@
 			\item \hl{FP} is usually considered a subcategory
 		\end{itemize}
 	}
-	
+
 	\only<2>{
 		\medskip
 		Opposite: \hhl{imperative programming}:
@@ -64,7 +64,7 @@
 	\begin{itemize}
 		\item We might want even more of our backend, e.g. delayed or distributed execution
 		\item \texttt{pandas} can also be viewed as a \enquote{declarative language} describing the problem $\lra$ have a more sophisticated backend handle all operations $\lra$ \hhl{\texttt{modin pandas}}
-		
+
 		\includegraphics[width=8cm, trim=0cm 2.5cm 0cm 2.5cm, clip]{figures/paradigms/dp/modin_architecture.png}
 		%
 %		\item \proglang{ROOT} can also do dataframes: \texttt{RDataFrame}
@@ -79,7 +79,7 @@
 %
 \begin{frame}{Powerful backends V}
 	Many more high level tools available:
-	\smallskip 
+	\smallskip
 	\begin{itemize}
 		\item LINQtoROOT: Uses \proglang{C\#} with \proglang{LINQ} \srem{(\proglang{SQL} like)} queries to describe problem
 		\inputminted[fontsize=\small]{csharp}{code/paradigms/dp/linqtoroot.cs}

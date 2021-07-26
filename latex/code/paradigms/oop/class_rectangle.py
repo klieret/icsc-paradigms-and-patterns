@@ -3,7 +3,7 @@ class Rectangle:
         # 'self' represents the instance of the class
         self.width = width              # <-- attribute = internal variable
         self.height = height
-       
+
     def calculate_area(self):           # <-- method (function of class)
         return self.width * self.height
 

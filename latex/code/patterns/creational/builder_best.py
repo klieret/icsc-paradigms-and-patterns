@@ -3,9 +3,9 @@ class Data:
 
 class Builder:
     def __init__(...)
-    
+
     def add_mc_component(...)
-    
+
     def create(...) -> Data
 
 

@@ -1,11 +1,11 @@
-class MLModel(ABC):  # <-- abstract class  
+class MLModel(ABC):  # <-- abstract class
 	def load_data(...)
 	def prepare_features(...)
-	
+
 	@abstractmethod
 	def train(...):
 		pass
-	
+
 	def validate(...)
 	...
 

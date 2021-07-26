@@ -4,10 +4,9 @@ class Class:
 	@classmethod
 	def classmethod(cls):
 		# no access to instance attributes
-	
+
 # This won't work:
 Class.method()  # <-- needs an instance, e.g. Class(...).method()
 
 # But this does:
 Class.classmethod()
-

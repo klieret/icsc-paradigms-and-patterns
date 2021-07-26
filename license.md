@@ -147,4 +147,3 @@ Where the Licensed Rights include Sui Generis Database Rights that apply to Your
 *Additional languages available: [Bahasa Indonesia](http://creativecommons.org/licenses/by/4.0/legalcode.id), [Nederlands](http://creativecommons.org/licenses/by/4.0/legalcode.nl), [norsk](http://creativecommons.org/licenses/by/4.0/legalcode.no), [suomeksi](http://creativecommons.org/licenses/by/4.0/legalcode.fi), [te reo Māori](http://creativecommons.org/licenses/by/4.0/legalcode.mi), [українська](http://creativecommons.org/licenses/by/4.0/legalcode.uk), [日本語](http://creativecommons.org/licenses/by/4.0/legalcode.ja). Please read the [FAQ](http://wiki.creativecommons.org/FAQ#officialtranslations) for more information about official translations.*
 
 ---
-

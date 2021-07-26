@@ -6,14 +6,14 @@
 	\begin{quote}
 		If there are multiple ways to instantiate objects of your class, use \hhl{factory methods} rather than adding too much logic to the default constructor.
 	\end{quote}
-	
+
 	\medskip
 	\only<2| handout: 1>{
-		\stress{\badc{Bad:}} 
+		\stress{\badc{Bad:}}
 		\inputminted{python}{code/patterns/creational/uncertainties_bad.py}
 	}
 	\only<3-4| handout: 2>{
-		\stress{\badc{Good:}} 
+		\stress{\badc{Good:}}
 		\inputminted[]{python}{code/patterns/creational/uncertainties_good.py}
 	}
 	\only<4| handout: 2>{
@@ -27,7 +27,7 @@
 	\end{quote}
 
 	\stress{\badc{Bad:}}
-	\inputminted{python}{code/patterns/creational/builder_bad.py}	
+	\inputminted{python}{code/patterns/creational/builder_bad.py}
 	\only<2>{You will probably consider different fits and plots; \hhl{violates Single Responsibility Principle} $\lra$ Rather have \texttt{Fit} and \texttt{Plot} classes}
 \end{frame}
 
@@ -37,7 +37,7 @@
 %	\end{quote}
 %
 %	\stress{\badc{Bad:}}
-%	\inputminted{python}{code/patterns/creational/builder_bad_2.py}	
+%	\inputminted{python}{code/patterns/creational/builder_bad_2.py}
 %
 %\end{frame}
 
@@ -45,28 +45,28 @@
 	\begin{quote}
 		If you build a very complex class, try to instantiate (build) it in several steps.
 	\end{quote}
-	
-	\stress{\goodc{Better:}} 
+
+	\stress{\goodc{Better:}}
 	\inputminted[]{python}{code/patterns/creational/builder_good.py}
 	\only<2>{
 		\begin{itemize}
 			\item What if we have multiple ways to build of the object?
 			\item Do I want to have the \texttt{add\_mc\_component} method after I start using the data?
 		\end{itemize}
-		$\lra$ Have a separate \texttt{Data} and \texttt{Builder} hierarchy. 	
+		$\lra$ Have a separate \texttt{Data} and \texttt{Builder} hierarchy.
 	}
 %	\only<6| handout: 3>{
 %		\stress{\goodc{Best:}}
 %		\inputminted{python}{code/patterns/creational/builder_best.py}
 %	}
-\end{frame} 
+\end{frame}
 
 \begin{frame}[t]{Builder Pattern}
 	\begin{quote}
 		If you build a very complex class, try to instantiate (build) it in several steps.
 	\end{quote}
-	
+
 	\stress{\goodc{Best:}}
 	\inputminted{python}{code/patterns/creational/builder_best.py}
 	And of course I could now create \texttt{AbstractData} and \texttt{AbstractBuilder} etc.
-\end{frame} 
+\end{frame}

@@ -5,7 +5,7 @@
 \begin{frame}[t]{Proxy, Adapter, Facade}
 	\bigskip
 	Three patterns that deal with \hhl{interfaces}:
-	
+
 	\bigskip
 	\begin{itemize}
 		\item \hhl{Proxy}: Given a \defn{servant} class \srem{(doing the actual work)}, create a new \defn{proxy} class with the same interface in order to \hhl{inject code}.
@@ -14,10 +14,10 @@
 		\begin{center}
 			\begin{tikzpicture}[scale=0.7, transform shape]
 			\umlsimpleclass[y=1.3, x=-4]{Client}
-			
+
 			\umlsimpleclass[type=abstract, y=1.3, x=0]{OurInterface}
 			\umluniassoc{Client}{OurInterface}
-			
+
 			\umlsimpleclass[y=0, x=-1.4]{Service}
 			\umlsimpleclass[y=0, x=1.5]{Proxy}
 			\umlaggreg{Proxy}{Service}
@@ -30,7 +30,7 @@
 			Usage examples:
 			\begin{itemize}
 				\item<2-> \hhl{Protection proxy}: Enforce access rights \srem{(always check authorization before method call/attribute access; e.g. in web applications)}
-				\item<3-> \hhl{Remote proxy}: If the \texttt{Service} is located remotely, the proxy deals with transferring requests and results 
+				\item<3-> \hhl{Remote proxy}: If the \texttt{Service} is located remotely, the proxy deals with transferring requests and results
 				\item<4-> Extend the \hhl{Service} class with \hhl{caching} or \hhl{logging}
 				\item<4-> \dots
 			\end{itemize}
@@ -41,7 +41,7 @@
 \begin{frame}{Adapter}
 	\begin{itemize}
 	\item<1-> \hhl{Facade}: A class providing a simple interface for complicated operations that involve multiple servant classes
-	
+
 	\bigskip
 	\item<2-> \hhl{Adapter}: We have a 3rd party class \texttt{ForeignClass} whose interface is incompatible to interface \texttt{OurInterface} $\lra$ Create an \defn{adapter} class as a wrapper
 	\medskip
@@ -49,10 +49,10 @@
 		\begin{tikzpicture}[scale=0.7, transform shape]
 		\umlsimpleclass[y=1.3, x=-0.5]{Client}
 		\umlsimpleclass[y=0, x=6.5]{ForeignClass}
-		
+
 		\umlsimpleclass[type=abstract, y=1.3, x=3]{OurInterface}
 		\umluniassoc{Client}{OurInterface}
-		
+
 		\umlsimpleclass[y=0, x=3]{Adapter}
 		\umlaggreg{Adapter}{ForeignClass}
 		\umlinherit{Adapter}{OurInterface}

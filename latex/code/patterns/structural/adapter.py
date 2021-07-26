@@ -22,4 +22,3 @@ class ModelAdapter(OurMLModel):  # <-- implements our interface
 
 # Their model with our interface:
 model = ModelAdapter(TheirMLModel(...))  # (actually need TheirConcreteMLModel)
-

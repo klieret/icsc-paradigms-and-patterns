@@ -17,5 +17,5 @@ reconstructDecay(
 	"K_S0:pipi -> pi+:loose pi-:loose", "0.4 < M < 0.6", path=path
 )
 
-# Process path = call execute() on all Command objects 
+# Process path = call execute() on all Command objects
 process(my_path)
