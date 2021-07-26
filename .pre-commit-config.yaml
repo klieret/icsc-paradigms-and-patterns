@@ -14,3 +14,5 @@ repos:
     -   id: codespell
         args: ["-I", "codespell.txt"]
         exclude: '.*\.sty|license\.md'
+ci:
+    autoupdate_schedule: monthly
