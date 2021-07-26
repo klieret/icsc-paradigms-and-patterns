@@ -132,7 +132,7 @@
 		If $S$ is a \hhl{subtype} (subclass) of $T$, then objects of type $T$ can be \hhl{replaced} with objects of type $S$ without breaking anything
 	\end{quote}
 
-	\srem{e.g. I can replace all instances of \texttt{Animal} with instances of \texttt{Cat}}
+	\srem{e.g., I can replace all instances of \texttt{Animal} with instances of \texttt{Cat}}
 
 	\medskip
 	\only<2->{
@@ -184,7 +184,7 @@
 		Sometimes we should therefore split up (\hhl{segregate}) fat interfaces into thinner \hldefn{role interfaces}
 		\item<3->
 		This leads to a more \hhl{decoupled} system that is easier to maintain
-		\item<4-> \hhl{Example}: Even if all data is contained in one \srem{(e.g. SQL)} database, the ISP asks to write \emph{different} interfaces to do different things, e.g. have a \texttt{CustomerDb}, \texttt{OrderDb}, \texttt{StoreDb}, \dots
+		\item<4-> \hhl{Example}: Even if all data is contained in one \srem{(e.g., SQL)} database, the ISP asks to write \emph{different} interfaces to do different things, e.g., have a \texttt{CustomerDb}, \texttt{OrderDb}, \texttt{StoreDb}, \dots
 	\end{itemize}
 \end{frame}
 
@@ -266,7 +266,7 @@
 			This also fulfills the second part of the DIP:
 			\begin{quote}
 				\begin{itemize}
-					\item[2.] Abstractions should not depend on details. Details \srem{(i.e. concrete implementations)} should depend on abstractions.
+					\item[2.] Abstractions should not depend on details. Details \srem{(i.e., concrete implementations)} should depend on abstractions.
 				\end{itemize}
 			\end{quote}
 		}
@@ -291,7 +291,7 @@
 
 		\begin{itemize}
 			\item Avoid unnecessary interfaces
-			\item Consider inlining simple, often-called functions \srem{(e.g. getters and setters)}
+			\item Consider inlining simple, often-called functions \srem{(e.g., getters and setters)}
 			\item Inheritance > composition > \texttt{if} statements
 		\end{itemize}
 		Modern compilers will try to apply some optimization techniques automatically \srem{(automatic inling, return value optimization, \dots)}
