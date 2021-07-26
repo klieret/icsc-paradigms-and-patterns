@@ -1,6 +1,7 @@
-[![DOI](https://zenodo.org/badge/240011587.svg)](https://zenodo.org/badge/latestdoi/240011587)
-
 # Programming Paradigms and Patterns
+
+[![DOI](https://zenodo.org/badge/240011587.svg)](https://zenodo.org/badge/latestdoi/240011587)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 This repository contains lecture slides (both as source code and as rendered pdfs)
 and exercises.
