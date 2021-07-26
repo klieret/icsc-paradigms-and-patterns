@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.0.1
     hooks:
     -   id: check-added-large-files
     -   id: check-case-conflict
@@ -9,7 +9,7 @@ repos:
     -   id: trailing-whitespace
     -   id: check-merge-conflict
 -   repo: https://github.com/codespell-project/codespell
-    rev: 'v2.0.0'
+    rev: 'v2.1.0'
     hooks:
     -   id: codespell
         args: ["-I", "codespell.txt"]
