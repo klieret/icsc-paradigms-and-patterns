@@ -14,7 +14,7 @@
 		\begin{itemize}
 			\item \hhl{expressions} \srem{(\enquote{is} something: a series of identifiers, literals and operators that reduces to a value)}
 			\item[over\hspace{-0.7em}]
-			\item \hhl{statements} \srem{(\enquote{does} something, e.g. stores value, etc.)}
+			\item \hhl{statements} \srem{(\enquote{does} something, e.g., stores value, etc.)}
 		\end{itemize}
 		$\lra$ \hhl{declarative} nature
 		\item<+-> Data is \hhl{immutable} \srem{(instead of changing properties, I need to create copies with the changed property)}
@@ -110,7 +110,7 @@
 			Example: \mintinline{python}{print(sqrt(sin(a**2)))}
 
 			\medskip
-			In a \hhl{strict} language \srem{(e.g. \proglang{Python}, \proglang{C++})}, we evaluate inside out:
+			In a \hhl{strict} language \srem{(e.g., \proglang{Python}, \proglang{C++})}, we evaluate inside out:
 			%
 			\begin{equation*}
 				a\lmt a^2\lmt \sin{a^2} \lmt \sqrt{\sin{a^2}}
@@ -178,18 +178,18 @@
 	\begin{itemize}
 		\item In OOP, \hhl{type} and \hhl{class} are often used interchangeably
 		%\footnote{though one might use \defn{type} for abstract interfaces, vs \defn{class} for implementations}
-		\srem{(e.g. \texttt{"abc"} is of type \defn{string} = is an instance of the \texttt{str} class)}
+		\srem{(e.g., \texttt{"abc"} is of type \defn{string} = is an instance of the \texttt{str} class)}
 		\item In FP we talk about \defn{type}s
 		\item Complex types can be built from built in types \\
-		\srem{(e.g. \mintinline{python}{List[Tuple[str, int]]}, we can also use \texttt{struct}s)}
-		\item In many languages, types of variables, arguments, etc. have to be declared \srem{(e.g. \mintinline{python}{def len(List[float]) -> int})}
+		\srem{(e.g., \mintinline{python}{List[Tuple[str, int]]}, we can also use \texttt{struct}s)}
+		\item In many languages, types of variables, arguments, etc. have to be declared \srem{(e.g., \mintinline{python}{def len(List[float]) -> int})}
 		\item Real FP languages usually have very powerful \hhl{type systems}%; FP languages can be both
 	\end{itemize}
 
 %	\medskip
 %	\hhl{Subtype polymorphism:}
 %	\begin{itemize}
-%		\item Types can have subtypes \srem{(e.g. \mintinline{python}{List[int]} as a subtype of \mintinline{python}{List[Number]]})}; any function for the type works on the subtype \srem{(e.g. \mintinline{python}{def sum(List[Number) -> int} now works on \mintinline{python}{List[Int]} as well as \mintinline{python}{List[float]})}
+%		\item Types can have subtypes \srem{(e.g., \mintinline{python}{List[int]} as a subtype of \mintinline{python}{List[Number]]})}; any function for the type works on the subtype \srem{(e.g., \mintinline{python}{def sum(List[Number) -> int} now works on \mintinline{python}{List[Int]} as well as \mintinline{python}{List[float]})}
 %		\item The type specifies which functions can be applied \srem{(this was done by defining \emph{methods} in FP)}; subtyping becomes similar to inheritance
 %	\end{itemize}
 \end{frame}
@@ -204,7 +204,7 @@
 		\bigskip
 		\hhl{Single/multiple dispatch/ad hoc polymorphism:}
 		\begin{itemize}
-			\item Can \hhl{overload} function definitions \srem{(e.g. define \mintinline{python}{def print(i: int)} differently from \mintinline{python}{def print(string: str)})}
+			\item Can \hhl{overload} function definitions \srem{(e.g., define \mintinline{python}{def print(i: int)} differently from \mintinline{python}{def print(string: str)})}
 			\item The right function is resolved based on the type at compile- or runtime
 		\end{itemize}
 	}
@@ -213,7 +213,7 @@
 		\medskip
 		\hhl{Parametric polymorphism:}
 		\begin{itemize}
-			\item Parameterize types in function signatures \srem{(e.g. \mintinline{python}{def first(List[a]) -> a}; \texttt{a} represents an arbitrary type)}
+			\item Parameterize types in function signatures \srem{(e.g., \mintinline{python}{def first(List[a]) -> a}; \texttt{a} represents an arbitrary type)}
 		\end{itemize}
 	}
 
@@ -221,7 +221,7 @@
 		\medskip
 		\hhl{Type classes:}
 		\begin{itemize}
-			\item Define a \enquote{type} by what functions it has to support \srem{(e.g. define \texttt{Duck} as anything that allows me to call the \texttt{quack} function on it)}
+			\item Define a \enquote{type} by what functions it has to support \srem{(e.g., define \texttt{Duck} as anything that allows me to call the \texttt{quack} function on it)}
 			\item Similar to a class with only abstract methods (=\emph{interface}) and no encapsulated data
 		\end{itemize}
 	}
@@ -292,7 +292,7 @@
 	\begin{itemize}[<+->]
 		\item Structuring code in terms of objects can feel more intuitive if logic \srem{(methods)} are strongly tied to data
 		\item Imperative algorithms might be easier to read and feel more natural than declarative notation
-		\item FP might have a steeper \hhl{learning curve} \srem{(e.g. recursions instead of loops, \dots)}
+		\item FP might have a steeper \hhl{learning curve} \srem{(e.g., recursions instead of loops, \dots)}
 		\item \hhl{Performance issues}: Immutable data types and recursion can lead to performance problems (speed and RAM), whereas many mutable data structures are very performant on modern hardware
 %		\begin{itemize}
 			%\item Declarative nature somewhat less efficient in CPU usage compared to imperative styles

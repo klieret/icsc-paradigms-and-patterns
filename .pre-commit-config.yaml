@@ -14,5 +14,15 @@ repos:
     -   id: codespell
         args: ["-I", "codespell.txt"]
         exclude: '.*\.sty|license\.md'
+- repo: https://github.com/jonasbb/pre-commit-latex-hooks
+  rev: v1.1.0
+  hooks:
+  - id: american-eg-ie
+  - id: cleveref-capitalization
+  - id: csquotes
+  - id: no-space-in-cite
+  - id: tilde-cite
+  - id: ensure-labels-for-sections
+
 ci:
     autoupdate_schedule: monthly
