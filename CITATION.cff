@@ -1,0 +1,10 @@
+cff-version: 1.1.0
+message: "Please cite as below"
+version: lmu-patterns-2021
+authors:
+  - family-names: Lieret
+    given-names: Kilian
+    orcid: https://orcid.org/0000-0003-2792-7511
+title: "Programming Paradigms and Patterns"
+doi: 10.5281/zenodo.4432319
+date-released: 2021-01-11
