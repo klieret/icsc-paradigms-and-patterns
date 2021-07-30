@@ -15,3 +15,4 @@ jobs:
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
           working_directory: latex
+          extra_system_packages: "py-pygments"
