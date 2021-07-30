@@ -13,6 +13,6 @@ jobs:
               programming_paradigms.tex
               software_patterns.tex
           latexmk_use_xelatex: true
-          latexmk_shell_escape: true
+          args: -pdf -interaction=nonstopmode -shell-escape
           working_directory: latex
           extra_system_packages: "py-pygments"
