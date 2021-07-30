@@ -10,7 +10,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-              latex/programming_paradigms.tex
-              latex/software_patterns.tex
+              programming_paradigms.tex
+              software_patterns.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
+          working_directory: latex
