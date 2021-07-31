@@ -16,3 +16,10 @@ jobs:
           args: -f -pdf -interaction=nonstopmode -shell-escape -output-directory=build
           working_directory: latex
           extra_system_packages: "py-pygments"
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: |
+            latex/build/programming_paradigms.pdf
+            latex/build/software_patterns.pdf
