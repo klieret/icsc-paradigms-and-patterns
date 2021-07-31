@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/240011587.svg)](https://zenodo.org/badge/latestdoi/240011587)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/klieret/icsc-paradigms-and-patterns/master.svg)](https://results.pre-commit.ci/latest/github/klieret/icsc-paradigms-and-patterns/master)
+[![gh actions](https://github.com/klieret/icsc-paradigms-and-patterns/actions/workflows/workflow.yml/badge.svg)](https://github.com/klieret/icsc-paradigms-and-patterns/actions)
+[![git tutorial](https://img.shields.io/badge/PR-Welcome-%23FF8300.svg)](https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project)
 
 This repository contains lecture slides (both as source code and as rendered pdfs)
 and exercises.
