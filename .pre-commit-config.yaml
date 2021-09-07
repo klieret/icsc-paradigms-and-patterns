@@ -21,7 +21,6 @@ repos:
   - id: cleveref-capitalization
   - id: csquotes
   - id: no-space-in-cite
-  - id: ensure-labels-for-sections
 
 ci:
     autoupdate_schedule: monthly
