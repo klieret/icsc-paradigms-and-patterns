@@ -15,7 +15,7 @@ repos:
         args: ["-I", "codespell.txt"]
         exclude: '.*\.sty|license\.md'
 - repo: https://github.com/jonasbb/pre-commit-latex-hooks
-  rev: v1.1.0
+  rev: v1.2.4
   hooks:
   - id: american-eg-ie
   - id: cleveref-capitalization
