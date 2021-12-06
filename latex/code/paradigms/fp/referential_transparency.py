@@ -7,10 +7,11 @@ def f2(x):
     return x**2
 
 
-global y = 0
+y = 0
 
 
 def f3(x):
+    global y
     y += 1
     return x + y
 
