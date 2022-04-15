@@ -15,7 +15,7 @@ The course was first taught  in September/October 2020 at the [iCSC 2020](https:
 * [Programming Paradigms](https://cds.cern.ch/record/2736118)
 * [Software Design Patterns](https://cds.cern.ch/record/2737225)
 
-**Slides**: The final versions of the rendered slides at the time of the presentation are in the root directory of this repository. There are two version, one with animations and one without (``*_handout.pdf``).
+**Slides**: The final versions of the rendered slides at the time of the presentation are in the root directory of this repository. There are two versions, one with animations and one without (``*_handout.pdf``).
 
 **Exercises**: See below.
 
