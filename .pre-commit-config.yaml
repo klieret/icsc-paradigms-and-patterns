@@ -23,4 +23,4 @@ repos:
   - id: no-space-in-cite
 
 ci:
-    autoupdate_schedule: monthly
+    autoupdate_schedule: quarterly
