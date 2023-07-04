@@ -9,13 +9,13 @@ repos:
     -   id: trailing-whitespace
     -   id: check-merge-conflict
 -   repo: https://github.com/codespell-project/codespell
-    rev: 'v2.2.4'
+    rev: 'v2.2.5'
     hooks:
     -   id: codespell
         args: ["-I", "codespell.txt"]
         exclude: '.*\.sty|license\.md'
 - repo: https://github.com/jonasbb/pre-commit-latex-hooks
-  rev: v1.4.0
+  rev: v1.4.2
   hooks:
   - id: american-eg-ie
   - id: cleveref-capitalization
